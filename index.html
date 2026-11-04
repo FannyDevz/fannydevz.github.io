@@ -1297,6 +1297,38 @@ These files define a solution but print nothing when run, so load them in Node.j
 Plain JavaScript, one file per challenge.
 </script>
 
+<script type="text/markdown" data-readme="sonicjomox">
+# Sonic the Jomox Game
+
+![Preview](preview.png)
+
+A browser platformer built with Phaser, reskinned with edited assets for Reza Auditore. This is a fan project based on another developer's game, not an original work.
+
+## How to play
+
+| Key | Action |
+| --- | --- |
+| Left Arrow | Move left |
+| Right Arrow | Move right |
+| Up Arrow | Jump |
+
+## Run
+
+```bash
+cd "37. sonic-the-jomox-game" && python3 -m http.server 8000
+```
+
+Then open http://localhost:8000.
+
+## Credits
+
+- **Original game and code:** [rzencoder/sonic-hedgehog-game](https://github.com/rzencoder/sonic-hedgehog-game) by rzencoder.
+- **This version:** asset edits by [FannyDevz](https://github.com/FannyDevz), made for Reza Auditore. Source: [FannyDevz/sonic-the-jomox-game](https://github.com/FannyDevz/sonic-the-jomox-game).
+- **Sonic the Hedgehog** is a trademark of SEGA. This is an unofficial fan project, not affiliated with or endorsed by SEGA.
+
+The upstream repository does not declare a license, so no license is granted here.
+</script>
+
 <script>
 const CATS = {
   game:    { label:"Game",         color:"#22c55e" },
@@ -1588,6 +1620,14 @@ const PROJECTS = [
     desc:"JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter.",
     tags:["JavaScript","Algorithms","Codewars"],
     entry:"sum-of-digits.js", openable:false
+  },
+  {
+    n:"37", id:"sonicjomox", title:"Sonic the Jomox Game",
+    jp:"Phaser Fan Game with Edited Assets", cat:"game",
+    shot:"37. sonic-the-jomox-game/preview.png", folder:"37. sonic-the-jomox-game",
+    desc:"A browser platformer reskinned with edited assets, based on rzencoder's Sonic the Hedgehog JavaScript game. Unofficial fan project, not affiliated with SEGA.",
+    tags:["JavaScript","Phaser","Fan Game"],
+    entry:"index.html", openable:true
   },
 ];
 

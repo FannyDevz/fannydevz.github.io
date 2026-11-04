@@ -43,6 +43,7 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 34 | [Contact Widget](34.%20contact-widget/) | 🧪 Snippets | A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders. |
 | 35 | [Travelling Salesman](35.%20travelling-salesman/) | 🧪 Snippets | A brute-force Travelling Salesman solver that tries every route through a 4-node graph and prints each step. |
 | 36 | [Coding Challenge Solutions](36.%20coding-challenge-solutions/) | 🧪 Snippets | JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter. |
+| 37 | [Sonic the Jomox Game](37.%20sonic-the-jomox-game/) | 🎮 Game | A Phaser platformer reskinned with edited assets, based on rzencoder's Sonic game (unofficial fan project). |
 
 ## Running the catalog & projects
 
@@ -103,7 +104,8 @@ one-day-one-code/
 ├── 33. for-you/                        # For You Homescreen + preview.png
 ├── 34. contact-widget/                 # Contact Widget + preview.png
 ├── 35. travelling-salesman/            # Travelling Salesman + preview.png
-└── 36. coding-challenge-solutions/     # Coding Challenge Solutions + preview.png
+├── 36. coding-challenge-solutions/     # Coding Challenge Solutions + preview.png
+└── 37. sonic-the-jomox-game/           # Sonic the Jomox Game + preview.png
 ```
 
 ## Categories
