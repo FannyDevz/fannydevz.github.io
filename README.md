@@ -44,6 +44,10 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 35 | [Travelling Salesman](35.%20travelling-salesman/) | 🧪 Snippets | A brute-force Travelling Salesman solver that tries every route through a 4-node graph and prints each step. |
 | 36 | [Coding Challenge Solutions](36.%20coding-challenge-solutions/) | 🧪 Snippets | JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter. |
 | 37 | [Sonic the Jomox Game](37.%20sonic-the-jomox-game/) | 🎮 Game | A Phaser platformer reskinned with edited assets, based on rzencoder's Sonic game (unofficial fan project). |
+| 38 | [Neo Launcher](38.%20neo-launcher/) | 🛠️ Tool | A lightweight Android TV launcher in plain Java, built without Gradle. |
+| 39 | [Dairy.co](39.%20dairy-co/) | 🖥️ Frontend | A single-file landing page for a fruit salad and es teler brand. |
+| 40 | [Misi Terakhir Sang Pahlawan](40.%20misi-terakhir-sang-pahlawan/) | 🎞️ Video | Production files for a vertical 2D animated video about heroes and the Rupiah (final video not included). |
+| 41 | [Surat untuk Mas TRIP](41.%20surat-untuk-mas-trip/) | 🎞️ Video | Production files for a vertical video told as a letter to a 1946 student soldier (final video not included). |
 
 ## Running the catalog & projects
 
@@ -105,18 +109,23 @@ one-day-one-code/
 ├── 34. contact-widget/                 # Contact Widget + preview.png
 ├── 35. travelling-salesman/            # Travelling Salesman + preview.png
 ├── 36. coding-challenge-solutions/     # Coding Challenge Solutions + preview.png
-└── 37. sonic-the-jomox-game/           # Sonic the Jomox Game + preview.png
+├── 37. sonic-the-jomox-game/           # Sonic the Jomox Game + preview.png
+├── 38. neo-launcher/                  # Neo Launcher + preview.png
+├── 39. dairy-co/                      # Dairy.co + preview.png
+├── 40. misi-terakhir-sang-pahlawan/   # Misi Terakhir Sang Pahlawan + preview.png
+└── 41. surat-untuk-mas-trip/          # Surat untuk Mas TRIP + preview.png
 ```
 
 ## Categories
 
 - **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎬 Landing Page** — cinematic presentation & marketing pages with animation.
-- **🖥️ Frontend** — landing-page exercises (07–12).
-- **🛠️ Tool** — small utilities, apps, and browser extensions (24–29, 33).
+- **🖥️ Frontend** — landing-page exercises (07–12, 39).
+- **🛠️ Tool** — small utilities, apps, and browser extensions (24–29, 33, 38).
 - **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
 - **🧪 Snippets** — scratch experiments and coding-challenge solutions (30, 31, 34–36).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).
+- **🎞️ Video** — production files for video projects, without the final renders (40, 41).
 
 ---
 

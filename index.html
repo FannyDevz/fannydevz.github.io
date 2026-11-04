@@ -1329,6 +1329,80 @@ Then open http://localhost:8000.
 The upstream repository does not declare a license, so no license is granted here.
 </script>
 
+<script type="text/markdown" data-readme="neolauncher">
+# Neo Launcher
+
+![Preview](preview.png)
+
+A lightweight custom launcher for Android TV, written in plain Java and built without Gradle. It registers as a Leanback and Home launcher and includes a service that opens Neo Launcher when the Google home screen appears.
+
+## Build
+
+Requires the Android SDK build tools and a JDK. `build.sh` runs `aapt2`, `javac`, `d8`, `zipalign`, and `apksigner`.
+
+```bash
+export NEO_KS_PASS="choose-your-own-password"
+./build.sh
+```
+
+The script creates `neo.keystore` if it does not exist. The signing key and built APK are not included in this repository, so keep your own keystore safe: updates must be signed with the same key.
+</script>
+
+<script type="text/markdown" data-readme="dairyco">
+# Dairy.co
+
+![Preview](preview.png)
+
+A single-file landing page for Dairy.co, a fruit salad and es teler brand. Built with HTML, CSS, and JavaScript.
+
+## Run
+
+Open `index.html` directly in a browser. Fonts load from Google Fonts, so an internet connection gives the intended look.
+</script>
+
+<script type="text/markdown" data-readme="misiterakhir">
+# Misi Terakhir Sang Pahlawan
+
+![Preview](preview.png)
+
+Production files for a vertical (1080×1920) 2D animated video made for the Bank Indonesia creative video competition, themed around heroes, love of the Rupiah, and wise transactions.
+
+## What's here
+
+| Path | Contents |
+| --- | --- |
+| `storyboard.md` | Scene-by-scene storyboard |
+| `naskah_voiceover_elevenlabs.md` | Voice-over script |
+| `audio/` | Voice-over tracks |
+| `style_samples/` | Visual style explorations |
+| `build/` | Python render scripts, stills, and contact sheets |
+| `informasi_lomba_video_kreatif_bank_indonesia.md` | Competition brief |
+
+The final video and intermediate video and WAV renders are not included. The render scripts use paths from the original machine, so update them and install `ffmpeg` before re-rendering.
+</script>
+
+<script type="text/markdown" data-readme="suratmastrip">
+# Surat untuk Mas TRIP
+
+![Preview](preview.png)
+
+Production files for a vertical (1080×1920) video made for the Bank Indonesia creative video competition. A high school student in Surabaya in 2026 writes a letter to "Mas TRIP", a student soldier from 1946, and the whole voice-over is that letter.
+
+## What's here
+
+| Path | Contents |
+| --- | --- |
+| `TREATMENT.md` | Creative treatment and story structure |
+| `FAKTA.md` | Fact notes |
+| `naskah_voiceover_elevenlabs.md` | Voice-over script |
+| `audio/` | Voice-over tracks |
+| `style_samples/` | Visual style explorations |
+| `build/` | Python render scripts |
+| `informasi_lomba_video_kreatif_bank_indonesia.md` | Competition brief |
+
+The final video and intermediate video and WAV renders are not included. The render scripts use paths from the original machine, so update them and install `ffmpeg` before re-rendering.
+</script>
+
 <script>
 const CATS = {
   game:    { label:"Game",         color:"#22c55e" },
@@ -1338,6 +1412,7 @@ const CATS = {
   portfolio:{ label:"Portfolio",   color:"#2dd4bf" },
   snippet: { label:"Snippets",     color:"#94a3b8" },
   frontend:{ label:"Frontend",     color:"#38bdf8" },
+  video:   { label:"Video",        color:"#fb7185" },
 };
 
 const PROJECTS = [
@@ -1628,6 +1703,38 @@ const PROJECTS = [
     desc:"A browser platformer reskinned with edited assets, based on rzencoder's Sonic the Hedgehog JavaScript game. Unofficial fan project, not affiliated with SEGA.",
     tags:["JavaScript","Phaser","Fan Game"],
     entry:"index.html", openable:true
+  },
+  {
+    n:"38", id:"neolauncher", title:"Neo Launcher",
+    jp:"Android TV Launcher in Plain Java", cat:"tool",
+    shot:"38. neo-launcher/preview.png", folder:"38. neo-launcher",
+    desc:"A lightweight custom launcher for Android TV, written in plain Java and built without Gradle, with a service that opens it when the Google home screen appears.",
+    tags:["Java","Android TV","Launcher"],
+    entry:"src/com/fanny/neolauncher/MainActivity.java", openable:false
+  },
+  {
+    n:"39", id:"dairyco", title:"Dairy.co",
+    jp:"Fruit Salad & Es Teler Landing Page", cat:"frontend",
+    shot:"39. dairy-co/preview.png", folder:"39. dairy-co",
+    desc:"A single-file landing page for Dairy.co, a fruit salad and es teler brand.",
+    tags:["HTML","CSS","JavaScript"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"40", id:"misiterakhir", title:"Misi Terakhir Sang Pahlawan",
+    jp:"Bank Indonesia Video Competition, Video 1", cat:"video",
+    shot:"40. misi-terakhir-sang-pahlawan/preview.png", folder:"40. misi-terakhir-sang-pahlawan",
+    desc:"Storyboard, script, voice-over, style samples, and Python render scripts for a vertical 2D animated video about heroes and love of the Rupiah. The final video is not included.",
+    tags:["Python","FFmpeg","Animation"],
+    entry:"storyboard.md", openable:false
+  },
+  {
+    n:"41", id:"suratmastrip", title:"Surat untuk Mas TRIP",
+    jp:"Bank Indonesia Video Competition, Video 2", cat:"video",
+    shot:"41. surat-untuk-mas-trip/preview.png", folder:"41. surat-untuk-mas-trip",
+    desc:"Treatment, script, voice-over, style samples, and Python render scripts for a vertical video told as a student's letter to a 1946 student soldier. The final video is not included.",
+    tags:["Python","FFmpeg","Storytelling"],
+    entry:"TREATMENT.md", openable:false
   },
 ];
 
