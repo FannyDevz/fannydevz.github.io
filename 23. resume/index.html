@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume | Fanny Bagus Ramadhan</title>
+    <meta name="description" content="Fanny Bagus Ramadhan's Resume" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #1a1a1a;
+        --ink-mid: #3d3d3d;
+        --ink-light: #6b6b6b;
+        --rule: #c8c0b4;
+        --accent: #7a3b1e;
+        --bg: #faf8f5;
+        --sidebar-bg: #f2ede6;
+        --font-serif: "EB Garamond", Georgia, serif;
+        --font-sans: "Lato", sans-serif;
+      }
+
+      html {
+        font-size: 15px;
+      }
+
+      body {
+        background: #e8e4df;
+        font-family: var(--font-sans);
+        color: var(--ink);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      /* WRAPPER */
+      #app {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--bg);
+      }
+
+      /* HEADER */
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .resume-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1.5rem;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .resume-header .brand {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        letter-spacing: 0.18em;
+        font-weight: 400;
+      }
+
+      .profiles {
+        list-style: none;
+        display: flex;
+        gap: 0.2rem;
+        align-items: center;
+      }
+
+      .profiles li a {
+        color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        align-items: center;
+        transition: color 0.15s;
+        text-decoration: none !important;
+        border-bottom: none !important;
+        /* Larger tap target on mobile */
+        padding: 0.25rem;
+      }
+
+      .profiles li a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* LANG SWITCHER */
+      .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .lang-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: rgba(255, 255, 255, 0.65);
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        padding: 0.3rem 0.6rem;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.15s;
+        min-height: 32px; /* touch-friendly */
+      }
+
+      .lang-btn:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.7);
+      }
+
+      .lang-btn.active {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border-color: #fff;
+      }
+
+      /* BODY LAYOUT */
+      .resume-body {
+        display: grid;
+        grid-template-columns: 290px 1fr;
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        background: var(--sidebar-bg);
+        padding: 2rem 1.5rem;
+        border-right: 1px solid var(--rule);
+      }
+
+      /* MAIN */
+      .main {
+        padding: 2rem 2rem 2rem 2.2rem;
+      }
+
+      /* NAME BLOCK */
+      .name-block {
+        margin-bottom: 2rem;
+        padding-bottom: 1.4rem;
+      }
+
+      .name-block h1 {
+        font-family: var(--font-serif);
+        font-size: 6rem;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        margin-bottom: 0.5rem;
+      }
+
+      .name-block h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--accent);
+        margin-bottom: 2rem;
+        letter-spacing: 0.02em;
+      }
+
+      .name-block p {
+        font-size: 1.2rem;
+        color: var(--ink-mid);
+        line-height: 1.7;
+      }
+
+      /* SECTION TITLES */
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      /* CONTACT LIST */
+      .contact-list {
+        list-style: none;
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        color: var(--ink-mid);
+        line-height: 1.4;
+      }
+
+      .contact-list li .iconify {
+        flex-shrink: 0;
+        margin-top: 1px;
+        color: var(--ink-light);
+      }
+
+      .contact-list li a:hover {
+        color: var(--accent);
+      }
+
+      /* EDUCATION */
+      .edu-item {
+        margin-bottom: 1rem;
+      }
+
+      .edu-item h5 {
+        font-family: var(--font-serif);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.1rem;
+      }
+
+      .edu-item p {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--ink-light);
+        line-height: 1.5;
+      }
+
+      /* LANGUAGES */
+      .lang-list {
+        list-style: none;
+      }
+
+      .lang-list li {
+        font-size: 0.9rem;
+        color: var(--ink-mid);
+        padding: 0.28rem 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        border-bottom: 1px dotted var(--rule);
+      }
+
+      .lang-list li:last-child {
+        border-bottom: none;
+      }
+      .lang-list .lang-name {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .lang-list .lang-fluency {
+        color: var(--ink-light);
+        font-style: italic;
+        text-align: right;
+      }
+
+      /* CARDS (work / cert) */
+      .card-item {
+        margin-bottom: 1.35rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .card-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .card-item h5 {
+        font-family: var(--font-serif);
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.15rem;
+      }
+
+      .card-meta {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: var(--ink-light);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.1rem 0.5rem;
+        align-items: center;
+      }
+
+      .sep {
+        color: var(--rule);
+      }
+
+      .card-desc {
+        font-size: 1rem;
+        color: var(--ink-mid);
+        margin-bottom: 0.8rem;
+        line-height: 1.65;
+      }
+
+      .highlights {
+        list-style: none;
+      }
+
+      .highlights li {
+        font-size: 0.9rem;
+        color: var(--ink-mid);
+        line-height: 1.6;
+        padding-left: 1rem;
+        position: relative;
+        margin-bottom: 0.18rem;
+      }
+
+      .highlights li::before {
+        content: "–";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      /* TECH STACKS */
+      .stack-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .stack-keywords {
+        font-size: 0.8rem;
+        color: var(--ink-light);
+        margin-bottom: 1rem;
+        line-height: 1.55;
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 2rem;
+        padding: 0;
+        margin: 0;
+      }
+
+      /* PROJECT ITEM */
+      .project-item {
+        padding-bottom: 1.2rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+      }
+
+      .project-header h5 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .project-date {
+        font-size: 0.8rem;
+        color: var(--ink-light);
+      }
+
+      .project-header a {
+        text-decoration: none !important;
+        border-bottom: none !important;
+      }
+      .project-header a:hover {
+        text-decoration: none !important;
+        border-bottom: none !important;
+      }
+
+      .project-header a span {
+        text-decoration: none !important;
+        border-bottom: none !important;
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        color: var(--ink-mid);
+        line-height: 1.6;
+        margin-bottom: 0.4rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+
+      .tag {
+        font-size: 0.75rem;
+        padding: 0.1rem 0.3rem;
+        background: var(--sidebar-bg);
+        border: 1px solid var(--rule);
+        color: var(--ink-mid);
+        border-radius: 1px;
+        letter-spacing: 0.01em;
+        line-height: 1.2;
+      }
+
+      .see-more-wrapper {
+        margin-top: 0.6rem;
+        display: flex;
+      }
+
+      .see-more {
+        font-size: 1.1rem;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-top: 0.6rem;
+      }
+
+      .see-more:hover {
+        text-decoration: underline;
+      }
+
+      /* FOOTER */
+      .resume-footer {
+        text-align: center;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+        color: var(--ink-light);
+        border-top: 1px solid var(--rule);
+        background: var(--sidebar-bg);
+        letter-spacing: 0.05em;
+      }
+
+      .resume-footer a:hover {
+        color: var(--accent);
+      }
+
+      /* =============================================
+         FLOATING SIDEBAR DRAWER — mobile & tablet
+         ============================================= */
+
+      /* Tombol floating */
+      .sidebar-fab {
+        display: none;
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 200;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+        transition:
+          background 0.18s,
+          transform 0.18s;
+      }
+
+      .sidebar-fab:hover {
+        background: var(--accent);
+        transform: scale(1.07);
+      }
+
+      .sidebar-fab svg {
+        width: 22px;
+        height: 22px;
+        transition:
+          opacity 0.15s,
+          transform 0.2s;
+        position: absolute;
+      }
+
+      .sidebar-fab .icon-menu {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+      .sidebar-fab .icon-close {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.7);
+      }
+
+      .sidebar-fab.open .icon-menu {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.7);
+      }
+      .sidebar-fab.open .icon-close {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+
+      /* Overlay gelap di belakang drawer */
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 150;
+        background: rgba(26, 26, 26, 0.45);
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+
+      .sidebar-overlay.visible {
+        opacity: 1;
+      }
+
+      /* Drawer panel */
+      @media (max-width: 860px) {
+        .resume-body {
+          grid-template-columns: 1fr;
+        }
+
+        /* Sembunyikan sidebar dari flow normal */
+        .sidebar {
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 160;
+          width: min(320px, 88vw);
+          overflow-y: auto;
+          border-right: none;
+          border-left: 1px solid var(--rule);
+          padding: 2rem 1.5rem;
+          transform: translateX(100%);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          overscroll-behavior: contain;
+        }
+
+        /* Saat drawer terbuka */
+        .sidebar.drawer-open {
+          transform: translateX(0);
+        }
+
+        .sidebar-overlay,
+        .sidebar-fab {
+          display: flex;
+        }
+
+        .main {
+          padding: 1.5rem;
+          grid-column: 1;
+        }
+
+        .name-block h1 {
+          font-size: clamp(3.5rem, 10vw, 5rem);
+          word-break: break-word;
+        }
+
+        .name-block h2 {
+          font-size: clamp(1.3rem, 4vw, 1.8rem);
+          margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+      }
+
+      /* Mobile: ≤ 640px */
+      @media (max-width: 640px) {
+        html {
+          font-size: 14px;
+        }
+
+        #app {
+          margin: 0;
+          box-shadow: none;
+        }
+        body {
+          background: var(--bg);
+        }
+
+        .resume-header {
+          padding: 0.7rem 1rem;
+        }
+
+        .name-block h1 {
+          font-size: clamp(2.8rem, 11vw, 4rem);
+        }
+
+        .name-block h2 {
+          font-size: clamp(1.1rem, 5vw, 1.5rem);
+          margin-bottom: 1rem;
+        }
+
+        .name-block p {
+          font-size: 1rem;
+        }
+
+        .main {
+          padding: 1.25rem 1rem;
+        }
+
+        .section-title {
+          font-size: 1.4rem;
+          letter-spacing: 0.05rem;
+          padding-bottom: 0.6rem;
+          margin-bottom: 0.6rem;
+        }
+
+        section {
+          margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .project-header h5 {
+          font-size: 1.1rem;
+        }
+        .card-item h5 {
+          font-size: 1.1rem;
+        }
+
+        .stack-keywords {
+          font-size: 0.78rem;
+          white-space: normal;
+          word-break: break-word;
+        }
+
+        .tag {
+          font-size: 0.7rem;
+          padding: 0.15rem 0.4rem;
+        }
+
+        .highlights li {
+          margin-bottom: 0.3rem;
+          line-height: 1.55;
+        }
+
+        .contact-list li {
+          font-size: 0.95rem;
+          gap: 0.6rem;
+        }
+
+        .profiles li a {
+          padding: 0.35rem;
+        }
+
+        .see-more {
+          font-size: 0.95rem;
+        }
+
+        .resume-footer {
+          font-size: 0.85rem;
+          padding: 0.65rem;
+        }
+
+        /* FAB sedikit lebih kecil */
+        .sidebar-fab {
+          width: 46px;
+          height: 46px;
+          bottom: 1.2rem;
+          right: 1.2rem;
+        }
+      }
+
+      /* Very small: ≤ 380px */
+      @media (max-width: 380px) {
+        .name-block h1 {
+          font-size: clamp(2.2rem, 13vw, 3rem);
+        }
+        .resume-header {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+      }
+
+      /* PRINT */
+      @media print {
+        body {
+          background: #fff;
+          font-size: 12px;
+        }
+        #app {
+          box-shadow: none;
+          margin: 0;
+          max-width: 100%;
+        }
+        .resume-body {
+          grid-template-columns: 290px 1fr;
+        }
+        .sidebar {
+          background: #f5f2ee;
+          border-right: 1px solid var(--rule);
+          border-bottom: none;
+        }
+        .main {
+          padding: 2rem 2rem 2rem 2.2rem;
+        }
+        .resume-header {
+          background: #1a1a1a !important;
+          -webkit-print-color-adjust: exact;
+        }
+        .name-block h1 {
+          font-size: 6rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- HEADER -->
+      <header class="resume-header">
+        <div class="header-content">
+          <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+          <span class="brand">FANNY.DEV</span>
+        </div>
+
+        <ul class="profiles">
+          {{#each basics.profiles}}
+          <li>
+            <a href="{{ this.url }}" title="{{ this.network }}">
+              <span
+                class="iconify"
+                data-icon="{{ toSocialIcon this.network }}"
+                data-width="18"
+                data-height="18"
+              ></span>
+            </a>
+          </li>
+          {{/each}}
+        </ul>
+      </header>
+
+      <!-- BODY -->
+      <div class="resume-body">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <section>
+            <h3 class="section-title">Contact</h3>
+            <ul class="contact-list">
+              {{#each basics.profiles}}
+              <li>
+                <span
+                  class="iconify"
+                  data-icon="{{ toSocialIcon this.network }}"
+                  data-width="21"
+                  data-height="21"
+                ></span>
+                <a href="{{ this.url }}">{{ this.text }}</a>
+              </li>
+              {{/each}}
+            </ul>
+          </section>
+
+          {{#if education}}
+          <section>
+            <h3 class="section-title">Education</h3>
+            {{#each education}}
+            <div class="edu-item">
+              <h5>{{ this.studyType }}</h5>
+              <p>{{ this.area }}</p>
+              <p>{{ this.institution }}</p>
+              <p>{{ this.startDate }} – {{ this.endDate }}</p>
+              {{#if this.score}}
+              <p>{{ this.score }}</p>
+              {{/if}}
+            </div>
+            {{/each}}
+          </section>
+          {{/if}} {{#if skills}}
+          <section>
+            <h3 class="section-title">TechStacks</h3>
+            {{#each skills}}
+            <p class="stack-name">{{ this.name }}</p>
+            <p class="stack-keywords">{{ joinComma this.keywords }}</p>
+            {{/each}}
+          </section>
+          {{/if}} {{#if languages}}
+          <section>
+            <h3 class="section-title">Languages</h3>
+            <ul class="lang-list">
+              {{#each languages}}
+              <li>
+                <span class="lang-name">{{ this.language }}</span>
+                <span class="lang-fluency">{{ this.fluency }}</span>
+              </li>
+              {{/each}}
+            </ul>
+          </section>
+          {{/if}} {{#if interests}}
+          <section>
+            <h3 class="section-title">Interests</h3>
+            {{#each interests}}
+            <p class="stack-name">{{ this.name }}</p>
+            <p class="stack-keywords">{{ joinComma this.keywords }}</p>
+            {{/each}}
+          </section>
+          {{/if}}
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+          <div class="name-block">
+            <h1>{{ basics.name }}</h1>
+            <h2>{{{ basics.label }}}</h2>
+            <p>{{{ breaklines basics.summary }}}</p>
+          </div>
+          {{#if work}}
+          <section>
+            <h3 class="section-title">Work Experience</h3>
+            <ul style="list-style: none">
+              {{#each work}}
+              <li class="card-item">
+                <h5><a href="{{ this.url }}">{{ this.name }}</a></h5>
+                <div class="card-meta">
+                  <span>{{ this.position }}</span>
+                  <span class="sep">|</span>
+                  <span>{{ this.startDate }} – {{ this.endDate }}</span>
+                  {{#if this.location}}<span class="sep">|</span
+                  ><span>{{ this.location }}</span>{{/if}}
+                </div>
+                {{#if this.summary}}
+                <p class="card-desc">{{ this.summary }}</p>
+                {{/if}}
+                <ul class="highlights">
+                  {{#each this.highlights}}
+                  <li>{{ this }}</li>
+                  {{/each}}
+                </ul>
+              </li>
+              {{/each}}
+            </ul>
+          </section>
+          {{/if}} {{#if projects}}
+          <section>
+            <h3 class="section-title">Notable Projects</h3>
+            <ul class="projects-grid" style="list-style: none">
+              {{#each projects}}
+              <li class="project-item">
+                <div class="project-header">
+                  <h5>{{ this.name }}</h5>
+                  {{#if this.url}}
+                  <a href="{{ this.url }}" target="_blank" title="Website">
+                    <span
+                      class="iconify"
+                      style="margin: -2px"
+                      data-icon="{{ toSocialIcon 'website' }}"
+                      data-width="15"
+                      data-height="15"
+                    ></span>
+                  </a>
+                  {{/if}} {{#if this.githubUrl}}
+                  <a href="{{ this.githubUrl }}" target="_blank" title="GitHub">
+                    <span
+                      class="iconify"
+                      style="margin: -2px"
+                      data-icon="{{ toSocialIcon 'github' }}"
+                      data-width="15"
+                      data-height="15"
+                    ></span>
+                  </a>
+                  {{/if}}
+                </div>
+                <span class="project-date"
+                  >{{ this.startDate }}{{#if this.endDate}} – {{ this.endDate
+                  }}{{/if}}</span
+                >
+                <p class="project-desc">{{ this.description }}</p>
+                <div class="project-tags">
+                  {{#each this.highlights}}
+                  <span class="tag">{{ this }}</span>
+                  {{/each}}
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+            <div class="see-more-wrapper">
+              <a
+                class="see-more"
+                href="https://fanny.dev/projects/"
+                target="_blank"
+              >
+                <span
+                  class="iconify"
+                  data-icon="ri:arrow-right-line"
+                  data-width="12"
+                ></span>
+                See more on GitHub
+              </a>
+            </div>
+          </section>
+          {{/if}} {{#if certificates}}
+          <section>
+            <h3 class="section-title">Certificates</h3>
+            <ul style="list-style: none">
+              {{#each certificates}}
+              <li class="card-item">
+                <h5>{{ this.title }}</h5>
+                <div class="card-meta">
+                  <span>{{ this.awarder }}</span>
+                  <span class="sep">|</span>
+                  <span>{{ this.date }}</span>
+                </div>
+                {{#if this.highlights.length}}
+                <ul class="highlights">
+                  {{#each this.highlights}}
+                  <li>{{ this }}</li>
+                  {{/each}}
+                </ul>
+                {{/if}}
+              </li>
+              {{/each}}
+            </ul>
+          </section>
+          {{/if}}{{#if publications}}
+          <!-- <section>
+            <h3 class="section-title">Publications</h3>
+            <ul style="list-style: none">
+              {{#each publications}}
+              <li class="card-item">
+                <h5>
+                  <a href="{{ this.url }}" target="_blank">{{ this.title }}</a>
+                </h5>
+                <div class="card-meta">
+                  <span>{{ this.publisher }}</span>
+                  <span class="sep">|</span>
+                  <span>{{ this.releaseDate }}</span>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </section> -->
+          {{/if}}
+        </main>
+      </div>
+
+      <footer class="resume-footer">
+        <a href="https://resume.fanny.dev">RESUME.FANNY.DEV</a>
+      </footer>
+
+      <!-- SIDEBAR OVERLAY (mobile/tablet) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- FLOATING ACTION BUTTON -->
+      <button
+        class="sidebar-fab"
+        id="sidebarFab"
+        aria-label="Toggle sidebar"
+        aria-expanded="false"
+      >
+        <svg
+          class="icon-menu"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="15" y2="18" />
+        </svg>
+        <svg
+          class="icon-close"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.2.1/dist/iconify.min.js"></script>
+    <script>
+      (function () {
+        var fab = document.getElementById("sidebarFab");
+        var overlay = document.getElementById("sidebarOverlay");
+        var sidebar = document.querySelector(".sidebar");
+
+        function openDrawer() {
+          sidebar.style.display = "block";
+          // force reflow before adding class for CSS transition to work
+          sidebar.getBoundingClientRect();
+          sidebar.classList.add("drawer-open");
+          overlay.classList.add("visible");
+          fab.classList.add("open");
+          fab.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeDrawer() {
+          sidebar.classList.remove("drawer-open");
+          overlay.classList.remove("visible");
+          fab.classList.remove("open");
+          fab.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+          // hide after transition
+          sidebar.addEventListener("transitionend", function handler() {
+            if (!sidebar.classList.contains("drawer-open")) {
+              sidebar.style.display = "none";
+            }
+            sidebar.removeEventListener("transitionend", handler);
+          });
+        }
+
+        function isMobileTablet() {
+          return window.innerWidth <= 860;
+        }
+
+        fab.addEventListener("click", function () {
+          if (sidebar.classList.contains("drawer-open")) {
+            closeDrawer();
+          } else {
+            openDrawer();
+          }
+        });
+
+        overlay.addEventListener("click", closeDrawer);
+
+        // Tutup drawer saat tekan Escape
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && sidebar.classList.contains("drawer-open")) {
+            closeDrawer();
+          }
+        });
+
+        // Saat resize ke desktop, reset state
+        window.addEventListener("resize", function () {
+          if (!isMobileTablet()) {
+            sidebar.style.display = "";
+            sidebar.classList.remove("drawer-open");
+            overlay.classList.remove("visible");
+            fab.classList.remove("open");
+            fab.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

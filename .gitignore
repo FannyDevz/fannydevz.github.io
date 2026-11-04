@@ -7,3 +7,7 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Dependencies & source archives
+node_modules/
+*.zip

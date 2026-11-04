@@ -872,13 +872,440 @@ python3 -m http.server 8000   # then open http://localhost:8000
 Single-file `index.html` — HTML + CSS + Vanilla JS, no framework, no library, no web fonts. The characters are inline SVG. Supports light/dark mode, `prefers-reduced-motion`, visible keyboard focus, and a responsive layout (panels stack on phones).
 </script>
 
+<script type="text/markdown" data-readme="gogame">
+# ⚫ Go Game
+
+An **Othello** board game rendered on an HTML canvas. You play against a simple bot, with live scores and a high score.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser — no install needed.
+
+## API
+
+```javascript
+let othello = new Othello({
+  canvas,
+  playerColor,
+  playerScoreEl,
+  botScoreEl,
+  highScoreEl
+});
+othello.render();
+```
+
+## Tech
+
+HTML + CSS + Vanilla JS (`js/Board.js`, `js/Othello.js`, `js/main.js`), no framework.
+</script>
+
+<script type="text/markdown" data-readme="guessname">
+# 🔮 GuessYourName
+
+A **guessing game** that works out the name of a friend, or any name you have in mind, as long as it has 3 to 7 letters.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs Node.js:
+
+```bash
+npm install
+npm start   # http://localhost:3000
+```
+
+## Tech
+
+React (Create React App), React Router, React Bootstrap, Animate.css.
+</script>
+
+<script type="text/markdown" data-readme="newyear">
+# 🎆 New Year Countdown 2024
+
+A **New Year 2024 countdown** with a fireworks particle background and a typewriter greeting. The target date is hard-coded in `src/App.js` to 1 January 2024, so it now shows the finished state unless you change the date.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs Node.js:
+
+```bash
+npm install
+npm start   # http://localhost:3000
+```
+
+## Tech
+
+React (Create React App), Tailwind CSS, react-countdown, react-particles with tsparticles-preset-fireworks, react-simple-typewriter.
+</script>
+
+<script type="text/markdown" data-readme="olddesign">
+# 🎨 Old Design Portfolio
+
+An earlier **personal portfolio** showing design work, with a lightbox gallery and animated sections.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser, or use a local server:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+## Tech
+
+Static HTML + CSS + JS with Bootstrap, Animate.css, Font Awesome, and Nivo Lightbox.
+</script>
+
+<script type="text/markdown" data-readme="resume">
+# 📄 Resume
+
+A **resume site** generated from [JSON Resume](https://jsonresume.org/schema/) data, with English (`resume_en.json`) and Indonesian (`resume_id.json`) versions.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs Node.js:
+
+```bash
+npm install
+npm run dev   # or: npm run build
+```
+
+## Tech
+
+Vite + TypeScript, vite-plugin-handlebars, Tailwind CSS, Sass. Project stars are fetched from the GitHub API at build time.
+</script>
+
+<script type="text/markdown" data-readme="nametionalize">
+# 🌍 Nametionalize
+
+Type a name and see the countries it most likely comes from, with probabilities and flags.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs Node.js:
+
+```bash
+npm install
+npm run dev   # http://localhost:3000
+```
+
+## Tech
+
+Next.js, TypeScript, Tailwind CSS. Data comes from [Nationalize](https://nationalize.io/) and flags from [Flag CDN](https://flagcdn.com/).
+</script>
+
+<script type="text/markdown" data-readme="homepage">
+# 🔖 Simple Homepage
+
+A minimal **browser start page** with grouped bookmarks.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser, or set it as your browser's homepage.
+
+## Customize
+
+Bookmarks live in `bookmarks.js` as an array of `{ title, links: [{ name, url }] }` objects. The layout expects **4** sections.
+
+## Tech
+
+HTML + CSS + Vanilla JS, no dependencies.
+</script>
+
+<script type="text/markdown" data-readme="urllengthener">
+# 🔗 URL Lengthener
+
+The **opposite of a URL shortener**: it turns a link into a random 10,000-character URL that redirects to the original.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs Node.js:
+
+```bash
+npm install
+node app.js   # http://localhost:3000
+```
+
+## Tech
+
+Node.js + Express. Mappings are saved to `urls.json`, which starts empty.
+</script>
+
+<script type="text/markdown" data-readme="twistadoskrom">
+# 🔁 Twistadoskrom
+
+A small **link converter** that cleans up a disguised link and rewrites it into a normal `twitter.com` URL.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Needs PHP, because the conversion runs in `convert.php`:
+
+```bash
+php -S localhost:8000   # http://localhost:8000
+```
+
+## Tech
+
+HTML + CSS + Vanilla JS, with a PHP endpoint.
+</script>
+
+<script type="text/markdown" data-readme="waext">
+# 💬 WhatsApp Digitalku
+
+A **Chrome extension** for WhatsApp Web that adds a button to copy the current chat's phone number, plus a popup.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+1. Open `chrome://extensions` and turn on **Developer mode**.
+2. Click **Load unpacked** and pick this folder.
+3. Open [WhatsApp Web](https://web.whatsapp.com/).
+
+## Tech
+
+Chrome Extension Manifest V3: a content script, a background service worker, and a popup.
+</script>
+
+<script type="text/markdown" data-readme="aes">
+# 🔐 AES File Encryption
+
+A **PHP dashboard** for encrypting and decrypting files with AES-128, with login and history pages. It's a learning project for the algorithm, so don't use it to protect real data.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Requires **PHP 5** (it uses the removed `mysql_*` functions) and MySQL with a database named `endek_aes`. The database schema is **not included**, so it can't run as is. Connection settings are in `config.php`.
+
+## Tech
+
+PHP + MySQL, with the AES implementation in `dashboard/AES.php`. Uploaded files go in `dashboard/file_encrypt` and `dashboard/file_decrypt`.
+</script>
+
+<script type="text/markdown" data-readme="somebody">
+# 💌 Somebody to You
+
+An **interactive love-confession page**: enter a name, read the message, and answer yes or no, with music, video, and a draggable window.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` through a local server. It needs an internet connection for its CDN libraries:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+## Tech
+
+Single-file `index.html` with jQuery from a CDN, plus local audio, video, and images. The entered name is kept in `localStorage`.
+</script>
+
+<script type="text/markdown" data-readme="foryou">
+# 🌅 For You Homescreen
+
+A **browser homescreen** with a clock and a background that follows the time of day. You can also pick a style by hand, such as Ubuntu, Dawn, Noon, Sunset, Midnight, or RGB.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` through a local server. It needs an internet connection for its CDN libraries:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+## Tech
+
+Single-file `index.html` with jQuery, Bootstrap, Spectrum, and Baffle from CDNs. Settings are kept in `localStorage`.
+</script>
+
+<script type="text/markdown" data-readme="rc30">
+# 🔔 Desktop Notification
+
+A one-button demo of the browser Notification API: it asks for permission, then shows a desktop notification.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser, or use a local server:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+## Tech
+
+Single-file HTML + Vanilla JS, using the Notification API.
+</script>
+
+<script type="text/markdown" data-readme="rc31">
+# 🟣 Mirrored Circles
+
+Coloured circles trail the mouse, and BroadcastChannel mirrors their movement in other open windows of the same page.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser, or use a local server:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+Open the page in two windows to see the mirroring.
+
+## Tech
+
+Single-file HTML + CSS + Vanilla JS, using the BroadcastChannel API.
+</script>
+
+<script type="text/markdown" data-readme="rc34">
+# ☎️ Contact Widget
+
+A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+Open `index.html` directly in a browser, or use a local server:
+
+```bash
+python3 -m http.server 8000   # http://localhost:8000
+```
+
+## Tech
+
+HTML + CSS + Vanilla JS.
+</script>
+
+<script type="text/markdown" data-readme="rc35">
+# 🗺️ Travelling Salesman
+
+A brute-force Travelling Salesman solver that tries every route through a 4-node graph and prints each step.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Run
+
+```bash
+python3 tsp.py
+```
+
+## Tech
+
+Python standard library (`itertools.permutations`).
+</script>
+
+<script type="text/markdown" data-readme="codingchallenges">
+# 🧩 Coding Challenge Solutions
+
+JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter.
+
+![Preview](preview.png)
+
+> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
+
+## Challenges
+
+| Challenge | File | What it does |
+| --- | --- | --- |
+| [Closest and Smallest](https://www.codewars.com/kata/5868b2de442e3fb2bb000119) | `closest-and-smallest.js` | Takes a string of numbers and finds the two whose digit-sum weights are closest, preferring the smallest weights. |
+| [Convert String to Camel Case](https://www.codewars.com/kata/517abf86da9663f1d2000003) | `camel-case.js` | Converts dash- or underscore-separated words to camelCase. |
+| DNA to RNA Conversion | `dna-to-rna.js` | Converts a DNA string to RNA by replacing every T with U. |
+| [Multiples of 3 or 5](https://www.codewars.com/kata/514b92a657cdc65150000006) | `multiples-of-3-or-5.js` | Adds up all the multiples of 3 or 5 below a given number. |
+| [Reduce but Grow](https://www.codewars.com/kata/57f780909f7e8e3183000078) | `reduce-but-grow.js` | Multiplies all the numbers in an array together with reduce. |
+| [Return Negative](https://www.codewars.com/kata/55685cd7ad70877c23000102) | `return-negative.js` | Makes a number negative, leaving numbers that are already zero or negative unchanged. |
+| [Reversed Sequence](https://www.codewars.com/kata/5a00e05cc374cb34d100000d) | `reversed-sequence.js` | Builds an array counting down from n to 1. |
+| [Sentence Smash](https://www.codewars.com/kata/53dc23c68a0c93699800041d) | `sentence-smash.js` | Joins an array of words into one sentence separated by spaces. |
+| [Sum of Digits](https://www.codewars.com/kata/541c8630095125aba6000c00) | `sum-of-digits.js` | Adds up a number's digits repeatedly until only one digit is left. |
+| [Tiny Three-Pass Compiler](https://www.codewars.com/kata/5265b0885fda8eac5900093b) | `tiny-three-pass-compiler.js` | A small compiler for arithmetic functions, split into three passes that parse the program, reduce it, and generate code. |
+| [Will You Make It?](https://www.codewars.com/kata/5861d28f124b35723e00005e) | `will-you-make-it.js` | Checks whether the fuel left is enough to reach the pump. |
+| [Is He Gonna Survive?](https://www.codewars.com/kata/59ca8246d751df55cc00014c) | `is-he-gonna-survive.js` | Checks whether a hero has enough bullets for the dragons, at two bullets per dragon. |
+| [Simple Interactive Interpreter](https://www.codewars.com/kata/simple-interactive-interpreter) | `simple-interactive-interpreter.js` | An interpreter for a small language with its own tokenizer and parser, plus variables and functions. |
+| [Square Sums](https://www.codewars.com/kata/5a667236145c462103000091) | `square-sums.js` | Arranges the numbers from 1 to n so that each adjacent pair adds up to a perfect square. |
+
+## Run
+
+Each file stands alone:
+
+```bash
+node sum-of-digits.js
+```
+
+These files define a solution but print nothing when run, so load them in Node.js or a browser console to call them: `closest-and-smallest.js`, `multiples-of-3-or-5.js`, `tiny-three-pass-compiler.js`, `simple-interactive-interpreter.js`, `square-sums.js`.
+
+## Tech
+
+Plain JavaScript, one file per challenge.
+</script>
+
 <script>
 const CATS = {
   game:    { label:"Game",         color:"#22c55e" },
   landing: { label:"Landing Page", color:"#a78bfa" },
   edu:     { label:"Education",    color:"#ec4899" },
-  // hideInAll: not shown under "All" — only when this category is picked
-  frontend:{ label:"Frontend",     color:"#38bdf8", hideInAll:true },
+  tool:    { label:"Tool",         color:"#f59e0b" },
+  portfolio:{ label:"Portfolio",   color:"#2dd4bf" },
+  snippet: { label:"Snippets",     color:"#94a3b8" },
+  frontend:{ label:"Frontend",     color:"#38bdf8" },
 };
 
 const PROJECTS = [
@@ -1017,6 +1444,150 @@ const PROJECTS = [
     desc:"A real-time tug-of-war quiz for two teams: answer junior-high social-studies questions to pull the rope your way. A S D F vs J K L ;, wrong answers lock you out for 1.5 s, first to 5 steps wins.",
     tags:["Vanilla JS","Multiplayer","SVG","Education"],
     entry:"index.html", openable:true
+  },
+  {
+    n:"18", id:"gogame", title:"Go Game",
+    jp:"Othello on Canvas", cat:"game",
+    shot:"18. go-game/preview.png", folder:"18. go-game",
+    desc:"An Othello board game drawn on canvas: play against a bot, flip discs, and chase a high score. Plain JS, no dependencies.",
+    tags:["Vanilla JS","Canvas","Board game","Bot"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"19", id:"guessname", title:"GuessYourName",
+    jp:"Name-Guessing Game", cat:"game",
+    shot:"19. guess-your-name/preview.png", folder:"19. guess-your-name",
+    desc:"A guessing game that works out the name you're thinking of, as long as it has 3 to 7 letters. Built with React and Bootstrap.",
+    tags:["React","React Router","Bootstrap","Build step"],
+    entry:"public/index.html", openable:false
+  },
+  {
+    n:"20", id:"newyear", title:"New Year Countdown 2024",
+    jp:"Fireworks Countdown", cat:"landing",
+    shot:"20. newyear-countdown-2024/preview.png", folder:"20. newyear-countdown-2024",
+    desc:"A New Year 2024 countdown page with a fireworks particle background and a typewriter greeting. Its target date is fixed to 1 January 2024.",
+    tags:["React","Tailwind CSS","tsParticles","Build step"],
+    entry:"public/index.html", openable:false
+  },
+  {
+    n:"21", id:"olddesign", title:"Old Design Portfolio",
+    jp:"Graphic Design Portfolio", cat:"portfolio",
+    shot:"21. old-design-portofolio/preview.png", folder:"21. old-design-portofolio",
+    desc:"An earlier personal portfolio showing design work in a Bootstrap layout with a lightbox gallery and animated sections.",
+    tags:["HTML","Bootstrap","Lightbox","Portfolio"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"23", id:"resume", title:"Resume",
+    jp:"JSON-Driven Resume", cat:"portfolio",
+    shot:"23. resume/preview.png", folder:"23. resume",
+    desc:"A resume site generated from JSON Resume files, in English and Indonesian versions, rendered with Handlebars, Tailwind CSS, and Vite.",
+    tags:["Vite","TypeScript","Tailwind CSS","Build step"],
+    entry:"index.html", openable:false
+  },
+  {
+    n:"24", id:"nametionalize", title:"Nametionalize",
+    jp:"Guess a Name's Nationality", cat:"tool",
+    shot:"24. nametionalize/preview.png", folder:"24. nametionalize",
+    desc:"Type a name and get the countries it most likely comes from, with probabilities and flags, using the Nationalize API.",
+    tags:["Next.js","TypeScript","Tailwind CSS","Build step"],
+    entry:"src/pages/index.tsx", openable:false
+  },
+  {
+    n:"25", id:"homepage", title:"Simple Homepage",
+    jp:"Browser Start Page with Bookmarks", cat:"tool",
+    shot:"25. simple-homepage-with-bookmarks/preview.png", folder:"25. simple-homepage-with-bookmarks",
+    desc:"A minimal browser start page with grouped bookmarks that you edit in a single JavaScript file.",
+    tags:["Vanilla JS","Start page","Bookmarks"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"26", id:"urllengthener", title:"URL Lengthener",
+    jp:"The Opposite of a URL Shortener", cat:"tool",
+    shot:"26. url-lengthener/preview.png", folder:"26. url-lengthener",
+    desc:"The opposite of a URL shortener: it turns a link into a 10,000-character random URL that redirects to the original.",
+    tags:["Node.js","Express","Backend"],
+    entry:"public/index.html", openable:false
+  },
+  {
+    n:"27", id:"twistadoskrom", title:"Twistadoskrom",
+    jp:"Twista.krom Link Converter", cat:"tool",
+    shot:"27. twistadoskrom/preview.png", folder:"27. twistadoskrom",
+    desc:"A small converter that cleans up a disguised link and rewrites it into a normal twitter.com URL. The conversion runs in PHP.",
+    tags:["PHP","Vanilla JS","Backend"],
+    entry:"index.html", openable:false
+  },
+  {
+    n:"28", id:"waext", title:"WhatsApp Digitalku",
+    jp:"WhatsApp Web Chrome Extension", cat:"tool",
+    shot:"28. whatsapp-chrome-extension/preview.png", folder:"28. whatsapp-chrome-extension",
+    desc:"A Chrome extension for WhatsApp Web that adds a one-click button to copy the current chat's phone number, plus a popup.",
+    tags:["Chrome Extension","Manifest V3","JavaScript"],
+    entry:"popup.html", openable:false
+  },
+  {
+    n:"29", id:"aes", title:"AES File Encryption",
+    jp:"AES-128 File Encrypt & Decrypt", cat:"tool",
+    shot:"29. aes-encryption/preview.png", folder:"29. aes-encryption",
+    desc:"A PHP dashboard for encrypting and decrypting files with AES-128, with login and history pages. A learning project that needs PHP 5 and MySQL.",
+    tags:["PHP","MySQL","AES-128","Backend"],
+    entry:"index.php", openable:false
+  },
+  {
+    n:"30", id:"rc30", title:"Desktop Notification",
+    jp:"Browser Notification Demo", cat:"snippet",
+    shot:"30. desktop-notification/preview.png", folder:"30. desktop-notification",
+    desc:"A one-button demo of the browser Notification API: it asks for permission, then shows a desktop notification.",
+    tags:["Vanilla JS","Notification API"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"31", id:"rc31", title:"Mirrored Circles",
+    jp:"Circles Across Browser Windows", cat:"snippet",
+    shot:"31. mirrored-circles/preview.png", folder:"31. mirrored-circles",
+    desc:"Coloured circles trail the mouse, and BroadcastChannel mirrors their movement in other open windows of the same page.",
+    tags:["Vanilla JS","BroadcastChannel"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"32", id:"somebody", title:"Somebody to You",
+    jp:"Interactive Love Confession", cat:"game",
+    shot:"32. somebody/preview.png", folder:"32. somebody",
+    desc:"An interactive love-confession page: enter a name, read the message, and answer yes or no, with music, video, and a draggable window.",
+    tags:["jQuery","Audio","Video","localStorage"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"33", id:"foryou", title:"For You Homescreen",
+    jp:"Time-Based Browser Homescreen", cat:"tool",
+    shot:"33. for-you/preview.png", folder:"33. for-you",
+    desc:"A browser homescreen with a clock and a background that follows the time of day. Pick Ubuntu, Dawn, Noon, Sunset, Midnight, or RGB styles.",
+    tags:["jQuery","Bootstrap","Start page","localStorage"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"34", id:"rc34", title:"Contact Widget",
+    jp:"Floating Contact Button", cat:"snippet",
+    shot:"34. contact-widget/preview.png", folder:"34. contact-widget",
+    desc:"A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders.",
+    tags:["HTML","CSS","Vanilla JS"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"35", id:"rc35", title:"Travelling Salesman",
+    jp:"Brute-Force TSP in Python", cat:"snippet",
+    shot:"35. travelling-salesman/preview.png", folder:"35. travelling-salesman",
+    desc:"A brute-force Travelling Salesman solver that tries every route through a 4-node graph and prints each step.",
+    tags:["Python","Algorithms"],
+    entry:"tsp.py", openable:false
+  },
+  {
+    n:"36", id:"codingchallenges", title:"Coding Challenge Solutions",
+    jp:"14 Codewars Solutions in JavaScript", cat:"snippet",
+    shot:"36. coding-challenge-solutions/preview.png", folder:"36. coding-challenge-solutions",
+    desc:"JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter.",
+    tags:["JavaScript","Algorithms","Codewars"],
+    entry:"sum-of-digits.js", openable:false
   },
 ];
 

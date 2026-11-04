@@ -1,0 +1,549 @@
+{
+  "_meta": {
+    "version": "English",
+    "last_updated": "2026-05"
+  },
+  "basics": {
+    "name": "Fanny Bagus Ramadhan",
+    "label": "Software Developer & IT Engineer",
+    "image": "https://avatars.githubusercontent.com/u/65803059?v=4",
+    "email": "",
+    "url": "https://fanny.dev",
+    "summary": "Software developer with 5+ years of experience in web systems, server infrastructure, and hosting solutions. Comfortable working full-stack from frontend (React, Vue.js) to backend (Laravel, Node.js, Go) and infrastructure management (Proxmox, Docker, Linux). Hands-on experience in real production environments including a hospital information system (SIMRS), hosting platform management, and large-scale server monitoring.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "",
+      "countryCode": "ID",
+      "region": "Indonesia"
+    },
+    "profiles": [
+      {
+        "text": "Fanny Bagus Ramadhan",
+        "network": "linkedin",
+        "username": "fanny-bagus-ramadhan",
+        "url": "https://linkedin.com/in/fanny-bagus-ramadhan"
+      },
+      {
+        "text": "FannyDevz - GitHub",
+        "network": "github",
+        "username": "FannyDevz",
+        "url": "https://github.com/FannyDevz"
+      },
+      {
+        "text": "Fanny.dev - Personal Website",
+        "network": "portfolio",
+        "username": "fanny.dev",
+        "url": "https://fanny.dev"
+      },
+      {
+        "text": "@fanny.bagus.r",
+        "network": "instagram",
+        "username": "fanny.bagus.r",
+        "url": "https://instagram.com/fanny.bagus.r"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "PT Jayahost Web Media",
+      "position": "Programmer",
+      "url": "https://digitalku.com/",
+      "startDate": "May 2023",
+      "endDate": "Present",
+      "summary": "Developing and maintaining internal systems for a hosting company, including a WHMCS-based service management platform, server integrations, and operational automation.",
+      "location": "Lamongan, Indonesia",
+      "highlights": [
+        "Built custom WHMCS modules and hooks to support CPanel, Proxmox, LXD, and local payment gateway integrations",
+        "Maintained systems serving hundreds of active hosting clients",
+        "Developed Web Host Manager — a WHMCS alternative built with Laravel & React.js featuring unified VPS and domain management",
+        "Built an uptime monitoring system that sends automatic Discord notifications when a server experiences downtime",
+        "Built a Proxmox and LXD server management system to simplify server and virtual machine administration",
+        "Built an omnichannel chat system integrated with Telegram and WhatsApp for customer service to support company-client communication needs"
+      ]
+    },
+    {
+      "name": "RSU Lirboyo",
+      "position": "Programmer & IT Support",
+      "url": "https://rsulirboyo.com/",
+      "startDate": "Dec 2022",
+      "endDate": "May 2023",
+      "summary": "Developed the Hospital Management Information System (SIMRS) and handled technical support for hospital IT infrastructure.",
+      "location": "Kediri, Indonesia",
+      "highlights": [
+        "Developed and maintained the SIMRS used by all hospital service units",
+        "Handled troubleshooting and maintenance of IT infrastructure including servers, computers, printers, CCTV, and networking"
+      ]
+    },
+    {
+      "name": "PT Rahma Riyadi Techno",
+      "position": "Designer",
+      "url": "https://yoisoweb.com/",
+      "startDate": "Oct 2021",
+      "endDate": "Nov 2022",
+      "summary": "Designed visual assets for company clients, including social media content, website UI elements, and digital advertising materials.",
+      "location": "Kediri, Indonesia",
+      "highlights": [
+        "Designed social media content, advertising banners, and website UI elements for various clients",
+        "Collaborated directly with clients to fulfill their brand visual needs"
+      ]
+    },
+    {
+      "name": "Freelancer & Content Creator",
+      "position": "Software Developer, Computer Technician, Designer",
+      "url": "https://github.com/FannyDevz",
+      "startDate": "Mar 2019",
+      "endDate": "Present",
+      "summary": "Worked on various freelance projects in web development, computer repair, and graphic design for individual and business clients.",
+      "location": "Github",
+      "highlights": [
+        "Developed custom web applications using modern stacks (React, Laravel, Node.js)",
+        "Provided computer and network technician services for local clients",
+        "Worked on UI/UX and graphic design projects for individual and business needs",
+        "Created anime and manga themed content on social media, achieving 15k YouTube subscribers, 3.9k TikTok followers, and 1.8k Instagram followers"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universitas Dian Nuswantoro (UDINUS)",
+      "url": "https://dinus.ac.id/",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Informatics Engineering",
+      "startDate": "2023",
+      "endDate": "Present",
+      "score": "GPA 3.82 / 4.00",
+      "courses": []
+    },
+    {
+      "institution": "Politeknik Negeri Malang (Polinema)",
+      "url": "https://polinema.ac.id/",
+      "area": "Computer Science",
+      "studyType": "Associate Degree in Informatics Management",
+      "startDate": "2018",
+      "endDate": "2021",
+      "score": "GPA 3.86 / 4.00",
+      "courses": []
+    },
+    {
+      "institution": "SMKN 1 Ngasem Kediri",
+      "url": "https://smkn1ngasem-kediri.sch.id/",
+      "area": "Computer and Network Engineering",
+      "studyType": "Vocational High School",
+      "startDate": "2015",
+      "endDate": "2018",
+      "score": "30.10 / 40.00",
+      "courses": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "level": "",
+      "keywords": [
+        "Node.js",
+        "Go",
+        "PHP",
+        "Javascript",
+        "TypeScript",
+        "Python",
+        "Java",
+        "C++",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "name": "Frontend Frameworks",
+      "level": "",
+      "keywords": [
+        "React.js",
+        "Vue.js",
+        "Angular",
+        "Next.js",
+        "Hugo",
+        "Astro"
+      ]
+    },
+    {
+      "name": "Backend Frameworks",
+      "level": "",
+      "keywords": [
+        "Express.js",
+        "Laravel",
+        "Wordpress",
+        "Django",
+        "Spring",
+        "Gin"
+      ]
+    },
+    {
+      "name": "Database Management",
+      "level": "",
+      "keywords": [
+        "PostgreSQL",
+        "MySQL",
+        "MariaDB",
+        "SQLite",
+        "Redis",
+        "MongoDB"
+      ]
+    },
+    {
+      "name": "Infrastructure & DevOps",
+      "level": "Proficient",
+      "keywords": [
+        "Linux",
+        "Docker",
+        "Proxmox",
+        "Cloudflare",
+        "Nginx",
+        "LXD/LXC",
+        "Git"
+      ]
+    },
+    {
+      "name": "Cloud Computing",
+      "level": "",
+      "keywords": [
+        "AWS",
+        "GCP",
+        "Azure",
+        "Digital Ocean",
+        "Vultr"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Web Host Manager",
+      "description": "A complete hosting management system (WHMCS alternative) built with Laravel and React.js. Integrated with CPanel, Proxmox, LXD, domain registrars, and payment gateways.",
+      "highlights": [
+        "PHP",
+        "Laravel",
+        "React.js",
+        "Proxmox API",
+        "CPanel API"
+      ],
+      "keywords": [],
+      "startDate": "2026",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner",
+        "Lead Developer"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Proxmox VM Manager",
+      "description": "A centralized dashboard for managing and monitoring dozens of Proxmox servers along with hundreds of virtual machines and containers. Actively used in a production company environment.",
+      "highlights": [
+        "Node.js",
+        "Proxmox API",
+        "Pug",
+        "Express.js"
+      ],
+      "keywords": [],
+      "startDate": "2024",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Maintainer"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Uptime Monitor",
+      "description": "A server monitoring system that periodically checks the status of hundreds of endpoints and sends automatic Discord notifications when downtime occurs, enabling faster incident response.",
+      "highlights": [
+        "Node.js",
+        "EJS",
+        "Discord Webhook",
+        "Express.js"
+      ],
+      "keywords": [],
+      "startDate": "2025",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner",
+        "Maintainer"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Price Prediction System",
+      "description": "A stock price prediction system using machine learning and deep learning based on historical data analysis.",
+      "highlights": [
+        "Python",
+        "Pandas",
+        "NumPy"
+      ],
+      "keywords": [],
+      "startDate": "2025",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner & Maintainer"
+      ],
+      "type": "Application",
+      "entity": ""
+    },
+    {
+      "name": "Web Scraper",
+      "description": "An automated data scraping system from various web sources (including Google Maps), used for data research and business information aggregation.",
+      "highlights": [
+        "Node.js",
+        "Python",
+        "Puppeteer"
+      ],
+      "keywords": [],
+      "startDate": "2023",
+      "endDate": "2024",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner & Maintainer"
+      ],
+      "type": "Application",
+      "entity": ""
+    },
+    {
+      "name": "Chatting App (Omnichannel)",
+      "description": "A unified messaging system integrating Telegram and WhatsApp into a single interface, suitable for customer service needs.",
+      "highlights": [
+        "PHP",
+        "JavaScript",
+        "Telegram Bot API",
+        "WhatsApp API"
+      ],
+      "keywords": [],
+      "startDate": "2023",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Maintainer"
+      ],
+      "type": "Application",
+      "entity": ""
+    },
+    {
+      "name": "WHMCS Custom Modules & Hooks",
+      "description": "Development of custom modules, hooks, and addons for the WHMCS platform to meet hosting business operational needs.",
+      "highlights": [
+        "PHP",
+        "JavaScript",
+        "Vue.js",
+        "WHMCS API"
+      ],
+      "keywords": [],
+      "startDate": "2023",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Developer",
+        "Maintainer"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Personal Website",
+      "description": "A personal website used to showcase my skills and experience as a developer.",
+      "highlights": [
+        "Hugo",
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "keywords": [],
+      "startDate": "2023",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "https://fanny.dev",
+      "roles": [
+        "Owner"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Wedding Website",
+      "description": "A wedding website built for my own wedding.",
+      "highlights": [
+        "React.js",
+        "Vite",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "keywords": [],
+      "startDate": "2025",
+      "endDate": "2026",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner"
+      ],
+      "type": "Web Application",
+      "entity": ""
+    },
+    {
+      "name": "Home Server",
+      "description": "A personal server built on a repurposed laptop, configured with Proxmox, Docker, and Cloudflare Tunnel to support self-hosting and development needs.",
+      "highlights": [
+        "Proxmox",
+        "Docker",
+        "Cloudflare Tunnel",
+        "Linux"
+      ],
+      "keywords": [],
+      "startDate": "2026",
+      "endDate": "Active Maintenance",
+      "githubUrl": "",
+      "url": "",
+      "roles": [
+        "Owner",
+        "Maintainer"
+      ],
+      "type": "Infrastructure",
+      "entity": ""
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Cyber Security for Developer",
+      "date": "May 2026",
+      "awarder": "Dicoding",
+      "highlights": [
+        "Broken Access Control — Improperly restricted access",
+        "Security Misconfiguration — Incorrect security configuration",
+        "Software Supply Chain Failures — Risks from third-party dependencies",
+        "Cryptographic Failures — Weak encryption or data protection",
+        "Injection — Insertion of malicious commands",
+        "Insecure Design — Unsafe application design",
+        "Authentication Failures — Failures in the authentication process",
+        "Software or Data Integrity Failures — Compromised data/software integrity",
+        "Logging & Alerting Failures — Weak monitoring and logging",
+        "Mishandling of Exceptional Conditions — Unsafe error handling"
+      ],
+      "summary": ""
+    },
+    {
+      "title": "EPA English Proficiency Assessment",
+      "date": "October 2025",
+      "awarder": "CFLT Udinus",
+      "highlights": [
+        "Listening Comprehension",
+        "Structure & Written Expression",
+        "Reading Comprehension"
+      ],
+      "summary": ""
+    },
+    {
+      "title": "React - Redux Fundamental",
+      "date": "October 2025",
+      "awarder": "Dicoding",
+      "highlights": [],
+      "summary": ""
+    },
+    {
+      "title": "Getting Started with Deep Learning",
+      "date": "June 2025",
+      "awarder": "NVIDIA",
+      "highlights": [],
+      "summary": ""
+    },
+    {
+      "title": "CSS, Javascript, Javascript Intermediate, HTML, PHP",
+      "date": "May 2023",
+      "awarder": "Sololearn",
+      "highlights": [
+        "Angular: completed several AngularJS tasks",
+        "CSS: completed several CSS animation tasks",
+        "Javascript & Javascript Intermediate: completed several Javascript & Javascript advanced tasks",
+        "HTML: completed several HTML tasks",
+        "PHP: completed several PHP tasks"
+      ],
+      "summary": ""
+    },
+    {
+      "title": "Mikrotik Network",
+      "date": "Sep 2021",
+      "awarder": "State Polytechnic of Malang",
+      "highlights": [
+        "Mikrotik Network: completed several Mikrotik networking tasks"
+      ],
+      "summary": ""
+    },
+    {
+      "title": "The Fundamentals of Digital Marketing",
+      "date": "Mar 2021",
+      "awarder": "Google Digital Garage",
+      "highlights": [
+        "The Fundamentals of Digital Marketing: completed all course modules"
+      ],
+      "summary": ""
+    }
+  ],
+  "languages": [
+    {
+      "language": "Indonesian",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate (Reading & Writing)"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": [
+        "Home Lab",
+        "Open Source",
+        "Self-hosting",
+        "Programming",
+        "Cloud Computing"
+      ]
+    },
+    {
+      "name": "Books",
+      "keywords": [
+        "Philosophy",
+        "Fiction",
+        "Fantasy",
+        "Self-improvement"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Informatics Student Association",
+      "position": "Head of Communication and Information Department",
+      "startDate": "2020",
+      "endDate": "2021",
+      "summary": "Organized student activities in the field of communication and information. Developed and grew the community to strengthen connections among students in the communication and information domain."
+    }
+  ],
+  "publications": [
+    {
+      "title": "LEARNING ACTIVITY MANAGEMENT INFORMATION SYSTEM USING THE LARAVEL FRAMEWORK",
+      "publisher": "SENTIA (National Seminar on Information Technology and Applications)",
+      "releaseDate": "2021",
+      "url": "https://prosiding.polinema.ac.id/sentia/index.php/SENTIA2021/search/authors/view?firstName=Fanny&middleName=Bagus&lastName=Ramadhan&affiliation=Teknik%20Informatika%2C%20Manajemen%20Informasi%20PSDKU%20Polinema%20di%20Kota%20Kediri&country=ID"
+    }
+  ],
+  "awards": [],
+  "references": []
+}
