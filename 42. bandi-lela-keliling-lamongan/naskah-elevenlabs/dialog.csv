@@ -1,0 +1,42 @@
+kode,tokoh,nama_berkas,teks,tag_v3,mulai,maks_detik
+B01,bandi,B01.mp3,"Halo, teman-teman! Yuk, kenalan dengan Lamongan bersama kami!",[cheerful],0:15.6,4.5
+B02,bandi,B02.mp3,"Sedunia? Se-Lamongan saja dulu, Lela.",[amused],0:57.5,3.5
+B03,bandi,B03.mp3,"Aku Bandi. Kamu mau kenal Lamongan, kan? Yuk, ikut kami keliling!",,1:04.0,6.0
+B04,bandi,B04.mp3,"Baik, perhatikan ya. Itu bukan cuma patungmu, Lela.",,1:32.7,4.3
+B05,bandi,B05.mp3,Ini Tugu Bandeng Lele. Bandeng dan lele juga ada di lambang Kabupaten Lamongan.,,1:37.0,6.3
+B06,bandi,B06.mp3,Lele artinya ulet dan sabar. Sedangkan bandeng artinya potensi hasil daerah Lamongan.,,1:45.8,6.0
+B07,bandi,B07.mp3,"Eits, bukan, Lela. Ini tambak, tempat petambak memelihara bandeng.",[playfully],2:08.9,6.9
+B08,bandi,B08.mp3,Bandeng termasuk hasil budidaya terbesar di Lamongan. Banyak keluarga di sini hidup dari tambak.,,2:16.7,9.1
+B09,bandi,B09.mp3,"Ombak itu bukan mainan, Lela! Nah, ini kawasan pesisir. Banyak warga di sini bekerja sebagai nelayan.",,2:46.2,7.7
+B10,bandi,B10.mp3,Pantainya sekitar empat puluh tujuh kilometer. Di Brondong ada pelabuhan perikanan yang besar.,,2:54.0,5.6
+B11,bandi,B11.mp3,Hasil tambak dan laut tadi diolah warga jadi makanan.,,3:09.2,4.8
+B12,bandi,B12.mp3,"Ini otak-otak bandeng. Dagingnya dikeluarkan, diberi bumbu, lalu dimasukkan lagi ke kulitnya.",,3:14.3,8.4
+B13,bandi,B13.mp3,"Kalau ini abon bandeng. Dagingnya disuwir, lalu digoreng kering. Awet untuk oleh-oleh!",,3:23.3,8.4
+B14,bandi,B14.mp3,Betul! Ciri khasnya taburan koya dari kerupuk udang dan bawang putih.,,3:35.3,5.7
+B15,bandi,B15.mp3,"Ini nasi boran. Namanya dari boran, bakul bambu tempat nasinya. Sejak tahun dua ribu dua puluh lima jadi Warisan Budaya Takbenda Indonesia!",[proud],3:41.1,8.3
+B16,bandi,B16.mp3,"Tenang, Lela. Kamu itu pemandu, bukan menu!",[reassuring],3:58.0,4.0
+B17,bandi,B17.mp3,"Nah, itu baru benar.",[smiling],4:24.8,2.3
+L01,lela,L01.mp3,"Wuuusss! Hai, Kayla! Kenalin, aku Lela, lele paling terkenal sedunia!",[excited],0:50.6,5.6
+L02,lela,L02.mp3,"Pegangan yang erat, ya! Wuuusss!",[excited],1:10.2,3.0
+L03,lela,L03.mp3,"Lihat, lihat! Itu patungku! Keren, kan?",[excited],1:26.2,5.6
+L04,lela,L04.mp3,"Wah, kolam renangnya besar sekali! Aku mau nyebur!",[excited],2:04.2,4.4
+L05,lela,L05.mp3,"Aku tahu, aku tahu! Ombak itu perosotan air! Wuuusss… Wuaaah!",[excited],2:39.2,6.0
+L06,lela,L06.mp3,Pecel… LELE?! Eh… JANGAN AKU!,[nervous],3:54.4,3.4
+L07,lela,L07.mp3,Aku lele terkenal se-Lamongan!,[proud],4:22.5,2.2
+K01,kayla,K01.mp3,Duh… soto… tugu… apa ya namanya?,[whispers],0:31.8,3.8
+K02,kayla,K02.mp3,Masa aku tidak tahu apa-apa tentang daerahku sendiri…,[sad],0:38.7,4.8
+K03,kayla,K03.mp3,Ikan… bisa bicara?!,[surprised],1:01.2,2.5
+K04,kayla,K04.mp3,Wooow… tinggi sekali!,[amazed],1:20.6,3.2
+K05,kayla,K05.mp3,"Memangnya artinya apa, Bandi?",[curious],1:43.4,2.3
+K06,kayla,K06.mp3,"Oh, pantas saja Lamongan terkenal dengan bandeng dan lele!",,1:52.0,4.1
+K07,kayla,K07.mp3,"Jadi ikan yang kita makan itu hasil kerja keras mereka. Terima kasih, Pak!",[touched],2:26.0,7.0
+K08,kayla,K08.mp3,"Nelayan itu hebat, ya!",[laughs],2:59.7,2.7
+K09,kayla,K09.mp3,"Aku tahu! Soto Lamongan, kan?",[excited],3:32.2,3.0
+K10,kayla,K10.mp3,"Eh, ada pecel lele! Asalnya dari Lamongan, kan?",,3:49.8,4.4
+K11,kayla,K11.mp3,"Makasih, Bandi… makasih, Lela…",[whispers],4:07.2,3.6
+K12,kayla,K12.mp3,"Bu, saya tahu! Lamongan punya Tugu Bandeng Lele, tambak, pesisir, dan kulinernya enak-enak!",[confident],4:10.8,7.4
+K13,kayla,K13.mp3,"Sekarang aku tahu, Lamongan itu keren! Ada tugu, tambak, pesisir, dan kulinernya.",[proud],4:28.4,5.8
+K14,kayla,K14.mp3,"Yuk, kita jaga dan banggakan bersama. Kalau bukan kita, siapa lagi?",[inspiring],4:34.3,5.6
+G01,bu-guru,G01.mp3,"Anak-anak, ada yang bisa cerita tentang daerah kita, yaitu Lamongan?",,0:24.4,6.6
+G02,bu-guru,G02.mp3,"Coba pelan-pelan, diingat dulu, ya…",[gently],0:35.7,2.8
+G03,bu-guru,G03.mp3,"Wah, hebat sekali kamu, Kayla!",[proud],4:18.4,3.5

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilihan Desain Kayla</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@800&display=swap">
+<style>
+  html,body{margin:0;height:100%;background:#EED8A8}
+  svg{display:block;width:100vw;height:100vh}
+</style>
+</head>
+<body>
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <filter id="paper" x="-8%" y="-6%" width="118%" height="116%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="1" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G" result="cut"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="2" result="n2"/>
+    <feMorphology in="cut" operator="dilate" radius="3.5" result="fat0"/>
+    <feDisplacementMap in="fat0" in2="n2" scale="4" xChannelSelector="R" yChannelSelector="G" result="fat"/>
+    <feFlood flood-color="#F6EEDC"/><feComposite in2="fat" operator="in" result="rim"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.85 0.55" numOctaves="2" seed="5" result="fib"/>
+    <feColorMatrix in="fib" type="saturate" values="0" result="fg"/>
+    <feComponentTransfer in="fg" result="tex"><feFuncR type="linear" slope=".14" intercept=".9"/><feFuncG type="linear" slope=".14" intercept=".9"/><feFuncB type="linear" slope=".14" intercept=".88"/><feFuncA type="linear" slope="0" intercept="1"/></feComponentTransfer>
+    <feBlend in="cut" in2="tex" mode="multiply" result="cutT"/><feComposite in="cutT" in2="cut" operator="in" result="piece"/>
+    <feGaussianBlur in="fat" stdDeviation="6"/><feOffset dx="7" dy="12" result="o"/>
+    <feFlood flood-color="#2A1A0A" flood-opacity=".38"/><feComposite in2="o" operator="in" result="sh"/>
+    <feMerge><feMergeNode in="sh"/><feMergeNode in="rim"/><feMergeNode in="piece"/></feMerge>
+  </filter>
+  <filter id="torn" x="-8%" y="-6%" width="118%" height="116%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G" result="cut"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.3" numOctaves="2" seed="3" result="n2"/>
+    <feMorphology in="cut" operator="dilate" radius="4" result="fat0"/>
+    <feDisplacementMap in="fat0" in2="n2" scale="9" xChannelSelector="R" yChannelSelector="G" result="fat"/>
+    <feFlood flood-color="#F2E8D2"/><feComposite in2="fat" operator="in" result="rim"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.9 0.5" numOctaves="3" seed="8" result="fib"/>
+    <feColorMatrix in="fib" type="saturate" values="0" result="fg"/>
+    <feComponentTransfer in="fg" result="tex"><feFuncR type="linear" slope=".14" intercept=".9"/><feFuncG type="linear" slope=".14" intercept=".9"/><feFuncB type="linear" slope=".14" intercept=".88"/><feFuncA type="linear" slope="0" intercept="1"/></feComponentTransfer>
+    <feBlend in="cut" in2="tex" mode="multiply" result="cutT"/><feComposite in="cutT" in2="cut" operator="in" result="piece"/>
+    <feGaussianBlur in="fat" stdDeviation="5"/><feOffset dx="6" dy="10" result="o"/>
+    <feFlood flood-color="#2A1A0A" flood-opacity=".4"/><feComposite in2="o" operator="in" result="sh"/>
+    <feMerge><feMergeNode in="sh"/><feMergeNode in="rim"/><feMergeNode in="piece"/></feMerge>
+  </filter>
+  <filter id="pc" x="-10%" y="-10%" width="130%" height="135%"><feDropShadow dx="1.6" dy="2.6" stdDeviation="1.2" flood-color="#2A1A0A" flood-opacity=".38"/></filter>
+  <radialGradient id="brad" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".45" stop-color="#D9A93A"/><stop offset="1" stop-color="#7A5512"/></radialGradient>
+  <filter id="kraft" x="0" y="0" width="1" height="1">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8 0.5" numOctaves="2" seed="9" result="f"/><feColorMatrix in="f" type="saturate" values="0" result="g"/>
+    <feComponentTransfer in="g" result="t"><feFuncR type="linear" slope=".3" intercept=".75"/><feFuncG type="linear" slope=".3" intercept=".74"/><feFuncB type="linear" slope=".3" intercept=".7"/><feFuncA type="linear" slope="0" intercept="1"/></feComponentTransfer>
+    <feBlend in="SourceGraphic" in2="t" mode="multiply"/>
+  </filter>
+</defs>
+<rect width="1920" height="1080" fill="#EED8A8" filter="url(#kraft)"/>
+<text x="960" y="78" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="52" fill="#3A2A1A">Pilihan desain Kayla</text>
+
+<!-- ===================== A. PROPORSIONAL ===================== -->
+<g transform="translate(330 1000) scale(1.4)">
+  <g filter="url(#paper)">
+    <!-- kuncir & ransel di belakang -->
+    <path fill="#2B2118" d="M30 -560 C120 -580 150 -470 118 -390 C108 -440 86 -500 26 -526 Z"/>
+    <path fill="#45352A" d="M44 -552 C106 -556 124 -480 110 -420 C100 -470 84 -510 40 -530 Z"/>
+    <path class="pc" fill="#1C8474" d="M-96 -400 Q-96 -428 -66 -428 L66 -428 Q96 -428 96 -400 L98 -236 L-98 -236 Z"/>
+    <!-- kaki -->
+    <rect fill="#E3A57E" x="-44" y="-160" width="28" height="140" rx="8"/><rect fill="#E3A57E" x="16" y="-160" width="28" height="140" rx="8"/>
+    <rect class="pc" fill="#FBF7EE" x="-46" y="-96" width="32" height="74" rx="5"/><rect class="pc" fill="#FBF7EE" x="14" y="-96" width="32" height="74" rx="5"/>
+    <path class="pc" fill="#2A2622" d="M-62 -4 Q-62 -26 -38 -26 L-12 -26 Q-6 -10 -10 0 L-56 0 Q-64 0 -62 -4 Z"/>
+    <path class="pc" fill="#2A2622" d="M62 -4 Q62 -26 38 -26 L12 -26 Q6 -10 10 0 L56 0 Q64 0 62 -4 Z"/>
+    <!-- rok -->
+    <path fill="#A51E1E" d="M-80 -262 L80 -262 L112 -146 L-112 -146 Z"/>
+    <path class="pc" fill="#D62828" d="M-76 -264 L76 -264 L106 -150 L-106 -150 Z"/>
+    <path fill="none" stroke="#B01F1F" stroke-width="3.5" d="M-48 -258 L-66 -152 M-18 -258 L-24 -152 M16 -258 L22 -152 M48 -258 L64 -152"/>
+    <!-- lengan -->
+    <path fill="none" stroke="#F1E6CF" stroke-width="30" stroke-linecap="round" d="M-82 -372 L-100 -300 L-94 -236 M82 -372 L100 -300 L94 -236"/>
+    <path fill="none" stroke="#E3A57E" stroke-width="22" stroke-linecap="round" d="M-82 -372 L-100 -300 L-94 -236 M82 -372 L100 -300 L94 -236"/>
+    <!-- kemeja -->
+    <path class="pc" fill="#FBF7EE" d="M-78 -262 L-80 -360 C-78 -392 -46 -404 0 -404 C46 -404 78 -392 80 -360 L78 -262 Z"/>
+    <path fill="#E6DECC" d="M-78 -262 L-80 -360 C-78 -390 -62 -398 -40 -402 C-58 -380 -60 -330 -58 -262 Z"/>
+    <rect class="pc" fill="#F3EDE0" x="22" y="-352" width="34" height="32" rx="3"/><path fill="#1E88C8" d="M30 -346 L48 -346 L48 -340 L30 -340 Z"/>
+    <path class="pc" fill="#1C8474" d="M-64 -398 L-48 -402 L-46 -266 L-62 -266 Z"/><path class="pc" fill="#1C8474" d="M64 -398 L48 -402 L46 -266 L62 -266 Z"/>
+    <ellipse class="pc" fill="#FBF7EE" cx="-82" cy="-374" rx="24" ry="27"/><ellipse class="pc" fill="#FBF7EE" cx="82" cy="-374" rx="24" ry="27"/>
+    <circle class="pc" fill="#E3A57E" cx="-94" cy="-228" r="15"/><circle class="pc" fill="#E3A57E" cx="94" cy="-228" r="15"/>
+    <rect fill="#D39570" x="-14" y="-424" width="28" height="26"/>
+    <path class="pc" fill="#FBF7EE" d="M-34 -404 L-2 -376 L-4 -410 Z"/><path class="pc" fill="#FBF7EE" d="M34 -404 L2 -376 L4 -410 Z"/>
+    <path class="pc" fill="#D62828" d="M-10 -388 L10 -388 L13 -330 L0 -316 L-13 -330 Z"/><path fill="#A51E1E" d="M0 -388 L10 -388 L13 -330 L0 -316 Z"/>
+    <!-- kepala -->
+    <circle fill="#2B2118" cx="0" cy="-484" r="66"/>
+    <ellipse class="pc" fill="#F0C29C" cx="-54" cy="-466" rx="10" ry="14"/><ellipse class="pc" fill="#F0C29C" cx="54" cy="-466" rx="10" ry="14"/>
+    <ellipse class="pc" fill="#F0C29C" cx="0" cy="-466" rx="54" ry="60"/>
+    <path class="pc" fill="#2B2118" d="M-60 -470 C-62 -548 60 -552 62 -480 C40 -520 -6 -520 -30 -502 C-38 -488 -48 -476 -60 -470 Z"/>
+    <path fill="#45352A" d="M-46 -512 C-20 -536 28 -538 50 -508 C26 -526 -16 -524 -46 -512 Z"/>
+    <path class="pc" fill="#2B2118" d="M-60 -470 C-66 -440 -62 -420 -54 -410 C-58 -440 -52 -462 -44 -478 Z"/>
+    <path class="pc" fill="#D62828" d="M36 -540 L16 -556 L18 -526 Z"/><path class="pc" fill="#D62828" d="M36 -540 L56 -558 L56 -526 Z"/><circle fill="#B51F1F" cx="36" cy="-540" r="7"/>
+    <path fill="#2B2118" d="M-30 -474 Q-20 -484 -8 -476 Q-20 -456 -30 -474 Z M30 -474 Q20 -484 8 -476 Q20 -456 30 -474 Z"/>
+    <ellipse fill="#2B2118" cx="-19" cy="-466" rx="8" ry="10"/><ellipse fill="#2B2118" cx="19" cy="-466" rx="8" ry="10"/>
+    <circle fill="#fff" cx="-16" cy="-470" r="3"/><circle fill="#fff" cx="22" cy="-470" r="3"/>
+    <path fill="none" stroke="#2B2118" stroke-width="5" stroke-linecap="round" d="M-32 -490 Q-20 -496 -8 -491 M8 -491 Q20 -496 32 -490"/>
+    <path fill="none" stroke="#C98A63" stroke-width="3.5" stroke-linecap="round" d="M0 -456 Q4 -446 -2 -442"/>
+    <circle fill="#F4A3A0" cx="-34" cy="-440" r="10"/><circle fill="#F4A3A0" cx="34" cy="-440" r="10"/>
+    <path class="pc" fill="#7A2633" d="M-14 -432 Q0 -416 14 -432 Z"/>
+    <circle fill="url(#brad)" stroke="#5E4410" stroke-width="1.5" cx="-82" cy="-374" r="8"/><circle fill="url(#brad)" stroke="#5E4410" stroke-width="1.5" cx="82" cy="-374" r="8"/>
+  </g>
+</g>
+
+<!-- ===================== B. BULAT CERIA (CHIBI) ===================== -->
+<g transform="translate(960 1000) scale(1.4)">
+  <g filter="url(#paper)">
+    <path fill="#2B2118" d="M70 -560 C170 -560 190 -440 150 -370 C142 -430 118 -490 60 -510 Z"/>
+    <path fill="#45352A" d="M86 -548 C150 -542 168 -466 150 -410 C140 -456 120 -500 78 -516 Z"/>
+    <path class="pc" fill="#1C8474" d="M-100 -330 Q-100 -356 -70 -356 L70 -356 Q100 -356 100 -330 L102 -196 L-102 -196 Z"/>
+    <rect fill="#F0C29C" x="-40" y="-130" width="28" height="104" rx="9"/><rect fill="#F0C29C" x="12" y="-130" width="28" height="104" rx="9"/>
+    <rect class="pc" fill="#FBF7EE" x="-42" y="-70" width="32" height="44" rx="5"/><rect class="pc" fill="#FBF7EE" x="10" y="-70" width="32" height="44" rx="5"/>
+    <ellipse class="pc" fill="#2A2622" cx="-30" cy="-12" rx="30" ry="14"/><ellipse class="pc" fill="#2A2622" cx="30" cy="-12" rx="30" ry="14"/>
+    <path fill="#A51E1E" d="M-74 -216 L74 -216 L104 -122 L-104 -122 Z"/>
+    <path class="pc" fill="#D62828" d="M-70 -218 L70 -218 L98 -126 L-98 -126 Z"/>
+    <path fill="none" stroke="#B01F1F" stroke-width="3.5" d="M-40 -212 L-54 -128 M0 -212 L0 -128 M40 -212 L54 -128"/>
+    <path fill="none" stroke="#F1E6CF" stroke-width="32" stroke-linecap="round" d="M-74 -322 L-104 -262 L-110 -214 M74 -322 L104 -262 L110 -214"/>
+    <path fill="none" stroke="#F0C29C" stroke-width="24" stroke-linecap="round" d="M-74 -322 L-104 -262 L-110 -214 M74 -322 L104 -262 L110 -214"/>
+    <path class="pc" fill="#FBF7EE" d="M-72 -214 L-74 -300 C-72 -330 -42 -342 0 -342 C42 -342 72 -330 74 -300 L72 -214 Z"/>
+    <path class="pc" fill="#1C8474" d="M-58 -336 L-42 -340 L-40 -218 L-56 -218 Z"/><path class="pc" fill="#1C8474" d="M58 -336 L42 -340 L40 -218 L56 -218 Z"/>
+    <ellipse class="pc" fill="#FBF7EE" cx="-76" cy="-318" rx="24" ry="26"/><ellipse class="pc" fill="#FBF7EE" cx="76" cy="-318" rx="24" ry="26"/>
+    <circle class="pc" fill="#F0C29C" cx="-110" cy="-206" r="16"/><circle class="pc" fill="#F0C29C" cx="110" cy="-206" r="16"/>
+    <path class="pc" fill="#FBF7EE" d="M-30 -342 L-2 -318 L-4 -348 Z"/><path class="pc" fill="#FBF7EE" d="M30 -342 L2 -318 L4 -348 Z"/>
+    <path class="pc" fill="#D62828" d="M-10 -328 L10 -328 L13 -276 L0 -262 L-13 -276 Z"/>
+    <circle fill="#2B2118" cx="0" cy="-452" r="104"/>
+    <ellipse class="pc" fill="#F0C29C" cx="-92" cy="-430" rx="14" ry="18"/><ellipse class="pc" fill="#F0C29C" cx="92" cy="-430" rx="14" ry="18"/>
+    <ellipse class="pc" fill="#F0C29C" cx="0" cy="-430" rx="88" ry="82"/>
+    <path class="pc" fill="#2B2118" d="M-100 -440 C-104 -540 104 -546 102 -446 L102 -458 L-100 -458 Z"/>
+    <path class="pc" fill="#2B2118" d="M-96 -460 L96 -460 L96 -444 L-96 -444 Z"/>
+    <path class="pc" fill="#D62828" d="M78 -520 L52 -540 L54 -500 Z"/><path class="pc" fill="#D62828" d="M78 -520 L104 -542 L104 -500 Z"/><circle fill="#B51F1F" cx="78" cy="-520" r="9"/>
+    <circle fill="#2B2118" cx="-32" cy="-416" r="14"/><circle fill="#2B2118" cx="32" cy="-416" r="14"/>
+    <circle fill="#fff" cx="-27" cy="-421" r="5"/><circle fill="#fff" cx="37" cy="-421" r="5"/><circle fill="#fff" cx="-36" cy="-410" r="2.5"/><circle fill="#fff" cx="28" cy="-410" r="2.5"/>
+    <circle fill="#F49A97" cx="-58" cy="-384" r="17"/><circle fill="#F49A97" cx="58" cy="-384" r="17"/>
+    <path class="pc" fill="#7A2633" d="M-20 -386 Q0 -356 20 -386 Z"/><path fill="#F07C86" d="M-10 -374 Q0 -364 10 -374 Q0 -370 -10 -374 Z"/>
+    <circle fill="url(#brad)" stroke="#5E4410" stroke-width="1.5" cx="-76" cy="-318" r="8"/><circle fill="url(#brad)" stroke="#5E4410" stroke-width="1.5" cx="76" cy="-318" r="8"/>
+  </g>
+</g>
+
+<!-- ===================== C. KOLASE SOBEK ===================== -->
+<g transform="translate(1590 1000) rotate(-2) scale(1.4)">
+  <g filter="url(#torn)">
+    <path fill="#2F241C" d="M24 -556 C112 -570 150 -470 112 -386 C104 -440 82 -496 20 -522 Z"/>
+    <path fill="#2BB5A0" d="M-96 -404 Q-96 -430 -66 -430 L66 -430 Q96 -430 96 -404 L98 -236 L-98 -236 Z"/>
+    <rect fill="#DDA27A" x="-44" y="-160" width="28" height="140"/><rect fill="#DDA27A" x="16" y="-160" width="28" height="140"/>
+    <rect fill="#EFE6D2" x="-46" y="-100" width="32" height="78"/><rect fill="#EFE6D2" x="14" y="-100" width="32" height="78"/>
+    <path fill="#2F2A26" d="M-64 0 L-62 -26 L-10 -26 L-8 0 Z"/><path fill="#2F2A26" d="M64 0 L62 -26 L10 -26 L8 0 Z"/>
+    <path fill="#E0362C" d="M-78 -266 L78 -266 L110 -148 L-110 -148 Z"/>
+    <path fill="none" stroke="#9E2A22" stroke-width="4" d="M-46 -260 L-64 -152 M-14 -260 L-20 -152 M18 -260 L24 -152 M50 -260 L66 -152"/>
+    <path fill="none" stroke="#DDA27A" stroke-width="26" stroke-linecap="round" d="M-82 -372 L-102 -300 L-90 -236 M82 -372 L104 -304 L92 -238"/>
+    <path fill="#EFE6D2" d="M-78 -262 L-80 -360 C-78 -392 -46 -404 0 -404 C46 -404 78 -392 80 -360 L78 -262 Z"/>
+    <path fill="#1F9C8A" d="M-64 -398 L-48 -402 L-46 -266 L-62 -266 Z M64 -398 L48 -402 L46 -266 L62 -266 Z"/>
+    <path fill="#EFE6D2" d="M-104 -372 L-60 -396 L-58 -350 L-96 -340 Z M104 -372 L60 -396 L58 -350 L96 -340 Z"/>
+    <path fill="#E0362C" d="M-10 -388 L10 -388 L14 -326 L0 -312 L-14 -326 Z"/>
+    <rect fill="#C78A64" x="-14" y="-424" width="28" height="26"/>
+    <path fill="#EFE6D2" d="M-34 -404 L-2 -376 L-4 -410 Z M34 -404 L2 -376 L4 -410 Z"/>
+    <path fill="#2F241C" d="M-64 -470 L-70 -520 L-40 -556 L0 -566 L44 -556 L66 -520 L64 -470 L40 -490 Z"/>
+    <path fill="#EBB892" d="M-54 -470 C-56 -420 -30 -404 0 -404 C30 -404 56 -420 54 -470 C54 -506 30 -526 0 -526 C-30 -526 -54 -506 -54 -470 Z"/>
+    <path fill="#2F241C" d="M-58 -478 L-50 -520 L-14 -540 L30 -536 L56 -510 L60 -478 L40 -498 L28 -484 L10 -504 L-8 -486 L-26 -506 L-40 -486 Z"/>
+    <path fill="#4B3A2E" d="M-30 -526 L10 -538 L40 -526 L8 -530 Z"/>
+    <path fill="#E0362C" d="M30 -548 L8 -566 L10 -532 Z M30 -548 L54 -566 L54 -532 Z"/>
+    <ellipse fill="#2F241C" cx="-14" cy="-466" rx="7" ry="9"/><ellipse fill="#2F241C" cx="24" cy="-466" rx="7" ry="9"/>
+    <path fill="none" stroke="#2F241C" stroke-width="5" stroke-linecap="round" d="M-26 -486 L-4 -490 M14 -490 L36 -486"/>
+    <circle fill="#E58C84" cx="-30" cy="-440" r="11"/><circle fill="#E58C84" cx="40" cy="-440" r="11"/>
+    <path fill="#7A2633" d="M-6 -432 Q8 -420 22 -434 Z"/>
+    <g fill="#B97A55"><circle cx="-36" cy="-452" r="2"/><circle cx="-28" cy="-456" r="2"/><circle cx="36" cy="-454" r="2"/><circle cx="44" cy="-450" r="2"/></g>
+  </g>
+</g>
+<g font-family="Fredoka, sans-serif" font-weight="600" font-size="36" fill="#3A2A1A" text-anchor="middle">
+  <text x="330" y="1062">A. Proporsional</text><text x="960" y="1062">B. Bulat ceria</text><text x="1590" y="1062">C. Kolase sobek</text>
+</g>
+</svg>
+</body>
+</html>

@@ -63,6 +63,6 @@ Screenshots are taken headless with Puppeteer (Chromium), 1280×800 @2x, each pr
 ## Notes
 
 - Don't add build/bundler tooling unless asked — "open directly in the browser" is part of the repo's design. **Exception:** `04. pitek` was intentionally built as an Electron app (electron-vite + Svelte + TypeScript) at the user's request; it's the one project with a build step. Keep new projects build-free unless the user explicitly asks otherwise.
-- Projects `18`–`41` were imported from older repos or local folders. `19`, `20`, `23`, `24`, `26`, `27`, `29`, and `38` need a runtime or build step and are registered with `openable:false`.
-- Video projects (`40`, `41`) hold production files only and are registered with `openable:false`. Never commit final renders, intermediate video, or WAV files.
+- Projects `18`–`42` were imported from older repos or local folders. `19`, `20`, `23`, `24`, `26`, `27`, `29`, and `38` need a runtime or build step and are registered with `openable:false`.
+- Video projects (`40`–`42`) never include final renders, intermediate video, or WAV files. `40` and `41` hold production files only (`openable:false`); `42` plays in the browser (`openable:true`) and also leaves out the original Pixabay music files.
 - The folder name `01. haystack-hunt ` has a **trailing space** — quote the path in the shell.

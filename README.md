@@ -48,6 +48,7 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 39 | [Dairy.co](39.%20dairy-co/) | 🖥️ Frontend | A single-file landing page for a fruit salad and es teler brand. |
 | 40 | [Misi Terakhir Sang Pahlawan](40.%20misi-terakhir-sang-pahlawan/) | 🎞️ Video | Production files for a vertical 2D animated video about heroes and the Rupiah (final video not included). |
 | 41 | [Surat untuk Mas TRIP](41.%20surat-untuk-mas-trip/) | 🎞️ Video | Production files for a vertical video told as a letter to a 1946 student soldier (final video not included). |
+| 42 | [Bandi & Lela Keliling Lamongan](42.%20bandi-lela-keliling-lamongan/) | 🎞️ Video | A 2D animated story about two fish touring Lamongan, playable in the browser (exported video not included). |
 
 ## Running the catalog & projects
 
@@ -113,7 +114,8 @@ one-day-one-code/
 ├── 38. neo-launcher/                  # Neo Launcher + preview.png
 ├── 39. dairy-co/                      # Dairy.co + preview.png
 ├── 40. misi-terakhir-sang-pahlawan/   # Misi Terakhir Sang Pahlawan + preview.png
-└── 41. surat-untuk-mas-trip/          # Surat untuk Mas TRIP + preview.png
+├── 41. surat-untuk-mas-trip/          # Surat untuk Mas TRIP + preview.png
+└── 42. bandi-lela-keliling-lamongan/  # Bandi & Lela Keliling Lamongan + preview.png
 ```
 
 ## Categories
@@ -125,7 +127,7 @@ one-day-one-code/
 - **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
 - **🧪 Snippets** — scratch experiments and coding-challenge solutions (30, 31, 34–36).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).
-- **🎞️ Video** — production files for video projects, without the final renders (40, 41).
+- **🎞️ Video** — video projects without the final renders (40–42).
 
 ---
 
