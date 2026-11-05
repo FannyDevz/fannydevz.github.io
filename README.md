@@ -34,13 +34,10 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 25 | [Simple Homepage](25.%20simple-homepage-with-bookmarks/) | 🛠️ Tool | A minimal browser start page with grouped bookmarks that you edit in a single JavaScript file. |
 | 26 | [URL Lengthener](26.%20url-lengthener/) | 🛠️ Tool | The opposite of a URL shortener: it turns a link into a 10,000-character random URL that redirects to the original. |
 | 27 | [Twistadoskrom](27.%20twistadoskrom/) | 🛠️ Tool | A small converter that cleans up a disguised link and rewrites it into a normal twitter.com URL. The conversion runs in PHP. |
-| 28 | [WhatsApp Digitalku](28.%20whatsapp-chrome-extension/) | 🛠️ Tool | A Chrome extension for WhatsApp Web that adds a one-click button to copy the current chat's phone number, plus a popup. |
 | 29 | [AES File Encryption](29.%20aes-encryption/) | 🛠️ Tool | A PHP dashboard for encrypting and decrypting files with AES-128, with login and history pages. A learning project that needs PHP 5 and MySQL. |
-| 30 | [Desktop Notification](30.%20desktop-notification/) | 🧪 Snippets | A one-button demo of the browser Notification API: it asks for permission, then shows a desktop notification. |
 | 31 | [Mirrored Circles](31.%20mirrored-circles/) | 🧪 Snippets | Coloured circles trail the mouse, and BroadcastChannel mirrors their movement in other open windows of the same page. |
 | 32 | [Somebody to You](32.%20somebody/) | 🎮 Game | An interactive love-confession page: enter a name, read the message, and answer yes or no, with music, video, and a draggable window. |
 | 33 | [For You Homescreen](33.%20for-you/) | 🛠️ Tool | A browser homescreen with a clock and a background that follows the time of day. Pick Ubuntu, Dawn, Noon, Sunset, Midnight, or RGB styles. |
-| 34 | [Contact Widget](34.%20contact-widget/) | 🧪 Snippets | A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders. |
 | 35 | [Travelling Salesman](35.%20travelling-salesman/) | 🧪 Snippets | A brute-force Travelling Salesman solver that tries every route through a 4-node graph and prints each step. |
 | 36 | [Coding Challenge Solutions](36.%20coding-challenge-solutions/) | 🧪 Snippets | JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter. |
 | 37 | [Sonic the Jomox Game](37.%20sonic-the-jomox-game/) | 🎮 Game | A Phaser platformer reskinned with edited assets, based on rzencoder's Sonic game (unofficial fan project). |
@@ -49,10 +46,11 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 40 | [Misi Terakhir Sang Pahlawan](40.%20misi-terakhir-sang-pahlawan/) | 🎞️ Video | Production files for a vertical 2D animated video about heroes and the Rupiah (final video not included). |
 | 41 | [Surat untuk Mas TRIP](41.%20surat-untuk-mas-trip/) | 🎞️ Video | Production files for a vertical video told as a letter to a 1946 student soldier (final video not included). |
 | 42 | [Bandi & Lela Keliling Lamongan](42.%20bandi-lela-keliling-lamongan/) | 🎞️ Video | A 2D animated story about two fish touring Lamongan, playable in the browser (exported video not included). |
+| 43 | [Pelihara Batu Virtual](43.%20pelihara-batu-virtual/) | 🎮 Game | A virtual pet game about a rock that never moves, with stats, accessories, a diary, and evolutions. |
 
 ## Running the catalog & projects
 
-Projects `01`–`18`, `21`, `25`, `30`–`34` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
+Projects `01`–`18`, `21`, `25`, `31`–`33`, `43` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
 
 ```bash
 # from the repo root — to open the catalog
@@ -101,13 +99,10 @@ one-day-one-code/
 ├── 25. simple-homepage-with-bookmarks/ # Simple Homepage + preview.png
 ├── 26. url-lengthener/                 # URL Lengthener + preview.png
 ├── 27. twistadoskrom/                  # Twistadoskrom + preview.png
-├── 28. whatsapp-chrome-extension/      # WhatsApp Digitalku + preview.png
 ├── 29. aes-encryption/                 # AES File Encryption + preview.png
-├── 30. desktop-notification/           # Desktop Notification + preview.png
 ├── 31. mirrored-circles/               # Mirrored Circles + preview.png
 ├── 32. somebody/                       # Somebody to You + preview.png
 ├── 33. for-you/                        # For You Homescreen + preview.png
-├── 34. contact-widget/                 # Contact Widget + preview.png
 ├── 35. travelling-salesman/            # Travelling Salesman + preview.png
 ├── 36. coding-challenge-solutions/     # Coding Challenge Solutions + preview.png
 ├── 37. sonic-the-jomox-game/           # Sonic the Jomox Game + preview.png
@@ -115,7 +110,8 @@ one-day-one-code/
 ├── 39. dairy-co/                      # Dairy.co + preview.png
 ├── 40. misi-terakhir-sang-pahlawan/   # Misi Terakhir Sang Pahlawan + preview.png
 ├── 41. surat-untuk-mas-trip/          # Surat untuk Mas TRIP + preview.png
-└── 42. bandi-lela-keliling-lamongan/  # Bandi & Lela Keliling Lamongan + preview.png
+├── 42. bandi-lela-keliling-lamongan/  # Bandi & Lela Keliling Lamongan + preview.png
+└── 43. pelihara-batu-virtual/         # Pelihara Batu Virtual + preview.png
 ```
 
 ## Categories
@@ -123,9 +119,9 @@ one-day-one-code/
 - **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎬 Landing Page** — cinematic presentation & marketing pages with animation.
 - **🖥️ Frontend** — landing-page exercises (07–12, 39).
-- **🛠️ Tool** — small utilities, apps, and browser extensions (24–29, 33, 38).
+- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38).
 - **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
-- **🧪 Snippets** — scratch experiments and coding-challenge solutions (30, 31, 34–36).
+- **🧪 Snippets** — scratch experiments and coding-challenge solutions (31, 35, 36).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).
 - **🎞️ Video** — video projects without the final renders (40–42).
 

@@ -1084,26 +1084,6 @@ php -S localhost:8000   # http://localhost:8000
 HTML + CSS + Vanilla JS, with a PHP endpoint.
 </script>
 
-<script type="text/markdown" data-readme="waext">
-# 💬 WhatsApp Digitalku
-
-A **Chrome extension** for WhatsApp Web that adds a button to copy the current chat's phone number, plus a popup.
-
-![Preview](preview.png)
-
-> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
-
-## Run
-
-1. Open `chrome://extensions` and turn on **Developer mode**.
-2. Click **Load unpacked** and pick this folder.
-3. Open [WhatsApp Web](https://web.whatsapp.com/).
-
-## Tech
-
-Chrome Extension Manifest V3: a content script, a background service worker, and a popup.
-</script>
-
 <script type="text/markdown" data-readme="aes">
 # 🔐 AES File Encryption
 
@@ -1166,28 +1146,6 @@ python3 -m http.server 8000   # http://localhost:8000
 Single-file `index.html` with jQuery, Bootstrap, Spectrum, and Baffle from CDNs. Settings are kept in `localStorage`.
 </script>
 
-<script type="text/markdown" data-readme="rc30">
-# 🔔 Desktop Notification
-
-A one-button demo of the browser Notification API: it asks for permission, then shows a desktop notification.
-
-![Preview](preview.png)
-
-> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
-
-## Run
-
-Open `index.html` directly in a browser, or use a local server:
-
-```bash
-python3 -m http.server 8000   # http://localhost:8000
-```
-
-## Tech
-
-Single-file HTML + Vanilla JS, using the Notification API.
-</script>
-
 <script type="text/markdown" data-readme="rc31">
 # 🟣 Mirrored Circles
 
@@ -1210,28 +1168,6 @@ Open the page in two windows to see the mirroring.
 ## Tech
 
 Single-file HTML + CSS + Vanilla JS, using the BroadcastChannel API.
-</script>
-
-<script type="text/markdown" data-readme="rc34">
-# ☎️ Contact Widget
-
-A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders.
-
-![Preview](preview.png)
-
-> Part of the **one-day-one-code** repo — see the full catalog in [`../index.html`](../index.html).
-
-## Run
-
-Open `index.html` directly in a browser, or use a local server:
-
-```bash
-python3 -m http.server 8000   # http://localhost:8000
-```
-
-## Tech
-
-HTML + CSS + Vanilla JS.
 </script>
 
 <script type="text/markdown" data-readme="rc35">
@@ -1444,6 +1380,51 @@ The exported video and the original music files are not included, so scripts in 
   - Abon bandeng by Syakirah2020, Wikimedia Commons (CC BY 4.0)
   - Otak-otak bandeng: promotional photo by Otak-Otak Bandeng Bu Reza, Lamongan. All rights belong to the owner.
 - **Logo:** PGRI
+</script>
+
+<script type="text/markdown" data-readme="batuvirtual">
+# Pelihara Batu Virtual
+
+![Preview](preview.png)
+
+A virtual pet game about a rock. Adopt one, name it, and look after it. It does not move, and it never will. The game is in Indonesian and runs offline with no dependencies.
+
+## How to play
+
+Pick one of six rock types, then name your rock. Each rock is drawn from a random seed, so no two look the same.
+
+| Action | How | Effect |
+| --- | --- | --- |
+| Pet (Elus) | Click the rock or the button | More happiness, less loneliness |
+| Talk (Ajak bicara) | Type a message | Less loneliness. The rock replies with "..." |
+| Clean (Bersihkan) | Use the button, or drag across the rock | More cleanliness. Dirt and moss build up if you don't |
+| Sunbathe (Jemur) | Use the button | More energy |
+
+## Features
+
+- **Stats** for happiness, cleanliness, energy, and loneliness, which change in real time and while you're away
+- **Seven bond levels** that unlock 12 accessories and 5 backgrounds
+- **Three evolution stages**, with a title based on how you treat the rock
+- **Diary** that records events and what you said to the rock
+- **15 achievements**, 5 of them secret
+- **Letter from the rock** when you come back after being away
+- **Random events** such as ants, butterflies, and rain, plus a very rare chance that the rock moves
+- **Real-time sky** that follows your clock from morning to night
+- **Settings** for sound, reduced motion, renaming, and releasing the rock, which deletes its save
+
+## Run
+
+Open `index.html` directly, or use a local server:
+
+```bash
+cd "43. pelihara-batu-virtual" && python3 -m http.server 8000
+```
+
+Then open http://localhost:8000.
+
+## Tech
+
+HTML, CSS, and vanilla JavaScript. The rocks, accessories, and backgrounds are generated SVG, sounds use the Web Audio API, and progress is saved in `localStorage`.
 </script>
 
 <script>
@@ -1668,28 +1649,12 @@ const PROJECTS = [
     entry:"index.html", openable:false
   },
   {
-    n:"28", id:"waext", title:"WhatsApp Digitalku",
-    jp:"WhatsApp Web Chrome Extension", cat:"tool",
-    shot:"28. whatsapp-chrome-extension/preview.png", folder:"28. whatsapp-chrome-extension",
-    desc:"A Chrome extension for WhatsApp Web that adds a one-click button to copy the current chat's phone number, plus a popup.",
-    tags:["Chrome Extension","Manifest V3","JavaScript"],
-    entry:"popup.html", openable:false
-  },
-  {
     n:"29", id:"aes", title:"AES File Encryption",
     jp:"AES-128 File Encrypt & Decrypt", cat:"tool",
     shot:"29. aes-encryption/preview.png", folder:"29. aes-encryption",
     desc:"A PHP dashboard for encrypting and decrypting files with AES-128, with login and history pages. A learning project that needs PHP 5 and MySQL.",
     tags:["PHP","MySQL","AES-128","Backend"],
     entry:"index.php", openable:false
-  },
-  {
-    n:"30", id:"rc30", title:"Desktop Notification",
-    jp:"Browser Notification Demo", cat:"snippet",
-    shot:"30. desktop-notification/preview.png", folder:"30. desktop-notification",
-    desc:"A one-button demo of the browser Notification API: it asks for permission, then shows a desktop notification.",
-    tags:["Vanilla JS","Notification API"],
-    entry:"index.html", openable:true
   },
   {
     n:"31", id:"rc31", title:"Mirrored Circles",
@@ -1713,14 +1678,6 @@ const PROJECTS = [
     shot:"33. for-you/preview.png", folder:"33. for-you",
     desc:"A browser homescreen with a clock and a background that follows the time of day. Pick Ubuntu, Dawn, Noon, Sunset, Midnight, or RGB styles.",
     tags:["jQuery","Bootstrap","Start page","localStorage"],
-    entry:"index.html", openable:true
-  },
-  {
-    n:"34", id:"rc34", title:"Contact Widget",
-    jp:"Floating Contact Button", cat:"snippet",
-    shot:"34. contact-widget/preview.png", folder:"34. contact-widget",
-    desc:"A floating phone button that opens a contact popup with WhatsApp and Telegram options. The links are placeholders.",
-    tags:["HTML","CSS","Vanilla JS"],
     entry:"index.html", openable:true
   },
   {
@@ -1785,6 +1742,14 @@ const PROJECTS = [
     shot:"42. bandi-lela-keliling-lamongan/preview.png", folder:"42. bandi-lela-keliling-lamongan",
     desc:"A 4-minute 2D animated story in Indonesian about two fish touring Lamongan, hand-coded in HTML, SVG, and JavaScript with voices, music, and sound effects. The exported video is not included.",
     tags:["HTML","SVG","JavaScript","Animation"],
+    entry:"index.html", openable:true
+  },
+  {
+    n:"43", id:"batuvirtual", title:"Pelihara Batu Virtual",
+    jp:"A Virtual Pet That Does Nothing", cat:"game",
+    shot:"43. pelihara-batu-virtual/preview.png", folder:"43. pelihara-batu-virtual",
+    desc:"Adopt a rock, name it, and look after it. It never moves, but it has stats, accessories, a diary, achievements, and three evolutions that are hard to notice.",
+    tags:["JavaScript","SVG","Web Audio","localStorage"],
     entry:"index.html", openable:true
   },
 ];

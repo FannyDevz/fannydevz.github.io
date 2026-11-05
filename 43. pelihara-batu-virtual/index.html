@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pelihara Batu Virtual</title>
+<meta name="description" content="Adopsi seekor batu. Dia tidak bergerak. Dia tetap lebih sibuk darimu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 25c-2-6 2-13 8-16 5-3 12-2 15 3 3 5 2 10 0 13z' fill='%238b8578'/%3E%3Cpath d='M9 15c2-3 5-4 8-4' stroke='%23c4bdac' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ Adopsi ============ -->
+<main id="adopt" class="adopt" hidden>
+  <header class="adopt-head">
+    <p class="kicker">Lembaga Adopsi Mineral Terlantar</p>
+    <h1>Pelihara Batu Virtual</h1>
+    <p class="tagline">Dia tidak bergerak. Dia tetap lebih sibuk darimu.</p>
+  </header>
+
+  <div class="adopt-body">
+    <section aria-labelledby="pickTitle">
+      <h2 id="pickTitle" class="section-label">1. Pilih calon anggota keluarga</h2>
+      <div id="typeGrid" class="type-grid" role="radiogroup" aria-labelledby="pickTitle"></div>
+    </section>
+
+    <form id="adoptForm" class="adopt-form" novalidate>
+      <h2 class="section-label">2. Surat adopsi</h2>
+      <div class="adopt-preview" aria-hidden="true">
+        <svg id="adoptPreview" viewBox="-190 -230 380 250"></svg>
+      </div>
+      <p id="adoptSpecies" class="adopt-species"></p>
+      <p id="adoptTrait" class="adopt-trait"></p>
+      <button type="button" id="rerollBtn" class="btn btn-quiet">Cari yang lain dari jenis ini</button>
+
+      <label class="field" for="nameInput">Nama batu</label>
+      <div class="name-row">
+        <input id="nameInput" type="text" maxlength="20" autocomplete="off" placeholder="mis. Pak Slamet">
+        <button type="button" id="suggestBtn" class="btn btn-quiet">Usulkan</button>
+      </div>
+      <p id="nameError" class="form-error" role="alert"></p>
+
+      <button type="submit" class="btn btn-primary btn-wide">Tanda tangani surat adopsi</button>
+      <p class="fineprint">Batu tidak dapat dikembalikan. Batu juga tidak akan pergi.</p>
+    </form>
+  </div>
+</main>
+
+<!-- ============ Permainan ============ -->
+<div id="app" class="app" hidden>
+
+  <aside class="spec" aria-label="Kartu spesimen">
+    <p id="specNo" class="kicker"></p>
+    <h1 id="rockName" class="rock-name"></h1>
+    <p id="rockSpecies" class="rock-species"></p>
+    <p id="rockTitle" class="rock-title"></p>
+
+    <div class="meters">
+      <div class="meter" data-stat="happy"><span class="m-label">Kebahagiaan</span><span class="m-val"></span><div class="m-bar"><i></i></div></div>
+      <div class="meter" data-stat="clean"><span class="m-label">Kebersihan</span><span class="m-val"></span><div class="m-bar"><i></i></div></div>
+      <div class="meter" data-stat="energy"><span class="m-label">Energi</span><span class="m-val"></span><div class="m-bar"><i></i></div></div>
+      <div class="meter inverse" data-stat="lonely"><span class="m-label">Kesepian</span><span class="m-val"></span><div class="m-bar"><i></i></div></div>
+    </div>
+
+    <div class="bond">
+      <div class="bond-row"><span class="m-label">Kedekatan</span><span id="bondLevel" class="m-val"></span></div>
+      <p id="bondName" class="bond-name"></p>
+      <div class="m-bar bond-bar"><i id="bondFill"></i></div>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Suasana hati</dt><dd id="factMood"></dd></div>
+      <div><dt>Tidak bergerak selama</dt><dd id="factStill" class="num"></dd></div>
+      <div><dt>Jarak tempuh</dt><dd id="factDist" class="num"></dd></div>
+      <div><dt>Hal yang dipikirkan</dt><dd id="factThoughts" class="num"></dd></div>
+      <div><dt>Kesimpulan</dt><dd class="num">0</dd></div>
+      <div><dt>Diadopsi</dt><dd id="factAdopted"></dd></div>
+    </dl>
+  </aside>
+
+  <section class="center" aria-label="Batu">
+    <div id="stage" class="stage">
+      <svg id="stageSvg" viewBox="0 0 800 560" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Batu peliharaanmu. Dia diam.">
+        <g id="sceneLayer"></g>
+        <rect id="tintBack" width="800" height="560" pointer-events="none"></rect>
+        <g id="skyLayer" pointer-events="none"></g>
+        <g id="rockLayer" tabindex="0" role="button" aria-label="Elus batu"></g>
+        <g id="fxLayer" pointer-events="none"></g>
+        <rect id="tintFront" width="800" height="560" pointer-events="none"></rect>
+      </svg>
+      <p id="clockLabel" class="clock num"></p>
+      <div class="scalebar" aria-hidden="true"><i></i><span>5 cm, kira-kira</span></div>
+      <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="narration">
+      <span class="narr-label">Narator</span>
+      <p id="narr" aria-live="polite"></p>
+      <form id="talkForm" class="talk" hidden>
+        <input id="talkInput" type="text" maxlength="80" autocomplete="off" aria-label="Yang ingin kamu katakan kepada batu">
+        <button type="submit" class="btn btn-primary">Katakan</button>
+        <button type="button" id="talkCancel" class="btn btn-quiet">Batal</button>
+      </form>
+    </div>
+
+    <div class="actions">
+      <button class="btn act" data-act="pet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></svg>Elus</button>
+      <button class="btn act" data-act="talk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg>Ajak bicara</button>
+      <button class="btn act" data-act="clean"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="17" cy="8" r="3"/><circle cx="18" cy="17" r="2"/></svg>Bersihkan</button>
+      <button class="btn act" data-act="sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>Jemur</button>
+    </div>
+    <p class="hint">Klik batu untuk mengelus. Seret di atasnya untuk menggosok.</p>
+  </section>
+
+  <aside class="side" aria-label="Lemari, buku harian, pencapaian, dan pengaturan">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-closet" aria-controls="pane-closet" aria-selected="true">Lemari</button>
+      <button role="tab" id="tab-diary" aria-controls="pane-diary" aria-selected="false">Buku harian</button>
+      <button role="tab" id="tab-ach" aria-controls="pane-ach" aria-selected="false">Pencapaian</button>
+      <button role="tab" id="tab-set" aria-controls="pane-set" aria-selected="false">Atur</button>
+    </div>
+
+    <div id="pane-closet" class="pane" role="tabpanel" aria-labelledby="tab-closet"></div>
+    <div id="pane-diary" class="pane" role="tabpanel" aria-labelledby="tab-diary" hidden></div>
+    <div id="pane-ach" class="pane" role="tabpanel" aria-labelledby="tab-ach" hidden></div>
+    <div id="pane-set" class="pane" role="tabpanel" aria-labelledby="tab-set" hidden>
+      <div class="set-group">
+        <label class="field" for="renameInput">Ganti nama</label>
+        <form id="renameForm" class="name-row">
+          <input id="renameInput" type="text" maxlength="20" autocomplete="off">
+          <button type="submit" class="btn btn-quiet">Simpan</button>
+        </form>
+      </div>
+      <div class="set-group">
+        <label class="check"><input type="checkbox" id="optSound"> Suara</label>
+        <label class="check"><input type="checkbox" id="optMotion"> Kurangi gerakan dan partikel</label>
+        <p class="fineprint">Batunya sendiri tetap tidak bergerak, apa pun pilihanmu.</p>
+      </div>
+      <div class="set-group">
+        <p id="storageNote" class="fineprint"></p>
+        <button id="resetBtn" class="btn btn-danger">Lepaskan batu ke alam</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<dialog id="modal" class="modal" aria-labelledby="modalTitle">
+  <p id="modalKicker" class="kicker"></p>
+  <h2 id="modalTitle"></h2>
+  <div id="modalRock" class="modal-rock" aria-hidden="true"></div>
+  <div id="modalBody" class="modal-body"></div>
+  <div id="modalActions" class="modal-actions"></div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
