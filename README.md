@@ -47,10 +47,13 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 41 | [Surat untuk Mas TRIP](41.%20surat-untuk-mas-trip/) | 🎞️ Video | Production files for a vertical video told as a letter to a 1946 student soldier (final video not included). |
 | 42 | [Bandi & Lela Keliling Lamongan](42.%20bandi-lela-keliling-lamongan/) | 🎞️ Video | A 2D animated story about two fish touring Lamongan, playable in the browser (exported video not included). |
 | 43 | [Pelihara Batu Virtual](43.%20pelihara-batu-virtual/) | 🎮 Game | A virtual pet game about a rock that never moves, with stats, accessories, a diary, and evolutions. |
+| 44 | [The Button Apocalypse](44.%20the-button-apocalypse/) | 🎮 Game | An arcade game about one big button that dodges, shrinks, lies, and ends in a boss fight. |
+| 45 | [Generator Alasan Tidak Produktif](45.%20generator-alasan-tidak-produktif/) | 🎮 Game | A generator of absurd excuses in Indonesian, with favorites, a daily excuse, and shareable PNG cards. |
+| 46 | [Roda Keputusan Orang Gabut](46.%20roda-keputusan-orang-gabut/) | 🛠️ Tool | A decision wheel with editable options, presets, saved wheels, and a chaos mode. |
 
 ## Running the catalog & projects
 
-Projects `01`–`18`, `21`, `25`, `31`–`33`, `43` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
+Projects `01`–`18`, `21`, `25`, `31`–`33`, `43`–`46` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
 
 ```bash
 # from the repo root — to open the catalog
@@ -111,7 +114,10 @@ one-day-one-code/
 ├── 40. misi-terakhir-sang-pahlawan/   # Misi Terakhir Sang Pahlawan + preview.png
 ├── 41. surat-untuk-mas-trip/          # Surat untuk Mas TRIP + preview.png
 ├── 42. bandi-lela-keliling-lamongan/  # Bandi & Lela Keliling Lamongan + preview.png
-└── 43. pelihara-batu-virtual/         # Pelihara Batu Virtual + preview.png
+├── 43. pelihara-batu-virtual/         # Pelihara Batu Virtual + preview.png
+├── 44. the-button-apocalypse/         # The Button Apocalypse + preview.png
+├── 45. generator-alasan-tidak-produktif/  # Generator Alasan Tidak Produktif + preview.png
+└── 46. roda-keputusan-orang-gabut/    # Roda Keputusan Orang Gabut + preview.png
 ```
 
 ## Categories
@@ -119,7 +125,7 @@ one-day-one-code/
 - **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎬 Landing Page** — cinematic presentation & marketing pages with animation.
 - **🖥️ Frontend** — landing-page exercises (07–12, 39).
-- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38).
+- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38, 46).
 - **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
 - **🧪 Snippets** — scratch experiments and coding-challenge solutions (31, 35, 36).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).

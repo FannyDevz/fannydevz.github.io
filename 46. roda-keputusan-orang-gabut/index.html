@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roda Keputusan Orang Gabut</title>
+<meta name="description" content="Serahkan keputusan penting hidupmu kepada roda.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23f2b632'/%3E%3Cpath d='M16 16V3a13 13 0 0 1 13 13z' fill='%23e8483f'/%3E%3Cpath d='M16 16h13a13 13 0 0 1-13 13z' fill='%232aa7a1'/%3E%3Cpath d='M16 16v13A13 13 0 0 1 3 16z' fill='%23fff3d6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="stage-col">
+  <header class="marquee">
+    <h1>Roda Keputusan <span>Orang Gabut</span></h1>
+    <p>Serahkan keputusan penting hidupmu kepada roda.</p>
+  </header>
+
+  <div class="wheel-wrap">
+    <canvas id="wheel" role="img" aria-label="Roda keputusan"></canvas>
+    <svg id="pointer" class="pointer" viewBox="0 0 60 76" aria-hidden="true"><path d="M30 74 L6 22 A26 26 0 1 1 54 22 Z" fill="#fff3d6" stroke="#2b1236" stroke-width="4" stroke-linejoin="round"/><circle cx="30" cy="26" r="9" fill="#e8483f" stroke="#2b1236" stroke-width="3"/></svg>
+    <button id="hub" class="hub" type="button" aria-label="Putar roda">Putar</button>
+  </div>
+
+  <button id="spinBtn" class="spin" type="button">Putar</button>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+</main>
+
+<aside class="side">
+  <div class="tabs" role="tablist">
+    <button id="tab-opt" role="tab" type="button" aria-controls="pane-opt" aria-selected="true">Pilihan</button>
+    <button id="tab-pre" role="tab" type="button" aria-controls="pane-pre" aria-selected="false">Preset</button>
+    <button id="tab-his" role="tab" type="button" aria-controls="pane-his" aria-selected="false">Riwayat</button>
+  </div>
+
+  <section id="pane-opt" class="pane" role="tabpanel" aria-labelledby="tab-opt">
+    <form id="addForm" class="add-row">
+      <input id="addInput" type="text" maxlength="50" autocomplete="off" placeholder="Tambah pilihan" aria-label="Tambah pilihan">
+      <button class="btn btn-hot" type="submit">Tambah</button>
+    </form>
+    <p id="optCount" class="count"></p>
+    <ol id="optList" class="opt-list"></ol>
+
+    <div class="switches">
+      <label><input id="optNoRepeat" type="checkbox"> Jangan ulangi hasil terakhir</label>
+      <label><input id="optRemove" type="checkbox"> Buang pilihan setelah terpilih</label>
+      <label><input id="optChaos" type="checkbox"> <b>Mode chaos</b></label>
+      <p class="hint">Dalam mode chaos, roda kadang berubah pikiran dan memilih sesuatu dari preset lain.</p>
+      <label><input id="optSound" type="checkbox"> Suara</label>
+      <label><input id="optMotion" type="checkbox"> Kurangi gerakan</label>
+    </div>
+  </section>
+
+  <section id="pane-pre" class="pane" role="tabpanel" aria-labelledby="tab-pre" hidden>
+    <h2>Preset bawaan</h2>
+    <div id="builtinList" class="preset-grid"></div>
+    <h2>Roda tersimpan</h2>
+    <form id="saveForm" class="add-row">
+      <input id="saveName" type="text" maxlength="30" autocomplete="off" placeholder="Nama roda ini" aria-label="Nama roda yang disimpan">
+      <button class="btn" type="submit">Simpan</button>
+    </form>
+    <p id="saveNote" class="count" role="status"></p>
+    <ul id="savedList" class="saved-list"></ul>
+  </section>
+
+  <section id="pane-his" class="pane" role="tabpanel" aria-labelledby="tab-his" hidden>
+    <ol id="hisList" class="his-list"></ol>
+    <button id="clearHis" class="btn" type="button">Hapus riwayat</button>
+  </section>
+</aside>
+
+<dialog id="result" class="result" aria-labelledby="resLabel">
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="result-body">
+    <p id="resLabel" class="res-label">Roda memutuskan</p>
+    <p id="resText" class="res-text"></p>
+    <p id="resChaos" class="res-chaos" hidden></p>
+    <p id="resNote" class="res-note"></p>
+    <div class="res-actions">
+      <button id="resAccept" class="btn btn-hot" type="button">Terima nasib</button>
+      <button id="resAgain" class="btn" type="button">Putar lagi</button>
+      <button id="resShare" class="btn" type="button">Bagikan</button>
+    </div>
+    <p id="resShareNote" class="res-share" role="status"></p>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>

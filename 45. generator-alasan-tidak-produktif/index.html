@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Generator Alasan Tidak Produktif</title>
+<meta name="description" content="Alasanmu valid. Produktivitasmu tidak.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23ff4b2b'/%3E%3Cpath d='M16 5v15M16 24v3' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <h1>Generator Alasan <em>Tidak Produktif</em></h1>
+  <p>Alasanmu valid. Produktivitasmu tidak.</p>
+</header>
+
+<main class="layout">
+  <section class="desk" aria-label="Pembuat alasan">
+    <article id="card" class="card" data-theme="poster">
+      <div class="card-top">
+        <span id="cardLabel">Alasan No. 000</span>
+        <span id="cardMeta"></span>
+      </div>
+      <p id="excuse" class="excuse" aria-live="polite" tabindex="-1"></p>
+      <div class="card-foot">
+        <span id="cardSign">Dikeluarkan oleh Kantor Alasan Nasional</span>
+        <span id="stamp" class="stamp" aria-hidden="true">SAH</span>
+      </div>
+    </article>
+
+    <button id="generateBtn" class="generate" type="button">Berikan alasan</button>
+
+    <div class="card-actions">
+      <button id="copyBtn" class="action" type="button">Salin</button>
+      <button id="favBtn" class="action" type="button" aria-pressed="false">Simpan ke favorit</button>
+      <button id="shareBtn" class="action" type="button">Bagikan kartu</button>
+      <button id="dailyBtn" class="action" type="button">Alasan hari ini</button>
+    </div>
+    <p id="notice" class="notice" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="controls" aria-label="Pengaturan alasan">
+    <fieldset>
+      <legend>Kategori</legend>
+      <div id="catChips" class="chips"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tingkat absurditas</legend>
+      <input id="level" type="range" min="1" max="4" step="1" value="2" aria-describedby="levelName">
+      <p id="levelName" class="level-name"></p>
+    </fieldset>
+
+    <div class="field">
+      <label for="activity">Yang sedang kamu hindari <small>(opsional)</small></label>
+      <input id="activity" type="text" maxlength="60" autocomplete="off" placeholder="mis. revisi skripsi">
+    </div>
+
+    <fieldset>
+      <legend>Tema kartu</legend>
+      <div id="themeChips" class="chips"></div>
+    </fieldset>
+
+    <dl class="tally">
+      <div><dt>Alasan dikeluarkan</dt><dd id="statCount">0</dd></div>
+      <div><dt>Waktu produktif diselamatkan</dt><dd id="statSaved">0 menit</dd></div>
+    </dl>
+  </section>
+
+  <section class="archive" aria-label="Arsip alasan">
+    <div class="tabs" role="tablist">
+      <button id="tab-fav" role="tab" type="button" aria-selected="true" aria-controls="pane-fav">Favorit <span id="favCount"></span></button>
+      <button id="tab-his" role="tab" type="button" aria-selected="false" aria-controls="pane-his">Riwayat</button>
+    </div>
+    <div id="pane-fav" class="pane" role="tabpanel" aria-labelledby="tab-fav"></div>
+    <div id="pane-his" class="pane" role="tabpanel" aria-labelledby="tab-his" hidden></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

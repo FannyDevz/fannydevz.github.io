@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Button Apocalypse</title>
+<meta name="description" content="Satu tombol. Terlalu banyak masalah.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='13' fill='%23511'/%3E%3Ccircle cx='16' cy='14' r='13' fill='%23e5312b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game">
+  <header class="hud">
+    <div class="readout"><span>Skor</span><b id="hudScore">0</b></div>
+    <div class="readout"><span>Klik</span><b id="hudClicks">0</b></div>
+    <div class="readout"><span>Kombo</span><b id="hudCombo">x1</b></div>
+    <div class="readout"><span>Nyawa</span><b id="hudLives" aria-label="Nyawa"></b></div>
+    <div class="status">
+      <span id="hudPhase">Siaga</span>
+      <div class="progress"><i id="hudProgress"></i></div>
+    </div>
+    <button id="pauseBtn" class="tool" type="button" aria-label="Jeda">Jeda</button>
+  </header>
+
+  <div id="bossBar" class="boss-bar" hidden>
+    <span>TOMBOL TERAKHIR</span>
+    <div class="progress"><i id="bossFill"></i></div>
+  </div>
+  <p id="ruleCard" class="rule-card" hidden></p>
+
+  <main id="arena" class="arena" aria-label="Arena tombol">
+    <div id="field" class="field"></div>
+    <p id="banner" class="banner" aria-hidden="true"></p>
+  </main>
+
+  <footer class="ticker"><span class="led" aria-hidden="true"></span><p id="ticker" role="status" aria-live="polite">Sistem siap. Tidak ada yang perlu dikhawatirkan.</p></footer>
+
+  <!-- Layar judul -->
+  <section id="titleScreen" class="overlay title-screen">
+    <p class="stencil">Panel darurat No. 44</p>
+    <h1>The Button<br>Apocalypse</h1>
+    <p class="tagline">Satu tombol. Terlalu banyak masalah.</p>
+    <button id="startBtn" class="bb bb-start" type="button"><span class="cap">JANGAN<br>DITEKAN</span></button>
+    <p id="titleBest" class="best"></p>
+    <div class="row">
+      <button id="endlessBtn" class="tool" type="button" hidden>Mode Endless</button>
+      <button id="panelBtn" class="tool" type="button">Pencapaian dan skin</button>
+    </div>
+  </section>
+
+  <!-- Jeda -->
+  <section id="pauseScreen" class="overlay" hidden>
+    <h2>Dijeda</h2>
+    <p>Tombol-tombol sedang menunggu. Mereka ingat semuanya.</p>
+    <div class="row">
+      <button id="resumeBtn" class="tool tool-hot" type="button">Lanjut</button>
+      <button id="quitBtn" class="tool" type="button">Menyerah</button>
+    </div>
+    <div class="options">
+      <label><input id="optSound" type="checkbox"> Suara</label>
+      <label><input id="optCalm" type="checkbox"> Kurangi guncangan dan kedipan</label>
+    </div>
+  </section>
+
+  <!-- Menang palsu -->
+  <section id="fakeWin" class="overlay fake-win" hidden>
+    <h2 id="fakeTitle">KAMU MENANG!</h2>
+    <p id="fakeText"></p>
+    <button id="fakeBtn" class="tool tool-hot" type="button">Klaim hadiah</button>
+  </section>
+
+  <!-- Akhir -->
+  <section id="endScreen" class="overlay" hidden>
+    <p id="endKicker" class="stencil"></p>
+    <h2 id="endTitle"></h2>
+    <p id="endText"></p>
+    <dl id="endStats" class="stats"></dl>
+    <div class="row">
+      <button id="againBtn" class="tool tool-hot" type="button">Main lagi</button>
+      <button id="endEndlessBtn" class="tool" type="button" hidden>Mode Endless</button>
+      <button id="menuBtn" class="tool" type="button">Menu</button>
+    </div>
+  </section>
+</div>
+
+<dialog id="panel" class="panel" aria-labelledby="panelTitle">
+  <div class="panel-head">
+    <h2 id="panelTitle">Arsip Tombol</h2>
+    <button id="panelClose" class="tool" type="button">Tutup</button>
+  </div>
+  <h3>Skin tombol</h3>
+  <div id="skinGrid" class="skin-grid"></div>
+  <h3 id="achTitle">Pencapaian</h3>
+  <ul id="achList" class="ach-list"></ul>
+  <h3>Statistik seumur hidup</h3>
+  <dl id="lifeStats" class="stats"></dl>
+  <button id="wipeBtn" class="tool tool-danger" type="button">Hapus semua data</button>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
