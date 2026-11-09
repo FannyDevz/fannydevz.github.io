@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikTok Studio Low-Views Cleaner — Extension Demo & Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1015;
+      --card: #181920;
+      --card-border: #262833;
+      --text: #f4f5f8;
+      --muted: #8b8f9e;
+      --accent: #fe2c55;
+      --accent-hover: #e02447;
+      --cyan: #25f4ee;
+      --green: #10b981;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(24, 25, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+    .logo-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .header-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .header-links a:hover { color: #fff; }
+    
+    .main-wrap {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+      flex: 1;
+    }
+
+    @media (max-width: 960px) {
+      .main-wrap { grid-template-columns: 1fr; }
+    }
+
+    .studio-mock {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .studio-hd {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .studio-title {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .studio-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: #22242e;
+      color: var(--muted);
+      border: 0;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+    th {
+      background: #1d1e27;
+      color: var(--muted);
+      padding: 12px 16px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #20222c;
+      vertical-align: middle;
+    }
+    tr.low-view {
+      background: rgba(254, 44, 85, 0.05);
+    }
+    tr.deleted {
+      opacity: 0.25;
+      text-decoration: line-through;
+      pointer-events: none;
+    }
+    .post-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .thumb {
+      width: 44px;
+      height: 58px;
+      border-radius: 4px;
+      background: #2b2e3b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .post-desc {
+      font-weight: 500;
+      line-height: 1.3;
+      max-width: 240px;
+    }
+    .post-time {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .badge-status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+    }
+    .view-num {
+      font-weight: 700;
+      color: #fff;
+    }
+    .view-num.low {
+      color: var(--accent);
+    }
+
+    /* Interactive Extension Panel Demo */
+    .ext-panel-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .panel-card {
+      background: #ffffff;
+      color: #161823;
+      border-radius: 12px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-hd {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .panel-bd {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 13px;
+    }
+    .field-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .field-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+    }
+    .input-box {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #d5d7de;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+    .input-box:focus { border-color: var(--accent); }
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .p-btn {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 0;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: opacity .2s, transform .1s;
+    }
+    .p-btn:active { transform: scale(0.98); }
+    .p-btn.sec {
+      background: #f0f2f5;
+      color: #333;
+    }
+    .p-btn.pri {
+      background: #161823;
+      color: #fff;
+    }
+    .p-btn.danger {
+      background: var(--accent);
+      color: #fff;
+    }
+    .p-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .status-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: #4b5563;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
+    .target-list {
+      max-height: 180px;
+      overflow-y: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+    }
+    .target-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 12px;
+    }
+    .target-item:last-child { border-bottom: 0; }
+    .target-title {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #333;
+    }
+    .target-views {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .log-box {
+      background: #181920;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      max-height: 90px;
+      overflow-y: auto;
+      line-height: 1.4;
+    }
+    .log-box .err { color: #fe2c55; }
+
+    .instructions-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #c9ccd6;
+    }
+    .instructions-card h3 {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .instructions-card ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .instructions-card code {
+      background: #252733;
+      color: var(--cyan);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span>TikTok Low-Views Cleaner</span>
+      <span class="logo-badge">Firefox Extension</span>
+    </div>
+    <div class="header-links">
+      <a href="manifest.json" download>manifest.json</a> · 
+      <a href="content.js" download>content.js</a>
+    </div>
+  </header>
+
+  <div class="main-wrap">
+    <!-- Mock TikTok Studio -->
+    <div class="studio-mock">
+      <div class="studio-hd">
+        <div class="studio-title">
+          <span>TikTok Studio — Manage Posts</span>
+          <span style="font-size: 12px; color: var(--muted);">(Interactive Test Sandbox)</span>
+        </div>
+        <div class="studio-tabs">
+          <button class="tab-btn active">All Posts (<span id="totalCount">8</span>)</button>
+          <button class="tab-btn">Scheduled</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 32px;"><input type="checkbox" id="checkAll"></th>
+              <th>Post</th>
+              <th>Status</th>
+              <th>Views</th>
+              <th>Likes</th>
+              <th>Comments</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="videoTableBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Right Side: Simulated Extension Floating Panel + Info -->
+    <div class="ext-panel-wrap">
+      <div class="panel-card">
+        <div class="panel-hd">
+          <span>🧹 Low-Views Cleaner</span>
+          <span style="font-size:12px; opacity:0.8;">v1.0</span>
+        </div>
+        <div class="panel-bd">
+          <div class="field-row">
+            <span class="field-label">Delete if views are below:</span>
+            <input type="number" id="thresholdInput" class="input-box" value="1000" step="100">
+          </div>
+
+          <div class="btn-row">
+            <button class="p-btn sec" id="btnResetTable">Reset Posts</button>
+            <button class="p-btn pri" id="btnScan">🔍 Scan Posts</button>
+          </div>
+
+          <div class="status-text" id="statusMessage">
+            Click <b>Scan Posts</b> to find low-view videos.
+          </div>
+
+          <div class="target-list" id="targetList">
+            <div style="padding:16px; text-align:center; color:#999; font-size:12px;">No scan performed yet.</div>
+          </div>
+
+          <button class="p-btn danger" id="btnDeleteSelected" disabled>
+            Delete Selected (<span id="selectedCount">0</span>)
+          </button>
+
+          <div class="field-label" style="margin-top:4px;">Execution Log:</div>
+          <div class="log-box" id="logBox">
+            <div>[Ready] Simulator initialized.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-card">
+        <h3>🦊 How to install in Firefox</h3>
+        <ol>
+          <li>Open Firefox and type <code>about:debugging#/runtime/this-firefox</code> in the URL bar.</li>
+          <li>Click <b>Load Temporary Add-on…</b></li>
+          <li>Select the <code>manifest.json</code> file located in this directory.</li>
+          <li>Navigate to <a href="https://www.tiktok.com/tiktokstudio/content" target="_blank" style="color:var(--cyan);">TikTok Studio Content</a> to use it live!</li>
+        </ol>
+        <p style="font-size:11px; color:var(--muted);">⚠️ Deletion on TikTok Studio is permanent. Always review the scanned list before confirming bulk deletion.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const INITIAL_VIDEOS = [
+      { id: "72349182301", title: "Sunset timelapse at Kuta beach #travel #bali", time: "2 days ago", status: "Published", views: 420, likes: 18, comments: 2, icon: "🌅" },
+      { id: "72349182302", title: "Daily vlog part 4 — coffee and morning walk", time: "3 days ago", status: "Published", views: 18500, likes: 1420, comments: 135, icon: "☕" },
+      { id: "72349182303", title: "Coding challenge episode 12: binary search", time: "5 days ago", status: "Published", views: 240, likes: 14, comments: 1, icon: "💻" },
+      { id: "72349182304", title: "Trying out viral spicy ramen noodles challenge", time: "1 week ago", status: "Published", views: 154000, likes: 12500, comments: 840, icon: "🍜" },
+      { id: "72349182305", title: "Quick photography tips for beginners #dslr", time: "1 week ago", status: "Published", views: 890, likes: 45, comments: 6, icon: "📸" },
+      { id: "72349182306", title: "Unboxing mechanical keyboard custom switches", time: "2 weeks ago", status: "Published", views: 6300, likes: 520, comments: 42, icon: "⌨️" },
+      { id: "72349182307", title: "Micro tutorial: 3 useful terminal shortcuts", time: "3 weeks ago", status: "Published", views: 510, likes: 38, comments: 4, icon: "⚡" },
+      { id: "72349182308", title: "Cat sleeping in a flowerpot all morning #cats", time: "1 month ago", status: "Published", views: 98000, likes: 18400, comments: 1200, icon: "🐱" }
+    ];
+
+    let videos = JSON.parse(JSON.stringify(INITIAL_VIDEOS));
+    let scannedTargets = [];
+
+    const tableBody = document.getElementById('videoTableBody');
+    const thresholdInput = document.getElementById('thresholdInput');
+    const btnScan = document.getElementById('btnScan');
+    const btnReset = document.getElementById('btnResetTable');
+    const btnDelete = document.getElementById('btnDeleteSelected');
+    const targetList = document.getElementById('targetList');
+    const statusMsg = document.getElementById('statusMessage');
+    const logBox = document.getElementById('logBox');
+    const selectedCountEl = document.getElementById('selectedCount');
+    const totalCountEl = document.getElementById('totalCount');
+
+    function log(msg, type = "ok") {
+      const line = document.createElement('div');
+      if (type === "err") line.className = "err";
+      line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+      logBox.appendChild(line);
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = '';
+      const limit = Number(thresholdInput.value) || 1000;
+      let activeCount = 0;
+
+      videos.forEach(v => {
+        if (!v.deleted) activeCount++;
+        const tr = document.createElement('tr');
+        if (v.deleted) tr.className = 'deleted';
+        else if (v.views < limit) tr.className = 'low-view';
+
+        tr.innerHTML = `
+          <td><input type="checkbox" data-id="${v.id}" ${v.deleted ? 'disabled' : ''}></td>
+          <td>
+            <div class="post-cell">
+              <div class="thumb">${v.icon}</div>
+              <div>
+                <div class="post-desc">${v.title}</div>
+                <div class="post-time">${v.time} · ID: ${v.id}</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="badge-status">${v.deleted ? 'Deleted' : v.status}</span></td>
+          <td><span class="view-num ${!v.deleted && v.views < limit ? 'low' : ''}">${v.views.toLocaleString()}</span></td>
+          <td>${v.likes.toLocaleString()}</td>
+          <td>${v.comments.toLocaleString()}</td>
+          <td><button style="background:none; border:0; color:#888; cursor:pointer;" onclick="deleteSingle('${v.id}')">🗑️</button></td>
+        `;
+        tableBody.appendChild(tr);
+      });
+      totalCountEl.textContent = activeCount;
+    }
+
+    function scan() {
+      const limit = Number(thresholdInput.value) || 1000;
+      scannedTargets = videos.filter(v => !v.deleted && v.views < limit);
+      
+      log(`Scan complete: ${scannedTargets.length} videos found below ${limit} views.`);
+      statusMsg.innerHTML = `Found <b>${scannedTargets.length}</b> videos under ${limit.toLocaleString()} views.`;
+
+      renderTargetList();
+      renderTable();
+    }
+
+    function renderTargetList() {
+      if (scannedTargets.length === 0) {
+        targetList.innerHTML = `<div style="padding:16px; text-align:center; color:#999; font-size:12px;">No videos below threshold.</div>`;
+        btnDelete.disabled = true;
+        selectedCountEl.textContent = '0';
+        return;
+      }
+
+      targetList.innerHTML = '';
+      scannedTargets.forEach(v => {
+        const item = document.createElement('div');
+        item.className = 'target-item';
+        item.innerHTML = `
+          <input type="checkbox" checked data-target-id="${v.id}">
+          <span class="target-title" title="${v.title}">${v.icon} ${v.title}</span>
+          <span class="target-views">${v.views.toLocaleString()}</span>
+        `;
+        const cb = item.querySelector('input');
+        cb.addEventListener('change', updateSelectedCount);
+        targetList.appendChild(item);
+      });
+
+      updateSelectedCount();
+    }
+
+    function updateSelectedCount() {
+      const checked = targetList.querySelectorAll('input:checked');
+      selectedCountEl.textContent = checked.length;
+      btnDelete.disabled = checked.length === 0;
+    }
+
+    window.deleteSingle = function(id) {
+      const v = videos.find(x => x.id === id);
+      if (v) {
+        v.deleted = true;
+        log(`Deleted post: ${v.title.slice(0, 24)}...`);
+        scan();
+      }
+    };
+
+    btnScan.addEventListener('click', scan);
+    thresholdInput.addEventListener('change', scan);
+
+    btnDelete.addEventListener('click', async () => {
+      const checkedBoxes = Array.from(targetList.querySelectorAll('input:checked'));
+      const toDelete = checkedBoxes.map(cb => cb.dataset.targetId);
+      
+      if (!confirm(`Are you sure you want to delete ${toDelete.length} video(s)?`)) return;
+
+      btnDelete.disabled = true;
+      btnScan.disabled = true;
+      let count = 0;
+
+      for (const id of toDelete) {
+        const v = videos.find(x => x.id === id);
+        if (v && !v.deleted) {
+          v.deleted = true;
+          count++;
+          log(`✔ Removed: ${v.title.slice(0, 26)} (${v.views} views)`, "ok");
+          renderTable();
+          await new Promise(r => setTimeout(r, 400));
+        }
+      }
+
+      btnScan.disabled = false;
+      log(`Finished! Successfully deleted ${count} videos.`, "ok");
+      statusMsg.innerHTML = `Deleted <b>${count}</b> video(s) permanently.`;
+      scan();
+    });
+
+    btnReset.addEventListener('click', () => {
+      videos = JSON.parse(JSON.stringify(INITIAL_VIDEOS));
+      log("Reset mock videos table to initial state.");
+      statusMsg.textContent = "Posts reset. Click Scan Posts to analyze.";
+      renderTable();
+      targetList.innerHTML = `<div style="padding:16px; text-align:center; color:#999; font-size:12px;">No scan performed yet.</div>`;
+      btnDelete.disabled = true;
+      selectedCountEl.textContent = '0';
+    });
+
+    renderTable();
+  </script>
+</body>
+</html>

@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Vows - Wedding Organizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --gold: #C9A96E;
+            --gold-light: #E8D5B0;
+            --dark: #1a1a1a;
+            --cream: #FDF8F0;
+            --rose: #D4A5A5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 2px 30px rgba(0,0,0,0.08);
+            padding: 12px 60px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav.scrolled .logo { color: var(--dark); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav.scrolled .nav-links a { color: var(--dark); }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--gold-light);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            font-weight: 300;
+            max-width: 550px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 16px 50px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: #b8944f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201,169,110,0.3);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 16px 50px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: var(--gold-light);
+            font-size: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(12px); }
+        }
+
+        /* SECTION STYLES */
+        section { padding: 100px 60px; }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .section-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            height: 550px;
+        }
+
+        .about-images img {
+            position: absolute;
+            border-radius: 4px;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .about-images img:first-child {
+            width: 320px;
+            height: 420px;
+            top: 0;
+            left: 0;
+        }
+
+        .about-images img:last-child {
+            width: 280px;
+            height: 350px;
+            bottom: 0;
+            right: 0;
+            border: 6px solid var(--cream);
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--gold);
+        }
+
+        .stat p {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SERVICES */
+        .services {
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 50px 35px;
+            background: var(--white);
+            border: 1px solid #f0ebe3;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .service-card .icon {
+            width: 70px;
+            height: 70px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .service-card .icon i {
+            font-size: 26px;
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .gallery .section-desc {
+            color: #aaa;
+            margin: 0 auto 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(201,169,110,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .overlay { opacity: 1; }
+
+        .gallery-item .overlay i {
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 45px 35px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .testimonial-card .quote-icon {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--gold-light);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-card .author img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card .author h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .testimonial-card .author span {
+            font-size: 13px;
+            color: var(--gold);
+        }
+
+        /* PRICING */
+        .pricing {
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            padding: 50px 35px;
+            border: 1px solid #eee;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: var(--dark);
+            color: var(--white);
+            transform: scale(1.05);
+            border: none;
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--white);
+            padding: 5px 25px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--gold);
+            margin: 20px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            color: #999;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-card ul li {
+            padding: 10px 0;
+            font-size: 14px;
+            color: #777;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .pricing-card.featured ul li {
+            color: #bbb;
+            border-color: #333;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80') center/cover no-repeat;
+            text-align: center;
+            color: var(--white);
+            padding: 120px 60px;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 16px;
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 80px 60px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            font-size: 30px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* ANIMATIONS */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 15px 25px; }
+            .nav-links { display: none; }
+            section { padding: 60px 25px; }
+            .hero h1 { font-size: 38px; }
+            .about { grid-template-columns: 1fr; gap: 40px; }
+            .about-images { height: 350px; }
+            .services-grid,
+            .testimonial-slider,
+            .pricing-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 32px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="#" class="logo">Eternal Vows</a>
+        <ul class="nav-links">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#pricing">Paket</a></li>
+            <li><a href="#contact" class="btn-primary" style="padding:10px 30px;">Konsultasi</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="hero-subtitle">✦ Wedding Organizer ✦</p>
+        <h1>Wujudkan<br>Pernikahan Impian</h1>
+        <p>Kami hadir untuk merancang setiap detail hari spesial Anda dengan sentuhan elegan dan personal yang tak terlupakan.</p>
+        <a href="#services" class="btn-primary">Lihat Layanan Kami</a>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-images fade-up">
+            <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Wedding Couple">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600&q=80" alt="Wedding Decor">
+        </div>
+        <div class="fade-up">
+            <p class="section-label">Tentang Kami</p>
+            <h2 class="section-title">Lebih dari 10 Tahun<br>Menghadirkan Kebahagiaan</h2>
+            <p class="section-desc">
+                Eternal Vows adalah wedding organizer premium yang telah dipercaya oleh ratusan pasangan di seluruh Indonesia. Kami memadukan kreativitas, ketelitian, dan sentuhan personal untuk menciptakan perayaan pernikahan yang melampaui ekspektasi Anda.
+            </p>
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Pernikahan</p>
+                </div>
+                <div class="stat">
+                    <h3>12</h3>
+                    <p>Tahun Pengalaman</p>
+                </div>
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Tim Profesional</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <p class="section-label">Layanan Kami</p>
+        <h2 class="section-title">Apa yang Kami Tawarkan</h2>
+        <div class="services-grid">
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-gem"></i></div>
+                <h3>Full Planning</h3>
+                <p>Perencanaan menyeluruh dari awal hingga hari-H, termasuk pemilihan vendor, desain konsep, dan koordinasi penuh.</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Dekorasi & Styling</h3>
+                <p>Desain dekorasi eksklusif yang disesuaikan dengan tema dan keinginan Anda, dari intimate hingga grand wedding.</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Dokumentasi</h3>
+                <p>Tim fotografer dan videografer profesional yang menangkap setiap momen berharga dengan sinematik.</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-utensils"></i></div>
+                <h3>Catering Premium</h3>
+                <p>Sajian kuliner berkelas dengan pilihan menu lokal dan internasional yang memanjakan lidah tamu Anda.</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-music"></i></div>
+                <h3>Entertainment</h3>
+                <p>Hiburan berkualitas mulai dari live band, MC profesional, hingga lighting show yang memukau.</p>
+            </div>
+            <div class="service-card fade-up">
+                <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
+                <h3>Undangan Digital</h3>
+                <p>Desain undangan digital eksklusif dengan website personal dan RSVP management system.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Galeri Karya Kami</h2>
+        <p class="section-desc">Setiap pernikahan memiliki cerita unik. Berikut beberapa momen indah yang telah kami ciptakan.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" alt="Wedding 1">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=600&q=80" alt="Wedding 2">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Wedding 3">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="Wedding 4">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" alt="Wedding 5">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=600&q=80" alt="Wedding 6">
+                <div class="overlay"><i class="fas fa-expand"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <p class="section-label">Testimoni</p>
+        <h2 class="section-title">Kata Mereka</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card fade-up">
+                <div class="quote-icon">"</div>
+                <p>Eternal Vows membuat pernikahan kami jauh melebihi ekspektasi. Setiap detail diperhatikan dengan sempurna. Terima kasih telah membuat hari terbaik kami!</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah">
+                    <h4>Sarah & Rizky</h4>
+                    <span>Jakarta, 2024</span>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="quote-icon">"</div>
+                <p>Tim yang sangat profesional dan kreatif. Mereka memahami visi kami dan mewujudkannya dengan indah. Highly recommended!</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Anisa">
+                    <h4>Anisa & Dimas</h4>
+                    <span>Bali, 2024</span>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="quote-icon">"</div>
+                <p>Dari awal konsultasi hingga hari-H, semuanya berjalan lancar dan menyenangkan. Para tamu kami takjub dengan dekorasi dan acaranya!</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Maya">
+                    <h4>Maya & Fajar</h4>
+                    <span>Bandung, 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <p class="section-label">Paket Harga</p>
+        <h2 class="section-title">Pilih Paket Anda</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-up">
+                <h3>Silver</h3>
+                <p style="color:#999;font-size:14px;">Intimate Wedding</p>
+                <div class="price">Rp 35<span>juta</span></div>
+                <ul>
+                    <li>Kapasitas 100 tamu</li>
+                    <li>Dekorasi Standard</li>
+                    <li>Dokumentasi Foto</li>
+                    <li>MC Profesional</li>
+                    <li>Catering Prasmanan</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Pilih Paket</a>
+            </div>
+            <div class="pricing-card featured fade-up">
+                <div class="badge">Populer</div>
+                <h3>Gold</h3>
+                <p style="color:#aaa;font-size:14px;">Premium Wedding</p>
+                <div class="price">Rp 75<span>juta</span></div>
+                <ul>
+                    <li>Kapasitas 300 tamu</li>
+                    <li>Dekorasi Premium</li>
+                    <li>Foto + Video Cinematic</li>
+                    <li>Live Band & MC</li>
+                    <li>Catering Fine Dining</li>
+                    <li>Undangan Digital</li>
+                </ul>
+                <a href="#contact" class="btn-primary">Pilih Paket</a>
+            </div>
+            <div class="pricing-card fade-up">
+                <h3>Platinum</h3>
+                <p style="color:#999;font-size:14px;">Grand Wedding</p>
+                <div class="price">Rp 150<span>juta</span></div>
+                <ul>
+                    <li>Kapasitas 500+ tamu</li>
+                    <li>Dekorasi Eksklusif</li>
+                    <li>Full Dokumentasi</li>
+                    <li>Full Entertainment</li>
+                    <li>Catering 5-Star</li>
+                    <li>Honeymoon Planning</li>
+                </ul>
+                <a href="#contact" class="btn-outline">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <h2>Siap Merencanakan<br>Hari Spesial Anda?</h2>
+        <p>Konsultasikan impian pernikahan Anda bersama kami. Gratis, tanpa komitmen.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/6281234567890" class="btn-primary"><i class="fab fa-whatsapp"></i>&nbsp; Chat WhatsApp</a>
+            <a href="#" class="btn-outline" style="border-color:white;color:white;">Jadwalkan Meeting</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">Eternal Vows</span>
+                <p>Wedding organizer premium yang berkomitmen mewujudkan pernikahan impian Anda dengan sentuhan elegan dan penuh cinta.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Full Planning</a></li>
+                    <li><a href="#">Dekorasi</a></li>
+                    <li><a href="#">Dokumentasi</a></li>
+                    <li><a href="#">Catering</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Tim Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="#">Jakarta, Indonesia</a></li>
+                    <li><a href="#">hello@eternalvows.id</a></li>
+                    <li><a href="#">+62 812 3456 7890</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eternal Vows. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

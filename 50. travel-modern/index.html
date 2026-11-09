@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Indonesia - Premium Travel Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #2563EB;
+            --blue-dark: #1D4ED8;
+            --blue-light: #DBEAFE;
+            --indigo: #4F46E5;
+            --violet: #7C3AED;
+            --orange: #F97316;
+            --orange-light: #FFF7ED;
+            --dark: #0F172A;
+            --dark-2: #1E293B;
+            --gray: #64748B;
+            --gray-light: #F1F5F9;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        nav.solid {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-brand .icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .nav-brand h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        nav.solid .nav-brand h2 { color: var(--dark); }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav.solid .nav-menu a { color: var(--gray); }
+        .nav-menu a:hover { color: var(--orange); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            color: white;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79,70,229,0.35);
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: white;
+        }
+
+        .btn-orange:hover {
+            background: #EA580C;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(249,115,22,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+            border-color: white;
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            border: 2px solid #e2e8f0;
+            color: var(--dark);
+        }
+
+        .btn-outline-dark:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--dark);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(165deg, var(--dark) 0%, var(--dark-2) 50%, #1a1a3e 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-left { z-index: 1; padding-right: 40px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249,115,22,0.1);
+            border: 1px solid rgba(249,115,22,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--orange), #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 50px;
+        }
+
+        .metric {
+            border-left: 2px solid rgba(255,255,255,0.1);
+            padding-left: 20px;
+        }
+
+        .metric:first-child { border: none; padding-left: 0; }
+
+        .metric h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .metric h3 span { color: var(--orange); }
+
+        .metric p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+
+        .hero-right {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            max-width: 500px;
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        .mosaic-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .mosaic-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .mosaic-img:hover img { transform: scale(1.08); }
+
+        .mosaic-img:nth-child(1) { height: 280px; }
+        .mosaic-img:nth-child(2) { height: 220px; margin-top: 60px; }
+        .mosaic-img:nth-child(3) { height: 220px; margin-top: -60px; }
+        .mosaic-img:nth-child(4) { height: 280px; }
+
+        .hero-float-card {
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero-float-card .ava-stack {
+            display: flex;
+        }
+
+        .hero-float-card .ava-stack img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            margin-left: -10px;
+            object-fit: cover;
+        }
+
+        .hero-float-card .ava-stack img:first-child { margin-left: 0; }
+
+        .hero-float-card p { font-size: 13px; }
+        .hero-float-card p strong { color: var(--orange); }
+
+        /* SECTION COMMONS */
+        section { padding: 100px 60px; }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--blue-light);
+            color: var(--blue);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        /* POPULAR DESTINATIONS */
+        .popular { background: var(--gray-light); }
+
+        .popular-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
+            color: var(--gray);
+        }
+
+        .tab.active, .tab:hover {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 250px 250px;
+            gap: 20px;
+        }
+
+        .dest-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .dest-item:first-child { grid-row: span 2; }
+
+        .dest-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .dest-item:hover img { transform: scale(1.08); }
+
+        .dest-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+        }
+
+        .dest-item .overlay .loc {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .dest-item .overlay h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .dest-item .overlay .bottom-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dest-item .overlay .price-tag {
+            background: var(--orange);
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .dest-item .overlay .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .dest-item .overlay .rating i { color: #FBBF24; }
+
+        .dest-item .heart {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .dest-item .heart:hover {
+            background: #EF4444;
+        }
+
+        /* FEATURED TRIPS */
+        .trips {
+            padding: 100px 60px;
+        }
+
+        .trips-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+        }
+
+        .trip-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .trip-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .trip-card .thumb {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trip-card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .trip-card:hover .thumb img { transform: scale(1.08); }
+
+        .trip-card .thumb .tag-type {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .tag-domestic { background: var(--blue); }
+        .tag-international { background: var(--violet); }
+        .tag-adventure { background: var(--orange); }
+
+        .trip-card .thumb .days {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .trip-card .info {
+            padding: 22px;
+        }
+
+        .trip-card .info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .trip-card .info .sub {
+            font-size: 13px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .trip-card .info .features-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .trip-card .info .features-row span {
+            background: var(--gray-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--gray);
+        }
+
+        .trip-card .info .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .trip-card .info .card-bottom .price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .trip-card .info .card-bottom .price small {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        /* WHY US */
+        .why {
+            background: var(--dark);
+            color: white;
+        }
+
+        .why-top {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .why-top .section-tag {
+            background: rgba(249,115,22,0.15);
+            color: var(--orange);
+        }
+
+        .why-top .section-title { color: white; }
+        .why-top .section-desc { color: rgba(255,255,255,0.5); margin: 0 auto; }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .why-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(249,115,22,0.3);
+            transform: translateY(-5px);
+        }
+
+        .why-card .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 22px;
+        }
+
+        .why-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        /* EXPERIENCES BANNER */
+        .experience {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .exp-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .exp-images img {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .exp-images img:nth-child(1) { height: 300px; }
+        .exp-images img:nth-child(2) { height: 240px; margin-top: 60px; }
+        .exp-images img:nth-child(3) { height: 240px; margin-top: -60px; }
+        .exp-images img:nth-child(4) { height: 300px; }
+
+        .exp-content .checklist {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .exp-content .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 15px;
+            color: #444;
+        }
+
+        .exp-content .checklist li .check {
+            width: 28px;
+            height: 28px;
+            background: var(--blue-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* TESTIMONIALS */
+        .reviews {
+            background: linear-gradient(180deg, var(--gray-light), white);
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .review-card .stars {
+            color: #FBBF24;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .review-card .text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .review-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-card .author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
+        .review-card .author h4 { font-size: 15px; font-weight: 700; }
+        .review-card .author span { font-size: 13px; color: var(--gray); }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--blue), var(--indigo), var(--violet));
+            border-radius: 30px;
+            margin: 0 60px 80px;
+            padding: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .cta-section h2 {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .cta-form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .cta-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .cta-form .sub { font-size: 14px; opacity: 0.7; margin-bottom: 25px; }
+
+        .cta-form .field {
+            margin-bottom: 14px;
+        }
+
+        .cta-form input,
+        .cta-form select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+        }
+
+        .cta-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+        .cta-form input:focus,
+        .cta-form select:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .cta-form select option { color: var(--dark); }
+
+        .cta-form .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 60px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .nav-brand { margin-bottom: 20px; }
+        .footer-brand .nav-brand h2 { color: white; }
+
+        .footer-brand p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-row a {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .social-row a:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: white;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li { margin-bottom: 12px; }
+
+        .footer-col ul a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.shown {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .trip-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            .nav-menu { display: none; }
+            .hero { grid-template-columns: 1fr; padding: 120px 25px 60px; min-height: auto; }
+            .hero-right { display: none; }
+            .hero h1 { font-size: 36px; }
+            .hero-metrics { gap: 25px; }
+            .metric h3 { font-size: 24px; }
+            section { padding: 60px 25px; }
+            .popular-header { flex-direction: column; gap: 20px; align-items: start; }
+            .dest-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .dest-item:first-child { grid-row: span 1; }
+            .dest-item { height: 250px; }
+            .trips-header { flex-direction: column; gap: 20px; align-items: start; }
+            .trip-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .experience { grid-template-columns: 1fr; }
+            .review-grid { grid-template-columns: 1fr; }
+            .cta-section { margin: 0 20px 40px; padding: 40px 25px; grid-template-columns: 1fr; border-radius: 20px; }
+            .cta-section h2 { font-size: 30px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="nav">
+        <a href="#" class="nav-brand">
+            <div class="icon"><i class="fas fa-globe-americas"></i></div>
+            <h2>Wanderlust</h2>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#popular">Destinasi</a></li>
+            <li><a href="#trips">Trip</a></li>
+            <li><a href="#why">Keunggulan</a></li>
+            <li><a href="#reviews">Review</a></li>
+            <li><a href="#cta" class="btn btn-orange" style="padding:10px 24px;"><i class="fab fa-whatsapp"></i> Booking</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-badge"><i class="fas fa-fire"></i> Promo Year-End Sale — Diskon Hingga 30%!</div>
+            <h1>Petualangan<br><span class="gradient-text">Tanpa Batas</span><br>Dimulai di Sini</h1>
+            <p class="hero-desc">Temukan destinasi impian Anda bersama Wanderlust Indonesia. Dari pantai tropis hingga kota metropolitan — kami siap menemani perjalanan Anda.</p>
+            <div class="hero-actions">
+                <a href="#trips" class="btn btn-orange"><i class="fas fa-compass"></i> Jelajahi Trip</a>
+                <a href="#cta" class="btn btn-outline"><i class="fas fa-play-circle"></i> Watch Video</a>
+            </div>
+            <div class="hero-metrics">
+                <div class="metric">
+                    <h3>50K<span>+</span></h3>
+                    <p>Happy Travelers</p>
+                </div>
+                <div class="metric">
+                    <h3>300<span>+</span></h3>
+                    <p>Destinations</p>
+                </div>
+                <div class="metric">
+                    <h3>4.9<span>★</span></h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-mosaic">
+                <div class="mosaic-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80" alt="Bali"></div>
+                <div class="mosaic-img"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=80" alt="Japan"></div>
+                <div class="mosaic-img"><img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&q=80" alt="Beach"></div>
+                <div class="mosaic-img"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400&q=80" alt="Turkey"></div>
+            </div>
+            <div class="hero-float-card">
+                <div class="ava-stack">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&q=80" alt="">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" alt="">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&q=80" alt="">
+                </div>
+                <p><strong>2,500+</strong> reviews positif bulan ini</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR DESTINATIONS -->
+    <section class="popular" id="popular">
+        <div class="popular-header">
+            <div>
+                <div class="section-tag"><i class="fas fa-fire"></i> Populer</div>
+                <h2 class="section-title">Destinasi Paling<br>Dicari Traveler</h2>
+            </div>
+            <div class="category-tabs">
+                <button class="tab active">Semua</button>
+                <button class="tab">Domestik</button>
+                <button class="tab">Asia</button>
+                <button class="tab">Eropa</button>
+            </div>
+        </div>
+        <div class="dest-grid">
+            <div class="dest-item reveal">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" alt="Bali">
+                <button class="heart"><i class="far fa-heart"></i></button>
+                <div class="overlay">
+                    <div class="loc"><i class="fas fa-map-pin"></i> Bali, Indonesia</div>
+                    <h3>Bali Island Paradise</h3>
+                    <div class="bottom-info">
+                        <span class="price-tag">Mulai Rp 3.5 Jt</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9 (2.4K)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dest-item reveal">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Japan">
+                <button class="heart"><i class="far fa-heart"></i></button>
+                <div class="overlay">
+                    <div class="loc"><i class="fas fa-map-pin"></i> Jepang</div>
+                    <h3>Tokyo & Kyoto</h3>
+                    <div class="bottom-info">
+                        <span class="price-tag">Rp 22 Jt</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dest-item reveal">
+                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=600&q=80" alt="Turkey">
+                <button class="heart"><i class="far fa-heart"></i></button>
+                <div class="overlay">
+                    <div class="loc"><i class="fas fa-map-pin"></i> Türkiye</div>
+                    <h3>Istanbul Explorer</h3>
+                    <div class="bottom-info">
+                        <span class="price-tag">Rp 18 Jt</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dest-item reveal">
+                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="Labuan Bajo">
+                <button class="heart"><i class="far fa-heart"></i></button>
+                <div class="overlay">
+                    <div class="loc"><i class="fas fa-map-pin"></i> NTT, Indonesia</div>
+                    <h3>Labuan Bajo</h3>
+                    <div class="bottom-info">
+                        <span class="price-tag">Rp 5.9 Jt</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dest-item reveal">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80" alt="Korea">
+                <button class="heart"><i class="far fa-heart"></i></button>
+                <div class="overlay">
+                    <div class="loc"><i class="fas fa-map-pin"></i> Korea Selatan</div>
+                    <h3>Seoul Adventure</h3>
+                    <div class="bottom-info">
+                        <span class="price-tag">Rp 15 Jt</span>
+                        <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED TRIPS -->
+    <section class="trips" id="trips">
+        <div class="trips-header">
+            <div>
+                <div class="section-tag"><i class="fas fa-suitcase-rolling"></i> Featured Trips</div>
+                <h2 class="section-title">Paket Trip<br>Pilihan Terbaik</h2>
+            </div>
+            <a href="#" class="btn btn-outline-dark">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="trip-grid">
+            <div class="trip-card reveal">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1570789210967-2cac24f04879?w=500&q=80" alt="Raja Ampat">
+                    <span class="tag-type tag-adventure">🔥 Best Seller</span>
+                    <span class="days">5D4N</span>
+                </div>
+                <div class="info">
+                    <h3>Raja Ampat Explorer</h3>
+                    <div class="sub"><i class="fas fa-map-pin"></i> Papua Barat, Indonesia</div>
+                    <div class="features-row">
+                        <span>🏝️ Island Hop</span>
+                        <span>🤿 Snorkeling</span>
+                        <span>📸 Photo Trip</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="price">Rp 8.5 Jt <small>/orang</small></div>
+                        <a href="#cta" class="btn btn-gradient" style="padding:8px 18px;font-size:12px;">Book</a>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-card reveal">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=500&q=80" alt="Japan">
+                    <span class="tag-type tag-international">Trending</span>
+                    <span class="days">7D6N</span>
+                </div>
+                <div class="info">
+                    <h3>Japan Full Circuit</h3>
+                    <div class="sub"><i class="fas fa-map-pin"></i> Tokyo — Osaka — Kyoto</div>
+                    <div class="features-row">
+                        <span>🗼 City Tour</span>
+                        <span>🏔️ Mt. Fuji</span>
+                        <span>🍣 Food</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="price">Rp 22 Jt <small>/orang</small></div>
+                        <a href="#cta" class="btn btn-gradient" style="padding:8px 18px;font-size:12px;">Book</a>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-card reveal">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=500&q=80" alt="Korea">
+                    <span class="tag-type tag-international">New</span>
+                    <span class="days">6D5N</span>
+                </div>
+                <div class="info">
+                    <h3>Korea Winter Trip</h3>
+                    <div class="sub"><i class="fas fa-map-pin"></i> Seoul — Nami — Busan</div>
+                    <div class="features-row">
+                        <span>❄️ Winter</span>
+                        <span>🛍️ Shopping</span>
+                        <span>🎡 Theme Park</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="price">Rp 15 Jt <small>/orang</small></div>
+                        <a href="#cta" class="btn btn-gradient" style="padding:8px 18px;font-size:12px;">Book</a>
+                    </div>
+                </div>
+            </div>
+            <div class="trip-card reveal">
+                <div class="thumb">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=500&q=80" alt="Europe">
+                    <span class="tag-type tag-domestic">Premium</span>
+                    <span class="days">10D9N</span>
+                </div>
+                <div class="info">
+                    <h3>West Europe Grand</h3>
+                    <div class="sub"><i class="fas fa-map-pin"></i> Paris — Rome — Swiss</div>
+                    <div class="features-row">
+                        <span>🏰 History</span>
+                        <span>🚂 Train</span>
+                        <span>🍷 Culinary</span>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="price">Rp 35 Jt <small>/orang</small></div>
+                        <a href="#cta" class="btn btn-gradient" style="padding:8px 18px;font-size:12px;">Book</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why" id="why">
+        <div class="why-top">
+            <div class="section-tag"><i class="fas fa-award"></i> Keunggulan</div>
+            <h2 class="section-title">Mengapa Memilih Wanderlust?</h2>
+            <p class="section-desc">Kami hadir dengan komitmen memberikan pengalaman perjalanan terbaik untuk setiap traveler Indonesia</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="card-icon">💰</div>
+                <h3>Best Price Guarantee</h3>
+                <p>Harga terbaik dengan transparansi penuh. Tidak ada biaya tersembunyi.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-icon">🌟</div>
+                <h3>Curated Experience</h3>
+                <p>Itinerary dirancang khusus oleh travel expert berpengalaman 10+ tahun.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-icon">🛡️</div>
+                <h3>100% Safe & Secure</h3>
+                <p>Asuransi perjalanan, refund policy, dan support 24/7 selama trip.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="card-icon">🎯</div>
+                <h3>Flexible Booking</h3>
+                <p>Cicilan 0%, reschedule gratis, dan opsi custom trip sesuai keinginan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience">
+        <div class="exp-images reveal">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&q=80" alt="Beach">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80" alt="Road Trip">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80" alt="Lake">
+            <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=400&q=80" alt="Mountain">
+        </div>
+        <div class="exp-content reveal">
+            <div class="section-tag"><i class="fas fa-rocket"></i> Experience</div>
+            <h2 class="section-title">Perjalanan yang<br>Tak Terlupakan</h2>
+            <p class="section-desc">Lebih dari sekadar liburan — kami menciptakan pengalaman dan kenangan yang akan Anda ceritakan seumur hidup.</p>
+            <ul class="checklist">
+                <li><span class="check"><i class="fas fa-check"></i></span> Tour guide lokal bersertifikat & berpengalaman</li>
+                <li><span class="check"><i class="fas fa-check"></i></span> Akomodasi hotel bintang 3-5 pilihan terbaik</li>
+                <li><span class="check"><i class="fas fa-check"></i></span> Transportasi nyaman & private</li>
+                <li><span class="check"><i class="fas fa-check"></i></span> Free dokumentasi foto & video profesional</li>
+                <li><span class="check"><i class="fas fa-check"></i></span> Itinerary fleksibel & bisa request custom</li>
+            </ul>
+            <a href="#cta" class="btn btn-gradient"><i class="fas fa-arrow-right"></i> Mulai Petualangan</a>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="reviews-header">
+            <div class="section-tag"><i class="fas fa-heart"></i> Reviews</div>
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            <p class="section-desc" style="margin:10px auto 0;">Ribuan traveler sudah mempercayakan perjalanan mereka bersama kami</p>
+        </div>
+        <div class="review-grid">
+            <div class="review-card reveal">
+                <div class="stars">★★★★★</div>
+                <p class="text">"Raja Ampat trip-nya luar biasa! Pemandangan bawah laut juara, tour guide ramah, dan semua sudah diurus. Tinggal nikmati aja. 100% recommended!"</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="">
+                    <div>
+                        <h4>Nadia Putri</h4>
+                        <span>Raja Ampat Trip — Nov 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal">
+                <div class="stars">★★★★★</div>
+                <p class="text">"Japan trip bareng Wanderlust the best experience ever! Itinerary lengkap, hotel bagus, dan banyak hidden gems yang dikunjungi. Pasti repeat!"</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="">
+                    <div>
+                        <h4>Andi Prasetyo</h4>
+                        <span>Japan Explorer — Sep 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal">
+                <div class="stars">★★★★★</div>
+                <p class="text">"Family trip ke Bali super smooth dan menyenangkan. Anak-anak happy, orangtua rileks. Tim Wanderlust sangat helpful dan responsif. Thank you!"</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="">
+                    <div>
+                        <h4>Sari Wulandari</h4>
+                        <span>Bali Family Trip — Oct 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section" id="cta">
+        <div>
+            <h2>Siap Memulai<br>Petualangan Anda?</h2>
+            <p>Isi formulir di samping atau hubungi kami langsung melalui WhatsApp. Tim kami akan membantu merencanakan trip impian Anda!</p>
+            <div style="display:flex;gap:30px;margin-bottom:30px;">
+                <div>
+                    <h3 style="font-size:32px;font-weight:800;">30%</h3>
+                    <p style="font-size:13px;opacity:0.6;margin:0;">Disc Year-End</p>
+                </div>
+                <div>
+                    <h3 style="font-size:32px;font-weight:800;">0%</h3>
+                    <p style="font-size:13px;opacity:0.6;margin:0;">Cicilan</p>
+                </div>
+                <div>
+                    <h3 style="font-size:32px;font-weight:800;">Free</h3>
+                    <p style="font-size:13px;opacity:0.6;margin:0;">Cancel</p>
+                </div>
+            </div>
+            <a href="https://wa.me/6281234567890" class="btn btn-white" style="font-size:16px;padding:16px 35px;">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
+        </div>
+        <div class="cta-form">
+            <h3>✈️ Plan Your Trip</h3>
+            <p class="sub">Tim kami akan menghubungi Anda dalam 1x24 jam</p>
+            <div class="field-row">
+                <div class="field"><input type="text" placeholder="Nama Lengkap"></div>
+                <div class="field"><input type="tel" placeholder="No. WhatsApp"></div>
+            </div>
+            <div class="field"><input type="email" placeholder="Email"></div>
+            <div class="field-row">
+                <div class="field">
+                    <select>
+                        <option>Pilih Destinasi</option>
+                        <option>Bali</option>
+                        <option>Raja Ampat</option>
+                        <option>Labuan Bajo</option>
+                        <option>Japan</option>
+                        <option>Korea</option>
+                        <option>Turkey</option>
+                        <option>Europe</option>
+                        <option>Custom Trip</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <select>
+                        <option>Jumlah Peserta</option>
+                        <option>Solo (1)</option>
+                        <option>Couple (2)</option>
+                        <option>Group (3-5)</option>
+                        <option>Big Group (6+)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field"><input type="date" placeholder="Tanggal Keberangkatan"></div>
+            <button class="btn btn-orange" style="width:100%;justify-content:center;padding:16px;font-size:15px;margin-top:5px;">
+                <i class="fas fa-paper-plane"></i> Kirim Request
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-brand">
+                    <div class="icon"><i class="fas fa-globe-americas"></i></div>
+                    <h2>Wanderlust</h2>
+                </a>
+                <p>Travel agency premium Indonesia. Menyediakan paket wisata domestik & internasional terbaik sejak 2014. Terdaftar resmi di Kemenparekraf RI.</p>
+                <div class="social-row">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Destinasi</h4>
+                <ul>
+                    <li><a href="#">Bali</a></li>
+                    <li><a href="#">Raja Ampat</a></li>
+                    <li><a href="#">Labuan Bajo</a></li>
+                    <li><a href="#">Jepang</a></li>
+                    <li><a href="#">Korea Selatan</a></li>
+                    <li><a href="#">Eropa</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Mitra & Afiliasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-pin" style="color:var(--orange);margin-right:8px;"></i>Jl. Gatot Subroto No. 88, Jakarta</a></li>
+                    <li><a href="#"><i class="fas fa-phone" style="color:var(--orange);margin-right:8px;"></i>+62 821 9876 5432</a></li>
+                    <li><a href="#"><i class="fas fa-envelope" style="color:var(--orange);margin-right:8px;"></i>hello@wanderlust.id</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp" style="color:var(--orange);margin-right:8px;"></i>Chat WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wanderlust Indonesia. All rights reserved.</p>
+            <p>Izin Resmi Kemenparekraf RI</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('solid', window.scrollY > 50);
+        });
+
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('shown'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Tabs (visual only)
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Heart toggle
+        document.querySelectorAll('.heart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+                btn.style.background = icon.classList.contains('fas') ? '#EF4444' : '';
+            });
+        });
+    </script>
+
+</body>
+</html>

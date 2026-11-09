@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin Desa Wanasari</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/lucide-static@0.469.0/font/lucide.css" rel="stylesheet">
+<style>
+:root{--r:.5rem}
+[data-theme=light]{--bg:#fff;--fg:#09090b;--card:#fff;--muted:#f4f4f5;--mfg:#62626b;--acc:#f4f4f5;--border:#e4e4e7;--input:#d4d4d8;--des:#dc2626;--side:#fafafa;--p:#0e4d3a;--pfg:#fff;--ring:#0e4d3a;}
+[data-theme=dark]{color-scheme:dark;--bg:#09090b;--fg:#fafafa;--card:#111113;--muted:#27272a;--mfg:#a1a1aa;--acc:#27272a;--border:#27272a;--input:#3f3f46;--des:#ef4444;--side:#0f0f11;--p:#3ecf95;--pfg:#04261a;--ring:#3ecf95;}
+/* Komponen mengikuti pola visual shadcn/ui: netral, bingkai 1px, radius kecil, satu warna utama */
+*,*::before,*::after{box-sizing:border-box;border-color:var(--border)}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 .875rem/1.5 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;--ctl:36px}
+@media (max-width:767px),(pointer:coarse){body{--ctl:44px}}
+h1,h2,h3,p,dl,dd{margin:0}
+h1{font-size:1.5rem;font-weight:600;letter-spacing:-.025em;line-height:1.2}
+h2{font-size:1rem;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+h3{font-size:.875rem;font-weight:500}
+a{color:inherit}
+img{display:block;max-width:100%;background:var(--muted)}
+button,select,summary,label[for]{cursor:pointer}
+input,select,textarea,button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:4px}
+[class^=icon-],[class*=" icon-"]{font-size:16px;line-height:1;flex:none}
+.lewati{position:absolute;left:8px;top:-60px;z-index:90;background:var(--card);padding:8px 12px;border:1px solid var(--border);border-radius:var(--r)}
+.lewati:focus{top:8px}
+.m{color:var(--mfg)}
+.xs{font-size:.75rem}
+.b{font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* Kerangka */
+.app{min-height:100dvh}
+.sb{position:fixed;inset:0 auto 0 0;z-index:50;width:256px;display:flex;flex-direction:column;background:var(--side);border-right:1px solid var(--border);transform:translateX(-100%);visibility:hidden;transition:transform .2s ease,visibility .2s}
+.sb.buka{transform:none;visibility:visible}
+.ov{position:fixed;inset:0;z-index:45;background:rgb(0 0 0 / .6)}
+.sb-h{display:flex;align-items:center;gap:10px;padding:12px;min-height:56px}
+.logo{width:32px;height:32px;display:grid;place-content:center;flex:none;background:var(--p);color:var(--pfg);border-radius:var(--r)}
+.sb-h b{display:block;font-weight:600;line-height:1.25;overflow-wrap:anywhere}
+.sb-n{flex:1;overflow-y:auto;padding:4px 8px}
+.sb-g{padding:8px 8px 4px;font-size:.75rem;font-weight:500;color:var(--mfg)}
+.sb-n button{display:flex;align-items:center;gap:8px;width:100%;min-height:var(--ctl);padding:0 8px;background:none;border:0;border-radius:calc(var(--r) - 2px);text-align:left;transition:background .15s}
+.sb-n button:hover{background:var(--acc)}
+.sb-n button[aria-current=page]{background:var(--acc);font-weight:500}
+.sb-c{margin-left:auto;min-width:20px;padding:0 6px;background:var(--p);color:var(--pfg);border-radius:99px;font-size:.75rem;font-weight:500;text-align:center}
+.sb-f{display:flex;gap:10px;align-items:center;margin:8px;padding:8px;border:1px solid var(--border);border-radius:var(--r)}
+.av{width:32px;height:32px;display:grid;place-content:center;flex:none;background:var(--muted);border-radius:99px;font-size:.75rem;font-weight:600}
+.sb-f p{line-height:1.3}
+.isi{min-width:0;transition:margin .2s ease}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:8px;min-height:56px;padding:8px 16px;background:var(--bg);border-bottom:1px solid var(--border)}
+.remah{display:flex;align-items:center;gap:6px;min-width:0;color:var(--mfg);white-space:nowrap}
+.remah b{font-weight:500;color:var(--fg);overflow:hidden;text-overflow:ellipsis}
+.remah span{display:none}
+.top .kanan{margin-left:auto;display:flex;align-items:center;gap:8px;flex:none}
+main{padding:20px 16px 48px;max-width:1320px;margin-inline:auto}
+main:focus{outline:0}
+.kp{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:20px}
+.kp p{color:var(--mfg);margin-top:4px;max-width:60ch}
+@media (min-width:1024px){
+  .sb{transform:none;visibility:visible}
+  .sb.tutup{transform:translateX(-100%);visibility:hidden}
+  .isi{margin-left:256px}
+  .isi.lebar{margin-left:0}
+  .ov{display:none}
+  .remah span{display:inline}
+  main{padding:24px 24px 56px}
+}
+@media (min-width:640px){.remah span{display:inline}}
+
+/* Tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--ctl);padding:0 14px;background:var(--p);color:var(--pfg);border:1px solid transparent;border-radius:var(--r);font-weight:500;text-decoration:none;white-space:nowrap;transition:background .15s,opacity .15s,color .15s}
+.btn:hover{opacity:.9}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.out{background:var(--bg);color:var(--fg);border-color:var(--input)}
+.btn.out:hover,.btn.gh:hover{background:var(--acc);opacity:1}
+.btn.gh{background:transparent;color:var(--fg)}
+.btn.sec{background:var(--muted);color:var(--fg)}
+.btn.des{background:var(--des);color:#fff}
+.btn.ic{width:var(--ctl);padding:0}
+.btn.sm{min-height:max(32px,calc(var(--ctl) - 4px));padding:0 10px;font-size:.8125rem}
+.btn.sm.ic{width:max(32px,calc(var(--ctl) - 4px));padding:0}
+
+/* Lencana */
+.bdg{display:inline-flex;align-items:center;gap:6px;padding:1px 8px;border:1px solid var(--border);border-radius:99px;font-size:.75rem;font-weight:500;white-space:nowrap}
+.bdg.sec{background:var(--muted);border-color:transparent}
+.bdg.pri{background:var(--p);color:var(--pfg);border-color:transparent}
+.bdg i.t{width:7px;height:7px;border-radius:99px;background:var(--c,var(--mfg))}
+
+/* Kartu */
+.card{background:var(--card);border:1px solid var(--border);border-radius:calc(var(--r) + 4px);box-shadow:0 1px 2px rgb(0 0 0 / .05);min-width:0}
+.ch{padding:16px 16px 0}
+.ch p{color:var(--mfg);margin-top:2px}
+.cb{padding:16px}
+.cf{display:flex;justify-content:flex-end;gap:8px;padding:12px 16px;border-top:1px solid var(--border)}
+.tile .cb{display:grid;gap:6px}
+.tile .a{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:500}
+.tile .a i{color:var(--mfg)}
+.tile .v{font-size:1.625rem;font-weight:700;letter-spacing:-.025em;line-height:1.15;overflow-wrap:anywhere}
+.g4,.g2,.g73,.gk{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tum{display:grid;gap:14px}
+.list>*{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;padding:12px 0;border-top:1px solid var(--border)}
+.list>*:first-child{border-top:0;padding-top:0}
+.list>*:last-child{padding-bottom:0}
+.list>*>div:first-child{flex:1 1 180px;min-width:0}
+.kosong{padding:32px 16px;text-align:center;color:var(--mfg)}
+.kosong i{display:block;font-size:24px;margin-bottom:8px}
+.alert{display:flex;gap:10px;padding:12px 14px;margin-bottom:14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.alert i{margin-top:2px}
+.alert p{color:var(--mfg)}
+@media (min-width:640px){.gk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g73{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}.gk{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Tabel data */
+.dt-t{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px}
+.tabs{display:flex;gap:2px;max-width:100%;overflow-x:auto;padding:3px;background:var(--muted);border-radius:var(--r);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:calc(var(--ctl) - 6px);padding:0 10px;background:none;border:0;border-radius:calc(var(--r) - 2px);color:var(--mfg);font-weight:500}
+.tabs button:hover{color:var(--fg)}
+.tabs button[aria-pressed=true]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgb(0 0 0 / .1)}
+.tabs small{font-size:.75rem;color:var(--mfg);font-variant-numeric:tabular-nums}
+.cari{position:relative;flex:1 1 200px;max-width:320px}
+.cari i{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--mfg);pointer-events:none}
+.cari input{padding-left:32px}
+.inp{display:block;width:100%;min-height:var(--ctl);padding:6px 10px;background:transparent;border:1px solid var(--input);border-radius:var(--r);box-shadow:0 1px 1px rgb(0 0 0 / .03)}
+.inp::placeholder{color:var(--mfg)}
+.inp:focus-visible{outline-offset:0}
+select.inp{background:var(--bg)}
+textarea.inp{min-height:88px;resize:vertical}
+input[type=date].inp{cursor:pointer}
+[aria-invalid=true]{border-color:var(--des)!important}
+.mas{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;background:var(--muted);border-block:1px solid var(--border)}
+.mas b{font-weight:500;margin-right:auto}
+.tbl-w{border-top:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;table-layout:auto}
+th{height:40px;padding:0 10px;text-align:left;font-weight:500;color:var(--mfg);white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle;overflow-wrap:anywhere}
+tbody tr{transition:background .1s}
+tbody tr:hover{background:color-mix(in srgb,var(--muted) 50%,transparent)}
+tbody tr[data-sel=true]{background:var(--muted)}
+tbody tr:last-child td{border-bottom:0}
+.c-pil{width:40px;padding-right:0}
+.c-aksi{width:48px;padding-left:0;text-align:right}
+.pil{display:inline-grid;place-content:center;width:max(28px,calc(var(--ctl) - 8px));height:max(28px,calc(var(--ctl) - 8px));cursor:pointer}
+.cek{appearance:none;-webkit-appearance:none;margin:0;width:16px;height:16px;background:var(--bg);border:1px solid var(--input);border-radius:4px;display:grid;place-content:center;cursor:pointer}
+.cek:checked{background:var(--p);border-color:var(--p)}
+.cek:checked::after{content:"";width:8px;height:4px;border-left:2px solid var(--pfg);border-bottom:2px solid var(--pfg);transform:translateY(-1px) rotate(-45deg)}
+.cek:indeterminate{background:var(--p);border-color:var(--p)}
+.cek:indeterminate::after{content:"";width:8px;height:2px;background:var(--pfg)}
+.nm{font-weight:500}
+.sub{display:none;flex-wrap:wrap;align-items:center;gap:4px 6px;margin-top:3px;color:var(--mfg);font-size:.8125rem}
+.dt-f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-top:1px solid var(--border);color:var(--mfg)}
+.dt-f div{display:flex;gap:6px}
+.hd{display:table-cell}
+@media (max-width:719px){.hd{display:none}.sub{display:flex}.cari{max-width:none;flex-basis:100%}}
+
+/* Switch */
+.sw{position:relative;flex:none;width:36px;height:20px;padding:0;background:var(--input);border:0;border-radius:99px;transition:background .15s}
+.sw::before{content:"";position:absolute;inset:-12px -4px}
+.sw::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;background:#fff;border-radius:99px;box-shadow:0 1px 2px rgb(0 0 0 / .3);transition:transform .15s}
+.sw[aria-checked=true]{background:var(--p)}
+.sw[aria-checked=true]::after{transform:translateX(16px)}
+.swb{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px}
+
+/* Menu tarik-turun */
+.mn{position:fixed;z-index:80;min-width:176px;padding:4px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 8px 24px rgb(0 0 0 / .16)}
+.mn button{display:flex;align-items:center;gap:8px;width:100%;min-height:max(32px,calc(var(--ctl) - 4px));padding:0 8px;background:none;border:0;border-radius:calc(var(--r) - 2px);text-align:left}
+.mn button:hover,.mn button:focus-visible{background:var(--acc);outline:0}
+.mn .des{color:var(--des)}
+.mn hr{margin:4px -4px;border:0;border-top:1px solid var(--border)}
+
+/* Dialog dan sheet */
+dialog{padding:0;background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:calc(var(--r) + 4px);box-shadow:0 16px 48px rgb(0 0 0 / .24);width:min(480px,100vw - 24px);max-height:calc(100dvh - 24px)}
+dialog::backdrop{background:rgb(0 0 0 / .6)}
+.d-h{padding:20px 20px 0;padding-right:52px}
+.d-h h2{font-size:1.125rem}
+.d-h p{margin-top:4px;color:var(--mfg)}
+.d-b{display:grid;gap:14px;padding:16px 20px}
+.d-f{display:flex;flex-wrap:wrap-reverse;justify-content:flex-end;gap:8px;padding:0 20px 20px}
+.d-x{position:absolute;right:8px;top:8px}
+.fld label{display:block;font-weight:500;margin-bottom:6px}
+.fld .h{margin-top:4px;color:var(--mfg);font-size:.8125rem}
+.err{margin-top:4px;color:var(--des);font-size:.8125rem;font-weight:500}
+.g-f{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media (min-width:640px){.g-f.d{grid-template-columns:repeat(2,minmax(0,1fr))}}
+dialog.sheet{margin:0 0 0 auto;width:min(440px,100vw);height:100dvh;max-height:100dvh;max-width:100vw;border-width:0 0 0 1px;border-radius:0}
+dialog.sheet[open]{display:flex;flex-direction:column}
+dialog.sheet .d-b{flex:1;overflow-y:auto;align-content:start}
+dialog.sheet .d-f{padding-top:12px;border-top:1px solid var(--border)}
+.dl{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:8px 12px}
+.dl dt{color:var(--mfg)}
+
+/* Toast */
+.toasts{position:fixed;right:16px;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:95;display:grid;gap:8px;justify-items:end;pointer-events:none}
+.toast{display:flex;gap:10px;width:min(360px,100%);padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 8px 24px rgb(0 0 0 / .16);animation:masuk .2s ease}
+.toast i{margin-top:2px}
+.toast b{display:block;font-weight:500}
+.toast p{color:var(--mfg)}
+@keyframes masuk{from{opacity:0;transform:translateY(8px)}}
+
+/* Grafik batang: satu seri, ujung atas membulat 4px, nilai lengkap saat disorot */
+.bars{display:flex;align-items:stretch;gap:2px;height:188px;margin-top:8px}
+.bar{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;border-radius:4px;cursor:default}
+.bar:hover{background:var(--muted)}
+.bar .n{font-size:.75rem;font-weight:500;line-height:1.5;visibility:hidden}
+.bar[data-lbl=true] .n{visibility:visible}
+.bar:hover .n,.bar:focus-visible .n{visibility:visible}
+.bar .m1{width:min(100%,28px);background:var(--p);border-radius:4px 4px 0 0}
+.bar .l{height:22px;padding-top:4px;font-size:.75rem;line-height:1.5;color:var(--mfg);white-space:nowrap;border-top:1px solid var(--border);width:100%;text-align:center}
+.tb-g{margin-top:10px}
+.tb-g summary{min-height:32px;display:flex;align-items:center;color:var(--mfg);font-size:.8125rem}
+.tb-g td,.tb-g th{padding:4px 10px;height:auto}
+
+/* Kotak masuk */
+.pos{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.pos-l{padding:6px}
+.pos-l button{display:block;width:100%;padding:10px;background:none;border:0;border-radius:var(--r);text-align:left}
+.pos-l button:hover{background:var(--acc)}
+.pos-l button[aria-pressed=true]{background:var(--muted)}
+.pos-l .a{display:flex;justify-content:space-between;gap:8px;font-weight:500}
+.pos-l .a small{font-size:.75rem;font-weight:400;color:var(--mfg);white-space:nowrap}
+.pos-l p{margin-top:2px;color:var(--mfg);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.utas{display:grid;gap:10px;margin-bottom:14px}
+.utas p{padding:10px 12px;background:var(--muted);border-radius:var(--r);max-width:90%;justify-self:start}
+.utas p.kita{background:var(--p);color:var(--pfg);justify-self:end}
+@media (min-width:860px){.pos{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}}
+
+/* Kartu berfoto */
+.foto img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:calc(var(--r) + 3px) calc(var(--r) + 3px) 0 0}
+.bint{display:inline-flex;gap:1px;color:var(--p)}
+.bint i{font-size:14px}
+.bint i.off{color:var(--input)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (forced-colors:active){.bar .m1{background:CanvasText}}
+.list>.kosong{display:block}
+@media (max-width:479px){.top a.btn{width:var(--ctl);padding:0}.top a.btn span{display:none}}
+</style>
+</head>
+<body>
+<a class="lewati" href="#utama">Langsung ke isi</a>
+<div class="ov" id="ov" hidden></div>
+<div class="app">
+  <aside class="sb" id="sb" aria-label="Menu admin">
+    <div class="sb-h"><span class="logo"><i class="icon-house" aria-hidden="true"></i></span><div><b id="merek">Desa Wanasari</b><span class="m xs">Panel admin</span></div></div>
+    <nav class="sb-n" id="nav" aria-label="Halaman admin"></nav>
+    <div class="sb-f"><span class="av" aria-hidden="true">AD</span><div><p class="b">Admin demo</p><p class="m xs">Perubahan hilang saat dimuat ulang</p></div></div>
+  </aside>
+  <div class="isi" id="isi">
+    <header class="top">
+      <button type="button" class="btn gh ic" id="tSamping" aria-label="Buka atau tutup menu" aria-controls="sb" aria-expanded="false"><i class="icon-panel-left" aria-hidden="true"></i></button>
+      <div class="remah"><span>Admin</span><span aria-hidden="true">/</span><b id="remah"></b></div>
+      <div class="kanan">
+        <span class="bdg sec">Demo</span>
+        <button type="button" class="btn gh ic" id="tTema"><i class="icon-moon" aria-hidden="true"></i></button>
+        <a class="btn out" href="index.html" aria-label="Lihat situs"><i class="icon-external-link" aria-hidden="true"></i><span>Situs</span></a>
+      </div>
+    </header>
+    <main id="utama" tabindex="-1"><div class="kp" id="kp"></div></main>
+  </div>
+</div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<script>
+const $ = id => document.getElementById(id);
+function h(tag, p = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const k in p) {
+    if (p[k] === undefined || p[k] === null) continue;
+    if (k === 'on') for (const n in p.on) e.addEventListener(n, p.on[n]);
+    else if (k in e && !/^(aria|data|role|for|list)/.test(k)) e[k] = p[k];
+    else e.setAttribute(k, p[k]);
+  }
+  e.append(...kids.flat().filter(x => x !== null && x !== undefined && x !== false));
+  return e;
+}
+const ic = n => h('i', {className: 'icon-' + n, 'aria-hidden': 'true'});
+const btn = (teks, o = {}) => h('button', {type: o.type || 'button', className: 'btn ' + (o.v || '') + (o.sm ? ' sm' : '') + (teks ? '' : ' ic'), 'aria-label': o.label, disabled: o.disabled, on: o.on ? {click: o.on} : undefined}, o.icon ? ic(o.icon) : null, teks || null);
+const bdg = (teks, v = '') => h('span', {className: 'bdg ' + v}, teks);
+const stat = (teks, warna) => { const s = h('span', {className: 'bdg'}, h('i', {className: 't'}), teks); s.firstChild.style.setProperty('--c', warna); return s; };
+const pt = (cls, teks) => h('p', {className: cls, textContent: teks});
+
+// Toast
+const riwayat = [];
+function kabari(judul, isi, catat = true) {
+  const t = h('div', {className: 'toast'}, ic('circle-check'), h('div', {}, h('b', {textContent: judul}), isi ? h('p', {textContent: isi}) : null));
+  $('toasts').append(t);
+  setTimeout(() => t.remove(), 3200);
+  if (catat) riwayat.unshift({teks: judul, kapan: new Date().toLocaleTimeString('id-ID', {hour: '2-digit', minute: '2-digit'})});
+  segarkan();
+}
+
+// Menu tarik-turun
+let mnAktif = null;
+function tutupMenu(fokus = true) {
+  if (!mnAktif) return;
+  const {m, a} = mnAktif;
+  mnAktif = null;
+  m.remove();
+  a.setAttribute('aria-expanded', 'false');
+  if (fokus) a.focus();
+}
+function bukaMenu(a, items) {
+  const baru = !mnAktif || mnAktif.a !== a;
+  tutupMenu(false);
+  if (!baru) return;
+  const m = h('div', {className: 'mn', role: 'menu'}, items.map(it => it === '-' ? h('hr') : h('button', {type: 'button', role: 'menuitem', className: it.des ? 'des' : '', on: {click: () => { tutupMenu(); it.on(); }}}, it.icon ? ic(it.icon) : null, it.teks)));
+  document.body.append(m);
+  const r = a.getBoundingClientRect(), mr = m.getBoundingClientRect();
+  m.style.left = Math.max(8, Math.min(r.right - mr.width, innerWidth - mr.width - 8)) + 'px';
+  m.style.top = (r.bottom + mr.height + 8 > innerHeight ? Math.max(8, r.top - mr.height - 4) : r.bottom + 4) + 'px';
+  a.setAttribute('aria-expanded', 'true');
+  mnAktif = {m, a};
+  m.querySelector('button').focus();
+  m.addEventListener('keydown', e => {
+    const b = [...m.querySelectorAll('button')], i = b.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); b[(i + 1) % b.length].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); b[(i - 1 + b.length) % b.length].focus(); }
+    if (e.key === 'Tab') tutupMenu(false);
+  });
+}
+document.addEventListener('click', e => { if (mnAktif && !mnAktif.m.contains(e.target) && !mnAktif.a.contains(e.target)) tutupMenu(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (mnAktif) tutupMenu(); else tutupSamping(); } });
+addEventListener('resize', () => tutupMenu(false));
+
+// Dialog dan sheet memakai <dialog> bawaan, jadi fokus dan Esc sudah terkurung
+function bukaDialog(isi, kelas = '') {
+  const d = h('dialog', {className: kelas}, isi, h('button', {type: 'button', className: 'btn gh ic sm d-x', 'aria-label': 'Tutup', on: {click: () => d.close()}}, ic('x')));
+  const tutup = d.close.bind(d);
+  d.close = () => { tutup(); d.remove(); };
+  d.addEventListener('close', () => d.remove());
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+  document.body.append(d);
+  d.showModal();
+  return d;
+}
+function kepala(judul, desk) { return h('div', {className: 'd-h'}, h('h2', {textContent: judul}), desk ? h('p', {textContent: desk}) : null); }
+function konfirmasi(judul, desk, aksi, fn) {
+  const d = bukaDialog([kepala(judul, desk), h('div', {className: 'd-b'}), h('div', {className: 'd-f'}, btn('Batal', {v: 'out', on: () => d.close()}), btn(aksi, {v: 'des', on: () => { d.close(); fn(); }}))]);
+}
+function lembar(judul, desk, isi, aksi = []) {
+  const d = bukaDialog([kepala(judul, desk), h('div', {className: 'd-b'}, isi), h('div', {className: 'd-f'}, aksi.map(a => btn(a.teks, {v: a.v, on: () => { d.close(); a.on(); }})), btn('Tutup', {v: 'out', on: () => d.close()}))], 'sheet');
+}
+let urutId = 0;
+function kolom(f) {
+  const id = 'f' + (++urutId), eId = id + 'e';
+  const umum = {id, className: 'inp', 'aria-describedby': f.wajib ? eId : undefined};
+  const el = f.tipe === 'select' ? h('select', umum, f.opsi.map(o => h('option', {textContent: o, selected: o === f.nilai})))
+    : f.tipe === 'area' ? h('textarea', {...umum, value: f.nilai ?? '', placeholder: f.ph})
+    : h('input', {...umum, type: f.tipe || 'text', value: f.nilai ?? '', placeholder: f.ph, min: f.min, step: f.step, inputMode: f.tipe === 'number' ? 'numeric' : undefined, autocomplete: 'off'});
+  const salah = h('p', {className: 'err', id: eId, hidden: true, textContent: f.salah || 'Kolom ini wajib diisi.'});
+  const uji = () => {
+    const v = el.value.trim();
+    const ok = !f.wajib || (f.tipe === 'number' ? v !== '' && Number(v) >= (f.min ?? 0) : v !== '');
+    salah.hidden = ok;
+    if (ok) el.removeAttribute('aria-invalid'); else el.setAttribute('aria-invalid', 'true');
+    return ok;
+  };
+  el.addEventListener('input', () => { if (el.hasAttribute('aria-invalid')) uji(); });
+  return {nama: f.nama, el, uji, node: h('div', {className: 'fld'}, h('label', {for: id, textContent: f.label}), el, f.ket ? pt('h', f.ket) : null, salah)};
+}
+function formulir(judul, desk, fields, kirim, fn) {
+  const ks = fields.map(kolom);
+  const d = bukaDialog(h('form', {noValidate: true, on: {submit: e => {
+    e.preventDefault();
+    const hasil = ks.map(k => k.uji());
+    if (hasil.includes(false)) { ks[hasil.indexOf(false)].el.focus(); return; }
+    const v = {};
+    ks.forEach(k => { v[k.nama] = k.el.value.trim(); });
+    d.close();
+    fn(v);
+  }}}, kepala(judul, desk), h('div', {className: 'd-b'}, ks.map(k => k.node)), h('div', {className: 'd-f'}, btn('Batal', {v: 'out', on: () => d.close()}), btn(kirim, {type: 'submit'}))));
+}
+
+// Switch
+function saklar(nyala, label, fn) {
+  const s = h('button', {type: 'button', className: 'sw', role: 'switch', 'aria-checked': String(nyala), 'aria-label': label, on: {click: () => {
+    const baru = s.getAttribute('aria-checked') !== 'true';
+    s.setAttribute('aria-checked', String(baru));
+    fn(baru);
+  }}});
+  return s;
+}
+
+// Tabel data: cari, saring, pilih banyak baris, halaman, dan menu per baris
+function tabelData(c) {
+  let q = '', tab = 'Semua', hal = 0;
+  const pilih = new Set();
+  const cari = h('input', {className: 'inp', type: 'search', placeholder: c.cariPh, 'aria-label': c.cariPh, on: {input: e => { q = e.target.value.toLowerCase().trim(); hal = 0; gambar(); }}});
+  const tabs = h('div', {className: 'tabs', role: 'group', 'aria-label': 'Saring ' + c.saring.label});
+  const massal = h('div', {className: 'mas', hidden: true});
+  const tb = h('tbody'), kosong = h('div', {className: 'kosong', hidden: true}, ic('search'), c.kosong || 'Tidak ada data yang cocok.');
+  const semua = c.massal ? h('input', {type: 'checkbox', className: 'cek', 'aria-label': 'Pilih semua baris di halaman ini'}) : null;
+  const tabel = h('table', {}, h('thead', {}, h('tr', {}, c.massal ? h('th', {className: 'c-pil', scope: 'col'}, h('label', {className: 'pil'}, semua)) : null, c.kolom.map(k => h('th', {scope: 'col', className: k.hd ? 'hd' : '', textContent: k.label})), h('th', {className: 'c-aksi', scope: 'col'}, h('span', {style: 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)'}, 'Aksi')))), tb);
+  const info = h('span', {className: 'tnum'});
+  const sbl = btn('', {v: 'out', sm: true, icon: 'chevron-left', label: 'Halaman sebelumnya', on: () => { hal--; gambar(); }});
+  const lanjut = btn('', {v: 'out', sm: true, icon: 'chevron-right', label: 'Halaman berikutnya', on: () => { hal++; gambar(); }});
+  const akar = h('div', {className: 'card'}, h('div', {className: 'dt-t'}, tabs, h('div', {className: 'cari'}, ic('search'), cari)), massal, h('div', {className: 'tbl-w'}, tabel, kosong), h('div', {className: 'dt-f'}, info, h('div', {}, sbl, lanjut)));
+  if (semua) semua.addEventListener('change', () => { (gambar.tampil || []).forEach(r => semua.checked ? pilih.add(r) : pilih.delete(r)); gambar(); });
+
+  function gambar() {
+    const data = c.baris();
+    [...pilih].forEach(r => { if (!data.includes(r)) pilih.delete(r); });
+    const nilaiTab = r => c.saring.nilai(r);
+    tabs.replaceChildren(...['Semua', ...c.saring.opsi].map(o => h('button', {type: 'button', 'aria-pressed': String(o === tab), on: {click: () => { tab = o; hal = 0; gambar(); }}}, o, h('small', {textContent: o === 'Semua' ? data.length : data.filter(r => nilaiTab(r) === o).length}))));
+    const cocok = data.filter(r => (tab === 'Semua' || nilaiTab(r) === tab) && (!q || c.teks(r).toLowerCase().includes(q)));
+    const ukuran = c.ukuran || 6, maks = Math.max(0, Math.ceil(cocok.length / ukuran) - 1);
+    hal = Math.min(hal, maks);
+    const tampil = cocok.slice(hal * ukuran, (hal + 1) * ukuran);
+    gambar.tampil = tampil;
+    tb.replaceChildren(...tampil.map(r => {
+      const a = btn('', {v: 'gh', sm: true, icon: 'ellipsis', label: 'Aksi untuk ' + c.nama(r), on: e => { e.stopPropagation(); bukaMenu(e.currentTarget, c.menu(r)); }});
+      a.setAttribute('aria-haspopup', 'menu');
+      a.setAttribute('aria-expanded', 'false');
+      const cek = c.massal ? h('input', {type: 'checkbox', className: 'cek', checked: pilih.has(r), 'aria-label': 'Pilih ' + c.nama(r), on: {change: e => { e.target.checked ? pilih.add(r) : pilih.delete(r); gambar(); }}}) : null;
+      return h('tr', {'data-sel': String(pilih.has(r))}, cek ? h('td', {className: 'c-pil'}, h('label', {className: 'pil'}, cek)) : null,
+        c.kolom.map(k => h('td', {className: k.hd ? 'hd' : ''}, k.isi(r))), h('td', {className: 'c-aksi'}, a));
+    }));
+    tabel.hidden = !tampil.length;
+    kosong.hidden = tampil.length > 0;
+    info.textContent = cocok.length ? `${hal * ukuran + 1} sampai ${hal * ukuran + tampil.length} dari ${cocok.length}` : '0 data';
+    sbl.disabled = hal === 0;
+    lanjut.disabled = hal >= maks;
+    if (semua) {
+      const n = tampil.filter(r => pilih.has(r)).length;
+      semua.checked = n > 0 && n === tampil.length;
+      semua.indeterminate = n > 0 && n < tampil.length;
+    }
+    massal.hidden = !pilih.size;
+    if (pilih.size) massal.replaceChildren(h('b', {textContent: pilih.size + ' dipilih'}), ...c.massal.map(m => btn(m.teks, {v: 'out', sm: true, on: () => { const rs = [...pilih]; pilih.clear(); m.on(rs); }})), btn('Batal', {v: 'gh', sm: true, on: () => { pilih.clear(); gambar(); }}));
+  }
+  gambar();
+  return {akar, gambar};
+}
+
+// Grafik batang satu seri; yang diberi label hanya nilai tertinggi dan terakhir
+function grafik(data, satuan) {
+  const puncak = Math.max(...data.map(d => d[1]));
+  return h('div', {}, h('div', {className: 'bars', role: 'img', 'aria-label': data.map(d => d[0] + ' ' + d[1] + ' ' + satuan).join(', ')},
+    data.map((d, i) => {
+      const m = h('div', {className: 'm1'});
+      m.style.height = (d[1] / puncak * 136) + 'px';
+      return h('div', {className: 'bar', title: `${d[0]}: ${d[1]} ${satuan}`, 'data-lbl': String(d[1] === puncak || i === data.length - 1)}, h('span', {className: 'n tnum', textContent: d[1]}), m, h('span', {className: 'l', textContent: d[0]}));
+    })),
+    h('details', {className: 'tb-g'}, h('summary', {textContent: 'Lihat sebagai tabel'}), h('table', {}, h('tbody', {}, data.map(d => h('tr', {}, h('td', {textContent: d[0]}), h('td', {className: 'tnum', textContent: d[1] + ' ' + satuan})))))));
+}
+
+// Kerangka aplikasi
+const pembaru = [];
+function segarkan() { pembaru.forEach(f => f()); }
+function tutupSamping() { const s = $('sb'); if (innerWidth < 1024 && s.classList.contains('buka')) { s.classList.remove('buka'); $('ov').hidden = true; $('tSamping').setAttribute('aria-expanded', 'false'); $('tSamping').focus(); } }
+function jalankan(cfg) {
+  const lihat = {};
+  let grup = null;
+  const nav = $('nav');
+  cfg.views.forEach(v => {
+    if (v.grup !== grup) { grup = v.grup; nav.append(h('div', {className: 'sb-g', textContent: grup})); }
+    const c = v.hitung ? h('span', {className: 'sb-c tnum'}) : null;
+    const b = h('button', {type: 'button', on: {click: () => { location.hash = '/' + v.id; tutupSamping(); }}}, ic(v.ikon), v.label, c);
+    nav.append(b);
+    const aksi = v.aksi ? v.aksi() : null;
+    const sec = h('section', {hidden: true});
+    $('utama').append(sec);
+    pembaru.push(v.pasang(sec));
+    if (c) pembaru.push(() => { const n = v.hitung(); c.textContent = n; c.hidden = !n; });
+    lihat[v.id] = {v, sec, b, aksi};
+  });
+  const kp = $('kp');
+  function buka() {
+    const id = location.hash.slice(2);
+    const t = lihat[id] || lihat[cfg.views[0].id];
+    Object.values(lihat).forEach(x => { x.sec.hidden = x !== t; if (x === t) x.b.setAttribute('aria-current', 'page'); else x.b.removeAttribute('aria-current'); });
+    kp.replaceChildren(h('div', {}, h('h1', {textContent: t.v.label}), h('p', {textContent: t.v.desk})), ...(t.aksi ? [t.aksi] : []));
+    $('remah').textContent = t.v.label;
+    document.title = t.v.label + ': Admin ' + cfg.nama;
+    scrollTo(0, 0);
+  }
+  addEventListener('hashchange', buka);
+  buka();
+  segarkan();
+
+  const tS = $('tSamping'), sb = $('sb'), ov = $('ov'), isi = $('isi');
+  tS.addEventListener('click', () => {
+    if (innerWidth >= 1024) { const t = sb.classList.toggle('tutup'); isi.classList.toggle('lebar', t); tS.setAttribute('aria-expanded', String(!t)); return; }
+    const b = sb.classList.toggle('buka'); ov.hidden = !b; tS.setAttribute('aria-expanded', String(b));
+    if (b) sb.querySelector('button').focus();
+  });
+  ov.addEventListener('click', tutupSamping);
+
+  const kunci = 'tema-' + cfg.nama, akar = document.documentElement, tT = $('tTema');
+  const pasangTema = t => { akar.dataset.theme = t; tT.querySelector('i').className = t === 'dark' ? 'icon-sun' : 'icon-moon'; tT.setAttribute('aria-label', t === 'dark' ? 'Pakai mode terang' : 'Pakai mode gelap'); };
+  let simpan = null;
+  try { simpan = localStorage.getItem(kunci); } catch (e) {}
+  pasangTema(simpan || cfg.tema);
+  tT.addEventListener('click', () => {
+    const t = akar.dataset.theme === 'dark' ? 'light' : 'dark';
+    pasangTema(t);
+    try { localStorage.setItem(kunci, t); } catch (e) {}
+  });
+}
+
+const STATUS = {Baru: '#2563eb', Diproses: '#d97706', Selesai: '#16a34a'};
+const lencanaS = s => stat(s, STATUS[s]);
+const surat = [
+  ['S-1052', 'Sri Wahyuni', 'Surat domisili', 'Krajan', '6 Nov 2026', 'Baru'],
+  ['S-1051', 'Tono Sugiarto', 'Surat usaha', 'Sidorejo', '6 Nov 2026', 'Baru'],
+  ['S-1050', 'Lina Marlina', 'Pengantar akta kelahiran', 'Tegalsari', '5 Nov 2026', 'Diproses'],
+  ['S-1049', 'Rudi Hartono', 'Surat tidak mampu', 'Karangtengah', '5 Nov 2026', 'Baru'],
+  ['S-1048', 'Yuni Astuti', 'Surat domisili', 'Sumberan', '4 Nov 2026', 'Selesai'],
+  ['S-1047', 'Asep Gunawan', 'Surat kematian', 'Krajan', '3 Nov 2026', 'Selesai'],
+  ['S-1046', 'Nur Hidayah', 'Surat usaha', 'Sidorejo', '3 Nov 2026', 'Diproses'],
+  ['S-1045', 'Bagus Pratama', 'Surat domisili', 'Tegalsari', '2 Nov 2026', 'Selesai'],
+  ['S-1044', 'Fitri Handayani', 'Surat tidak mampu', 'Sumberan', '30 Okt 2026', 'Selesai'],
+  ['S-1043', 'Eko Purnomo', 'Pengantar akta kelahiran', 'Krajan', '29 Okt 2026', 'Selesai'],
+  ['S-1042', 'Ani Rahmawati', 'Surat usaha', 'Karangtengah', '28 Okt 2026', 'Selesai'],
+  ['S-1041', 'Sugeng Widodo', 'Surat domisili', 'Sidorejo', '27 Okt 2026', 'Selesai']
+].map(([no, nama, jenis, dusun, tgl, status]) => ({no, nama, jenis, dusun, tgl, status}));
+const BERKAS = {'Surat domisili': ['Surat pengantar RT/RW', 'Fotokopi KTP', 'Fotokopi Kartu Keluarga'], 'Surat usaha': ['Surat pengantar RT/RW', 'Fotokopi KTP', 'Foto tempat usaha'], 'Surat tidak mampu': ['Surat pengantar RT/RW', 'Fotokopi Kartu Keluarga', 'Surat keterangan penghasilan'], 'Pengantar akta kelahiran': ['Surat keterangan lahir', 'Fotokopi Kartu Keluarga', 'Fotokopi KTP orang tua'], 'Surat kematian': ['Surat keterangan dari RT', 'Fotokopi KTP almarhum', 'Fotokopi Kartu Keluarga']};
+const umum = [
+  {judul: 'Posyandu balita', kat: 'Kesehatan', waktu: 'Selasa, 10 November 2026, 08.00', isi: 'Bawa buku KIA. Tempat di Posyandu Melati, Dusun Krajan.', tayang: true},
+  {judul: 'Kerja bakti saluran air', kat: 'Lingkungan', waktu: 'Minggu, 15 November 2026, 07.00', isi: 'Setiap rumah mengirim satu orang.', tayang: true},
+  {judul: 'Pembagian jadwal air sawah', kat: 'Pertanian', waktu: 'Rabu, 18 November 2026, 19.30', isi: 'Ketua kelompok tani hadir di balai desa.', tayang: true},
+  {judul: 'Penyaluran BLT Dana Desa tahap IV', kat: 'Bantuan', waktu: 'Sabtu, 21 November 2026, 09.00', isi: 'Penerima membawa KTP dan Kartu Keluarga.', tayang: true},
+  {judul: 'Cek tekanan darah untuk lansia', kat: 'Kesehatan', waktu: 'Rabu, 25 November 2026, 08.30', isi: 'Gratis untuk warga usia 60 tahun ke atas.', tayang: true},
+  {judul: 'Lowongan petugas perpustakaan desa', kat: 'Lowongan', waktu: 'Senin, 30 November 2026, 15.00', isi: 'Lamaran diserahkan ke Sekretaris Desa.', tayang: false},
+  {judul: 'Pengambilan sampah pilah', kat: 'Lingkungan', waktu: 'Setiap Sabtu, 06.30', isi: 'Pisahkan sampah plastik dan kertas.', tayang: true}
+];
+const KATEGORI = ['Kesehatan', 'Lingkungan', 'Pertanian', 'Bantuan', 'Lowongan'];
+const FOTO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/';
+const produk = [
+  {nama: 'Kopi robusta Wanasari', harga: 'Rp 45.000 per 200 gram', stok: 48, tampil: true, foto: '2/27/Kopi_Robusta_Banjarnegara.jpg/500px-Kopi_Robusta_Banjarnegara.jpg', alt: 'Buah kopi robusta di pohon'},
+  {nama: 'Anyaman bambu', harga: 'Mulai Rp 12.000', stok: 120, tampil: true, foto: '7/7a/20180707_Sidetapa_anyam_bambu.jpg/500px-20180707_Sidetapa_anyam_bambu.jpg', alt: 'Perajin menganyam bambu'},
+  {nama: 'Jajan pasar', harga: 'Rp 2.500 per potong', stok: 60, tampil: true, foto: '1/1e/Kue_Jajanan_Pasar.jpg/500px-Kue_Jajanan_Pasar.jpg', alt: 'Aneka kue jajanan pasar'},
+  {nama: 'Beras pandan wangi', harga: 'Rp 16.500 per kilogram', stok: 0, tampil: false, foto: '8/89/Farmer_harvesting_rice%2C_Kampung_Rawa_2014-06-20.jpg/500px-Farmer_harvesting_rice%2C_Kampung_Rawa_2014-06-20.jpg', alt: 'Petani memanen padi'}
+];
+const pesan = [
+  {dari: 'Bu Marni', dusun: 'Tegalsari', kapan: '08.14', isi: 'Lampu jalan dekat musala mati sejak minggu lalu. Malam hari jadi gelap sekali untuk anak-anak yang pulang mengaji.', balas: []},
+  {dari: 'Pak Darto', dusun: 'Krajan', kapan: 'Kemarin', isi: 'Kapan jadwal pupuk bersubsidi berikutnya? Kelompok tani kami belum dapat kabar.', balas: []},
+  {dari: 'Wulan', dusun: 'Sidorejo', kapan: '3 Nov', isi: 'Mohon info syarat surat untuk daftar beasiswa.', balas: ['Bawa surat pengantar RT/RW dan fotokopi Kartu Keluarga ke loket pelayanan, ya.']},
+  {dari: 'Pak Yusuf', dusun: 'Sumberan', kapan: '1 Nov', isi: 'Terima kasih, jalan usaha tani di blok timur sudah selesai diperbaiki.', balas: ['Sama-sama, Pak. Terima kasih sudah mengabari.']}
+];
+const belumDibalas = () => pesan.filter(p => !p.balas.length);
+const ubah = (r, s) => { r.status = s; kabari(`${r.no} kini ${s.toLowerCase()}`, `${r.jenis} atas nama ${r.nama}.`); };
+
+function rincianSurat(r) {
+  const aksi = [];
+  if (r.status === 'Baru') aksi.push({teks: 'Mulai proses', on: () => ubah(r, 'Diproses')});
+  if (r.status === 'Diproses') aksi.push({teks: 'Tandai selesai', on: () => ubah(r, 'Selesai')});
+  lembar(r.no, r.jenis, [
+    h('dl', {className: 'dl'}, [['Pemohon', r.nama], ['Dusun', r.dusun], ['Tanggal masuk', r.tgl]].flatMap(([a, b]) => [h('dt', {textContent: a}), h('dd', {className: 'b', textContent: b})]), h('dt', {textContent: 'Status'}), h('dd', {}, lencanaS(r.status))),
+    h('div', {className: 'card'}, h('div', {className: 'ch'}, h('h2', {textContent: 'Berkas yang diminta'})), h('div', {className: 'cb list'}, BERKAS[r.jenis].map(b => h('div', {}, h('div', {textContent: b}), bdg('Terlampir', 'sec')))))
+  ], aksi);
+}
+
+function formUmum(u) {
+  formulir(u ? 'Ubah pengumuman' : 'Tulis pengumuman', u ? 'Perubahan langsung terlihat di daftar ini.' : 'Pengumuman baru langsung berstatus tayang di demo ini.', [
+    {nama: 'judul', label: 'Judul', wajib: true, nilai: u?.judul, salah: 'Tulis judul pengumuman.'},
+    {nama: 'kat', label: 'Kategori', tipe: 'select', opsi: KATEGORI, nilai: u?.kat},
+    {nama: 'waktu', label: 'Waktu', wajib: true, nilai: u?.waktu, ph: 'Sabtu, 28 November 2026, 08.00', salah: 'Tulis waktu kegiatan.'},
+    {nama: 'isi', label: 'Isi singkat', tipe: 'area', nilai: u?.isi}
+  ], u ? 'Simpan' : 'Terbitkan', v => {
+    if (u) { Object.assign(u, v); kabari('Pengumuman diperbarui', v.judul); }
+    else { umum.unshift({...v, tayang: true}); kabari('Pengumuman diterbitkan', v.judul); }
+  });
+}
+
+jalankan({nama: 'Desa Wanasari', tema: 'light', views: [
+  {id: 'dasbor', grup: 'Utama', label: 'Dasbor', ikon: 'layout-dashboard', desk: 'Keadaan pelayanan desa pada Jumat, 6 November 2026.', pasang(s) {
+    const ang = {};
+    const tile = (k, judul, ikon, ket) => h('div', {className: 'card tile'}, h('div', {className: 'cb'}, h('div', {className: 'a'}, judul, ic(ikon)), ang[k] = h('div', {className: 'v tnum'}), pt('m xs', ket)));
+    const perlu = h('div', {className: 'list'}), log = h('div', {className: 'list'});
+    s.append(
+      h('div', {className: 'alert'}, ic('info'), h('div', {}, h('b', {className: 'b', textContent: 'Ini mode demo tanpa login'}), pt('', 'Semua data acak dan tidak terhubung ke situs desa. Perubahan hilang saat halaman dimuat ulang.'))),
+      h('div', {className: 'tum'},
+        h('div', {className: 'g4'}, tile('baru', 'Surat baru', 'file-text', 'Menunggu dikerjakan'), tile('proses', 'Sedang diproses', 'clock', 'Di loket pelayanan'), tile('pesan', 'Pesan belum dibalas', 'inbox', 'Dari warga'), tile('umum', 'Pengumuman tayang', 'megaphone', 'Terlihat oleh warga')),
+        h('div', {className: 'g73'},
+          h('div', {className: 'card'}, h('div', {className: 'ch'}, h('h2', {textContent: 'Permohonan surat per minggu'}), pt('', 'Delapan minggu terakhir')), h('div', {className: 'cb'}, grafik([['M1', 18], ['M2', 22], ['M3', 15], ['M4', 27], ['M5', 24], ['M6', 31], ['M7', 26], ['M8', 19]], 'permohonan'))),
+          h('div', {className: 'card'}, h('div', {className: 'ch'}, h('h2', {textContent: 'Perlu ditangani'}), pt('', 'Surat baru, dari yang terbaru')), h('div', {className: 'cb'}, perlu))),
+        h('div', {className: 'card'}, h('div', {className: 'ch'}, h('h2', {textContent: 'Aktivitas sesi ini'}), pt('', 'Terisi saat Anda mengubah data')), h('div', {className: 'cb'}, log))));
+    return () => {
+      const baru = surat.filter(r => r.status === 'Baru');
+      ang.baru.textContent = baru.length;
+      ang.proses.textContent = surat.filter(r => r.status === 'Diproses').length;
+      ang.pesan.textContent = belumDibalas().length;
+      ang.umum.textContent = umum.filter(u => u.tayang).length;
+      perlu.replaceChildren(...(baru.length ? baru.map(r => h('div', {}, h('div', {}, h('div', {className: 'nm', textContent: r.jenis}), pt('m xs', `${r.nama}, ${r.no}`)), btn('Lihat', {v: 'out', sm: true, label: 'Lihat ' + r.no, on: () => rincianSurat(r)}))) : [h('div', {className: 'kosong'}, ic('circle-check'), 'Semua surat sudah ditangani.')]));
+      log.replaceChildren(...(riwayat.length ? riwayat.slice(0, 5).map(a => h('div', {}, h('div', {textContent: a.teks}), h('span', {className: 'm xs tnum', textContent: a.kapan}))) : [h('div', {className: 'kosong'}, ic('clock'), 'Belum ada perubahan. Coba ubah status sebuah surat.')]));
+    };
+  }},
+  {id: 'surat', grup: 'Layanan', label: 'Permohonan surat', ikon: 'file-text', hitung: () => surat.filter(r => r.status === 'Baru').length, desk: 'Pilih beberapa baris untuk mengubah statusnya sekaligus.', pasang(s) {
+    const t = tabelData({
+      baris: () => surat, cariPh: 'Cari nama, nomor, atau jenis', saring: {label: 'status', opsi: ['Baru', 'Diproses', 'Selesai'], nilai: r => r.status},
+      teks: r => `${r.no} ${r.nama} ${r.jenis} ${r.dusun}`, nama: r => r.no, kosong: 'Tidak ada permohonan yang cocok.',
+      massal: [{teks: 'Proses', on: rs => { rs.forEach(r => { r.status = 'Diproses'; }); kabari(rs.length + ' surat masuk proses'); }}, {teks: 'Selesai', on: rs => { rs.forEach(r => { r.status = 'Selesai'; }); kabari(rs.length + ' surat ditandai selesai'); }}],
+      kolom: [
+        {label: 'Pemohon', isi: r => [h('div', {className: 'nm', textContent: r.nama}), h('div', {className: 'sub'}, r.jenis, lencanaS(r.status))]},
+        {label: 'Nomor', hd: true, isi: r => h('span', {className: 'tnum m', textContent: r.no})},
+        {label: 'Jenis surat', hd: true, isi: r => r.jenis},
+        {label: 'Tanggal', hd: true, isi: r => h('span', {className: 'm', textContent: r.tgl})},
+        {label: 'Status', hd: true, isi: r => lencanaS(r.status)}
+      ],
+      menu: r => [{teks: 'Lihat rincian', icon: 'eye', on: () => rincianSurat(r)}, '-', ...['Baru', 'Diproses', 'Selesai'].filter(x => x !== r.status).map(x => ({teks: 'Tandai ' + x.toLowerCase(), icon: 'check', on: () => ubah(r, x)}))]
+    });
+    s.append(t.akar);
+    return t.gambar;
+  }},
+  {id: 'pesan', grup: 'Layanan', label: 'Pesan warga', ikon: 'inbox', hitung: () => belumDibalas().length, desk: 'Balasan di demo ini tidak benar-benar terkirim.', pasang(s) {
+    let aktif = pesan[0];
+    const daftar = h('div', {className: 'card pos-l'}), rinci = h('div', {className: 'card'});
+    s.append(h('div', {className: 'pos'}, daftar, rinci));
+    const gambar = () => {
+      daftar.replaceChildren(...pesan.map(p => h('button', {type: 'button', 'aria-pressed': String(p === aktif), on: {click: () => { aktif = p; gambar(); if (innerWidth < 860) rinci.scrollIntoView({block: 'start'}); }}}, h('div', {className: 'a'}, h('span', {textContent: p.dari}), h('small', {textContent: p.kapan})), pt('', p.isi), h('div', {style: 'margin-top:6px'}, p.balas.length ? bdg('Sudah dibalas', 'sec') : stat('Belum dibalas', '#2563eb')))));
+      const ta = h('textarea', {className: 'inp', id: 'balasan', placeholder: 'Tulis balasan'});
+      const e = h('p', {className: 'err', hidden: true, textContent: 'Tulis balasan dulu.'});
+      rinci.replaceChildren(h('div', {className: 'ch'}, h('h2', {textContent: aktif.dari}), pt('', 'Dusun ' + aktif.dusun)), h('div', {className: 'cb'}, h('div', {className: 'utas'}, pt('', aktif.isi), aktif.balas.map(b => pt('kita', b))), h('div', {className: 'fld'}, h('label', {for: 'balasan', textContent: 'Balasan'}), ta, e)), h('div', {className: 'cf'}, btn('Kirim balasan', {icon: 'mail', on: () => {
+        const v = ta.value.trim();
+        e.hidden = !!v;
+        if (!v) { ta.setAttribute('aria-invalid', 'true'); ta.focus(); return; }
+        aktif.balas.push(v);
+        kabari('Balasan tercatat', 'Untuk ' + aktif.dari);
+      }})));
+    };
+    return gambar;
+  }},
+  {id: 'umum', grup: 'Konten', label: 'Pengumuman', ikon: 'megaphone', desk: 'Tulis, ubah, atau sembunyikan pengumuman untuk warga.', aksi: () => btn('Tulis pengumuman', {icon: 'plus', on: () => formUmum()}), pasang(s) {
+    const t = tabelData({
+      baris: () => umum, cariPh: 'Cari judul pengumuman', saring: {label: 'kategori', opsi: KATEGORI, nilai: u => u.kat}, teks: u => u.judul + ' ' + u.isi, nama: u => u.judul, ukuran: 6, kosong: 'Belum ada pengumuman di sini.',
+      kolom: [
+        {label: 'Judul', isi: u => [h('div', {className: 'nm', textContent: u.judul}), h('div', {className: 'sub'}, u.waktu, u.tayang ? null : bdg('Draf'))]},
+        {label: 'Kategori', hd: true, isi: u => bdg(u.kat, 'sec')},
+        {label: 'Waktu', hd: true, isi: u => h('span', {className: 'm', textContent: u.waktu})},
+        {label: 'Status', hd: true, isi: u => u.tayang ? stat('Tayang', '#16a34a') : stat('Draf', '#71717a')}
+      ],
+      menu: u => [{teks: 'Ubah', icon: 'pencil', on: () => formUmum(u)}, {teks: u.tayang ? 'Jadikan draf' : 'Tayangkan', icon: 'eye', on: () => { u.tayang = !u.tayang; kabari(u.tayang ? 'Pengumuman ditayangkan' : 'Pengumuman jadi draf', u.judul); }}, '-', {teks: 'Hapus', icon: 'trash-2', des: true, on: () => konfirmasi('Hapus pengumuman ini?', `"${u.judul}" akan dihapus dari daftar demo.`, 'Hapus', () => { umum.splice(umum.indexOf(u), 1); kabari('Pengumuman dihapus', u.judul); })}]
+    });
+    s.append(t.akar);
+    return t.gambar;
+  }},
+  {id: 'produk', grup: 'Konten', label: 'Produk warga', ikon: 'package', desk: 'Sembunyikan produk saat stoknya habis.', pasang(s) {
+    const kisi = h('div', {className: 'gk'});
+    s.append(kisi);
+    const gambar = () => kisi.replaceChildren(...produk.map(p => h('div', {className: 'card foto'},
+      h('img', {src: FOTO + p.foto, alt: p.alt, width: 500, height: 281, loading: 'lazy'}),
+      h('div', {className: 'cb'}, h('div', {className: 'swb', style: 'min-height:0;align-items:flex-start'}, h('h2', {textContent: p.nama}), p.stok ? bdg(p.stok + ' stok', 'sec') : stat('Habis', '#dc2626')), pt('m', p.harga),
+        h('div', {className: 'swb', style: 'margin-top:8px'}, h('span', {textContent: p.tampil ? 'Tampil di situs' : 'Disembunyikan'}), saklar(p.tampil, 'Tampilkan ' + p.nama, v => { p.tampil = v; kabari(p.nama + (v ? ' ditampilkan' : ' disembunyikan')); }))),
+      h('div', {className: 'cf'}, btn('Ubah', {v: 'out', sm: true, icon: 'pencil', label: 'Ubah ' + p.nama, on: () => formulir('Ubah ' + p.nama, 'Harga ditulis apa adanya, termasuk satuannya.', [{nama: 'harga', label: 'Harga', wajib: true, nilai: p.harga, salah: 'Tulis harga produk.'}, {nama: 'stok', label: 'Stok', tipe: 'number', min: 0, wajib: true, nilai: p.stok, salah: 'Isi stok 0 atau lebih.'}], 'Simpan', v => { p.harga = v.harga; p.stok = Number(v.stok); kabari(p.nama + ' diperbarui'); })})))));
+    return gambar;
+  }},
+  {id: 'atur', grup: 'Desa', label: 'Pengaturan', ikon: 'settings', desk: 'Data kantor desa dan pemberitahuan untuk petugas.', pasang(s) {
+    const ks = [{nama: 'nama', label: 'Nama desa', wajib: true, nilai: 'Desa Wanasari', salah: 'Nama desa wajib diisi.'}, {nama: 'hp', label: 'WhatsApp kantor', wajib: true, nilai: '0812-0000-4471', salah: 'Nomor wajib diisi.'}, {nama: 'jam', label: 'Jam layanan', wajib: true, nilai: 'Senin sampai Jumat, 08.00 sampai 15.00', salah: 'Jam layanan wajib diisi.'}, {nama: 'alamat', label: 'Alamat', nilai: 'Jl. Raya Wanasari No. 12, Dusun Krajan'}].map(kolom);
+    const brs = (j, k, v) => h('div', {className: 'swb'}, h('div', {}, h('div', {className: 'b', textContent: j}), pt('m xs', k)), saklar(v, j, x => kabari(j + (x ? ' dinyalakan' : ' dimatikan'))));
+    s.append(h('div', {className: 'g2'},
+      h('form', {className: 'card', noValidate: true, on: {submit: e => { e.preventDefault(); const r = ks.map(k => k.uji()); if (r.includes(false)) { ks[r.indexOf(false)].el.focus(); return; } $('merek').textContent = ks[0].el.value.trim(); kabari('Pengaturan disimpan', 'Nama di menu samping ikut berubah.'); }}}, h('div', {className: 'ch'}, h('h2', {textContent: 'Kantor desa'}), pt('', 'Dipakai sebagai kontak resmi')), h('div', {className: 'cb g-f'}, ks.map(k => k.node)), h('div', {className: 'cf'}, btn('Simpan perubahan', {type: 'submit'}))),
+      h('div', {className: 'card'}, h('div', {className: 'ch'}, h('h2', {textContent: 'Pemberitahuan'}), pt('', 'Pilih yang dikirim ke petugas')), h('div', {className: 'cb list'}, brs('Permohonan surat baru', 'Saat warga mengajukan surat', true), brs('Pesan warga', 'Saat ada pesan yang belum dibalas', true), brs('Rekap mingguan', 'Setiap Senin pagi', false)))));
+    return () => {};
+  }}
+]});
+</script>
+</body>
+</html>

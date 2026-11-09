@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Layanan surat: Desa Wanasari</title>
+<meta name="description" content="Syarat dan alur mengurus surat di kantor Desa Wanasari.">
+<meta name="theme-color" content="#f6f7f5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Terang dan bersih seperti aplikasi layanan, karena warga membukanya untuk menyelesaikan urusan.
+   Plus Jakarta Sans: huruf modern yang lahir di Indonesia dan nyaman dibaca di ponsel.
+   Hijau tua untuk tindakan, hijau segar hanya untuk tanda kemajuan. */
+:root{
+  --latar:#f6f7f5; --kartu:#fff; --tinta:#0f1a16; --redup:#56635c;
+  --hijau:#0e4d3a; --hijau-tua:#0a3a2c; --segar:#2fb37f; --garis:#d3dbd5; --lembut:#e9f0ec;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--latar);color:var(--tinta);font:400 1rem/1.65 "Plus Jakarta Sans",system-ui,sans-serif;padding-bottom:calc(92px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto;background:#d5ddd7;color:var(--tinta);font-size:.875rem}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-weight:700;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+h2{font-size:clamp(1.9rem,5.2vw,3.25rem)}
+h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.25}
+a{color:inherit}
+a,button,summary,label{cursor:pointer}
+:focus-visible{outline:3px solid var(--segar);outline-offset:2px;border-radius:6px}
+.wadah{width:min(1200px,100% - 32px);margin-inline:auto}
+.lewati{position:absolute;left:8px;top:-60px;background:#fff;padding:10px 14px;z-index:40;border-radius:10px}
+.lewati:focus{top:8px}
+
+/* Kepala halaman */
+.atas{position:sticky;top:0;z-index:20;background:var(--latar)}
+.atas .wadah{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:16px}
+.merek{font-weight:800;font-size:1.125rem;letter-spacing:-.03em;text-decoration:none;padding-block:10px}
+.navlebar{display:none;gap:2px}
+.navlebar a{text-decoration:none;font-weight:500;font-size:.9375rem;color:var(--redup);padding:10px 14px;border-radius:10px;transition:background .15s,color .15s}
+.navlebar a:hover{background:var(--lembut);color:var(--tinta)}
+.navlebar a.aktif{color:var(--tinta);font-weight:600}
+.tombol-kecil{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;background:var(--hijau);color:#fff;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9375rem;transition:background .15s}
+.tombol-kecil:hover{background:var(--hijau-tua)}
+.tombol-kecil:active{transform:scale(.98)}
+
+/* Navigasi bawah mengambang untuk ibu jari. Satu-satunya elemen berefek kaca di halaman ini. */
+.navbawah{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:30;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:6px;background:rgb(15 26 22 / .88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 10px 30px rgb(15 26 22 / .28)}
+.navbawah a{display:flex;align-items:center;justify-content:center;min-height:48px;color:#d9e2dd;text-decoration:none;font-weight:600;font-size:.875rem;border-radius:14px;transition:background .15s,color .15s}
+.navbawah a.aktif{background:#fff;color:var(--tinta)}
+.navbawah a:active{background:rgb(255 255 255 / .2)}
+.navbawah :focus-visible{outline-color:#fff}
+
+/* Pembuka: satu foto besar yang langsung bicara, judul menempel di bawah. Titik fokus halaman. */
+.pembuka{position:relative;margin-inline:auto;width:min(1400px,100% - 16px);border-radius:28px;overflow:hidden;background:var(--hijau-tua);color:#fff;min-height:min(74svh,680px);display:flex;align-items:flex-end}
+.pembuka img{position:absolute;left:0;top:0;width:100%;height:118%;max-width:none;object-fit:cover;object-position:60% 0}
+.pembuka::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(6 26 19 / .9) 0%,rgb(6 26 19 / .68) 46%,rgb(6 26 19 / .34) 58%,rgb(6 26 19 / .08) 68%,rgb(6 26 19 / 0) 78%)}
+.pembuka .teks{position:relative;z-index:1;padding:24px 20px 26px;max-width:760px}
+.pembuka small{display:block;font-size:.9375rem;font-weight:500;margin-bottom:10px}
+.pembuka h1{font-size:clamp(2.45rem,8.6vw,5.25rem);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+.pembuka p{margin-top:14px;font-size:1.0625rem;max-width:32em}
+.tombol{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:20px;padding:12px 26px;background:#fff;color:var(--tinta);font-weight:700;border-radius:999px;text-decoration:none;transition:background .15s}
+.tombol:hover{background:#dff3e9}
+.tombol:active{transform:scale(.98)}
+
+section{padding-block:clamp(56px,9vw,112px)}
+.pengantar{margin-top:12px;max-width:34em;color:var(--redup);font-size:1.0625rem}
+
+/* Layanan */
+.ruang-surat{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:28px}
+.pilihan{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:-16px;padding:4px 16px;scrollbar-width:none}
+.pilihan::-webkit-scrollbar{display:none}
+.pilihan button{flex:none;scroll-snap-align:center;font:600 .9375rem "Plus Jakarta Sans",sans-serif;min-height:46px;padding:8px 16px;background:var(--kartu);color:var(--tinta);border:1px solid var(--garis);border-radius:14px;text-align:left;transition:background .15s,border-color .15s,color .15s}
+.pilihan button:hover{border-color:var(--hijau)}
+.pilihan button:active{transform:scale(.98)}
+.pilihan button[aria-pressed=true]{background:var(--hijau);border-color:var(--hijau);color:#fff}
+.lembar{background:var(--kartu);border-radius:24px;padding:24px 20px;box-shadow:0 1px 2px rgb(15 26 22 / .05),0 12px 32px rgb(15 26 22 / .06)}
+.lembar h3{font-size:1.5rem}
+.lembar .untuk{margin-top:8px;color:var(--redup);max-width:38em}
+.batang{height:8px;margin-top:20px;background:var(--lembut);border-radius:99px;overflow:hidden}
+.batang i{display:block;height:100%;width:0;background:var(--segar);border-radius:99px;transition:width .3s ease}
+.kemajuan{margin-top:10px;font-weight:600;font-size:.9375rem}
+.lembar ul{list-style:none;margin:16px 0 0;padding:0}
+.lembar li+li{border-top:1px solid var(--garis)}
+.lembar label{display:flex;align-items:center;gap:14px;min-height:56px;padding:8px 0;font-weight:500}
+.lembar input{appearance:none;-webkit-appearance:none;margin:0;width:26px;height:26px;flex:none;background:#fff;border:2px solid #aab5ae;border-radius:9px;cursor:pointer;display:grid;place-content:center;transition:background .15s,border-color .15s}
+.lembar label:hover input{border-color:var(--hijau)}
+.lembar input::after{content:"";width:12px;height:7px;border-left:3px solid #fff;border-bottom:3px solid #fff;transform:translateY(-2px) rotate(-45deg);opacity:0}
+.lembar input:checked{background:var(--hijau);border-color:var(--hijau)}
+.lembar input:checked::after{opacity:1}
+.lembar input:checked+span{color:var(--redup)}
+.catatan{margin-top:14px;font-size:.875rem;color:var(--redup)}
+
+/* Pengumuman: daftar polos agar cepat dipindai, bukan tumpukan kartu */
+/* Pemisah antar bagian: panel hijau muda berselang-seling, sudutnya senada dengan foto pembuka */
+#pengumuman,#potensi,#profil{background:#e2ece6;width:min(1400px,100% - 16px);margin-inline:auto;border-radius:28px}
+.dua{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.dua>*{min-width:0}
+.saring{display:flex;gap:6px;overflow-x:auto;margin:22px -16px 0;padding:4px 16px;scrollbar-width:none}
+.saring::-webkit-scrollbar{display:none}
+.saring button{flex:none;font:600 .9375rem "Plus Jakarta Sans",sans-serif;min-height:44px;padding:8px 16px;color:var(--redup);background:var(--latar);border:0;border-radius:12px;transition:background .15s,color .15s}
+.saring button:hover{background:var(--lembut);color:var(--tinta)}
+.saring button:active{transform:scale(.98)}
+.saring button[aria-pressed=true]{background:var(--tinta);color:#fff}
+.daftar{list-style:none;margin:18px 0 0;padding:0}
+.daftar li{padding:20px 0;border-bottom:1px solid var(--garis)}
+.daftar .kapan{margin-top:6px;font-size:.9375rem}
+.daftar li p:last-child{color:var(--redup);margin-top:6px}
+.kosong{margin-top:18px;padding:22px;background:var(--latar);border-radius:18px;color:var(--redup)}
+figure{margin:0}
+figcaption{font-size:.875rem;margin-top:10px;color:var(--redup)}
+.dua img,.foto-profil img{width:100%;border-radius:24px;object-fit:cover}
+.dua img{aspect-ratio:4/5}
+
+/* Profil */
+.profil-teks p{margin-top:16px;max-width:36em;font-size:1.0625rem}
+.foto-profil{display:grid;gap:12px;grid-template-columns:1.25fr 1fr;margin-top:32px;align-items:end}
+.foto-profil img{aspect-ratio:4/5}
+.foto-profil figure:first-child img{aspect-ratio:1/1}
+.perangkat{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:0 32px}
+.perangkat li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--garis)}
+.perangkat span:first-child{color:var(--redup)}
+
+/* Kontak: panel gelap sebagai penutup yang tegas */
+.panel-kontak{background:var(--hijau);color:#fff;border-radius:28px;padding:32px 22px}
+.kontak{margin:28px 0 0;display:grid;gap:22px}
+.kontak dt{font-size:.9375rem;color:#c7e0d5}
+.kontak dd{margin:4px 0 0;font-size:1.125rem;font-weight:600}
+#kontak{padding-top:0}
+.darurat{margin-top:32px;padding-top:24px;border-top:1px solid rgb(255 255 255 / .25)}
+.darurat h3{margin-bottom:12px}
+.darurat ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.darurat a{display:flex;flex-direction:column;justify-content:center;min-height:68px;padding:10px 14px;background:rgb(255 255 255 / .1);border-radius:14px;text-decoration:none;font-size:.875rem;transition:background .15s}
+.darurat a:hover{background:rgb(255 255 255 / .2)}
+.darurat a:active{transform:scale(.98)}
+.darurat b{font-size:1.25rem;font-weight:700}
+.darurat :focus-visible{outline-color:#fff}
+
+/* Alur surat: nomor dipakai karena ini memang urutan langkah */
+.alur{margin-top:48px}
+.langkah{list-style:none;counter-reset:n;margin:18px 0 0;padding:0;display:grid;gap:12px}
+.langkah li{counter-increment:n;display:grid;grid-template-columns:40px 1fr;gap:4px 12px;align-items:start}
+.langkah li::before{content:counter(n);grid-row:span 2;width:40px;height:40px;display:grid;place-content:center;background:var(--lembut);color:var(--hijau);border-radius:12px;font-weight:700}
+.langkah b{font-weight:600}
+.langkah p{color:var(--redup);font-size:.9375rem}
+
+/* Kabar desa: satu berita utama lebih besar, dua lainnya mengikuti */
+.berita{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:28px}
+.berita article img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:20px}
+.berita time{display:block;margin-top:14px;font-size:.875rem;color:var(--redup)}
+.berita h3{margin-top:4px}
+.berita p{margin-top:8px;color:var(--redup)}
+.berita .utama h3{font-size:clamp(1.5rem,3.6vw,2.25rem)}
+
+/* Produk warga: baris foto dan teks, karena tiap produk punya rincian berbeda */
+.produk{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.produk li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:start}
+.produk img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.produk p{margin-top:4px;color:var(--redup);font-size:.9375rem}
+.produk .harga{color:var(--tinta);font-weight:600}
+
+/* Anggaran: batang menunjukkan porsi tiap bidang secara sekilas */
+.total{margin-top:24px;font-size:clamp(1.9rem,6vw,3.25rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;overflow-wrap:anywhere}
+.total-label{margin-top:6px;color:var(--redup)}
+.kolom-dana{display:grid;grid-template-columns:minmax(0,1fr);gap:36px;margin-top:32px}
+.bidang{list-style:none;margin:14px 0 0;padding:0}
+.bidang li{padding:12px 0;border-top:1px solid var(--garis)}
+.bidang .baris{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 16px}
+.bidang .baris span:last-child{font-weight:600}
+.bidang .batang{height:6px;margin-top:8px}
+
+/* Data desa dan dusun */
+.fakta{margin:36px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
+.fakta dt{font-size:.9375rem;color:var(--redup)}
+.fakta dd{margin:0;font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;letter-spacing:-.03em}
+.visi{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.visi blockquote{margin:10px 0 0;font-size:1.25rem;font-weight:600;letter-spacing:-.015em;line-height:1.4}
+.visi ul{margin:10px 0 0;padding-left:20px}
+.visi li{margin-top:6px}
+.perangkat span:last-child{font-weight:600;text-align:right}
+
+/* Tanya jawab */
+.tanya{margin-top:24px;max-width:820px}
+.tanya details{border-top:1px solid var(--garis)}
+.tanya details:last-child{border-bottom:1px solid var(--garis)}
+.tanya summary{min-height:56px;padding:15px 0;font-weight:600}
+.tanya summary:hover{color:var(--hijau)}
+.tanya p{padding-bottom:16px;color:var(--redup);max-width:40em}
+
+footer{padding-block:0 32px;font-size:.875rem;color:var(--redup)}
+footer a:hover{color:var(--tinta)}
+footer summary{min-height:44px;padding-block:10px;font-weight:600;color:var(--tinta)}
+footer ul{margin:4px 0 0;padding-left:18px}
+footer li{margin-top:8px}
+footer p+details{margin-top:8px}
+
+/* Tablet: foto dan daftar mulai cukup lebar untuk berdampingan */
+@media (min-width:680px){
+  .pembuka .teks{padding:40px}
+  .lembar{padding:32px}
+  .panel-kontak{padding:48px 40px}
+  .kontak{grid-template-columns:repeat(3,1fr)}
+  .perangkat{grid-template-columns:1fr 1fr}
+  .dua{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start;gap:40px}
+  .langkah{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .berita{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .berita .utama{grid-column:1 / -1}
+  .produk{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .produk li{grid-template-columns:128px minmax(0,1fr)}
+  .fakta{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .kolom-dana,.visi{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+/* Semua tautan muat di kepala halaman, jadi navigasi bawah tidak dibutuhkan */
+@media (min-width:1040px){
+  body{padding-bottom:0}
+  .navbawah{display:none}
+  .navlebar{display:flex}
+  .langkah{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .berita{grid-template-columns:1.5fr 1fr}
+  .berita .utama{grid-column:auto;grid-row:span 2}
+  .berita .utama img{aspect-ratio:4/3}
+  .berita article:not(.utama){display:grid;grid-template-columns:150px minmax(0,1fr);grid-template-rows:auto auto 1fr;gap:0 16px;align-self:start}
+  .berita article:not(.utama) img{grid-row:1 / 4;aspect-ratio:1}
+  .berita article:not(.utama) time{margin-top:0}
+}
+@media (min-width:880px){
+  .ruang-surat{grid-template-columns:320px minmax(0,1fr);gap:28px;align-items:start}
+  .pilihan{flex-direction:column;overflow:visible;margin:0;padding:0}
+  .pilihan button{min-height:56px;padding:12px 18px}
+  .profil{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
+  .foto-profil{margin-top:0}
+  .pembuka .teks{padding:56px}
+  /* Teks di kiri, jadi gelapnya dari kiri dan sisi kanan foto tetap cerah */
+  .pembuka::after{background:linear-gradient(to right,rgb(6 26 19 / .86) 0%,rgb(6 26 19 / .62) 42%,rgb(6 26 19 / 0) 72%)}
+  footer{padding-bottom:40px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Tambahan halaman ganda */
+main>section:first-child{padding-top:clamp(36px,6vw,64px)!important}
+main section h1{font-size:clamp(2.2rem,6.5vw,3.75rem);font-weight:800;letter-spacing:-.04em}
+footer{padding-top:32px}
+.navlebar a.aktif,.navbawah a.aktif{font-weight:700}
+.navlebar a.aktif{color:var(--tinta);background:var(--lembut)}
+.navbawah button{font:600 .875rem "Plus Jakarta Sans",sans-serif;min-height:48px;padding:0;color:#d9e2dd;background:none;border:0;border-radius:14px}
+.navbawah button[aria-expanded=true]{background:#fff;color:var(--tinta)}
+.navbawah button:active{background:rgb(255 255 255 / .2)}
+.lainnya{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;display:grid;gap:2px;padding:8px;background:#fff;border-radius:20px;box-shadow:0 10px 30px rgb(15 26 22 / .28)}
+.lainnya a{display:flex;align-items:center;min-height:48px;padding:4px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+.lainnya a:hover{background:var(--lembut)}
+.lainnya a.aktif{color:var(--hijau);background:var(--lembut)}
+.panel-hijau{background:#e2ece6;width:min(1400px,100% - 16px);margin-inline:auto;border-radius:28px}
+.pintasan{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:26px}
+.pintasan a{display:block;padding:20px;background:var(--kartu);border:1px solid var(--garis);border-radius:20px;text-decoration:none;transition:border-color .15s,background .15s}
+.pintasan a:hover{border-color:var(--hijau)}
+.pintasan a:active{transform:scale(.99)}
+.pintasan b{display:block;font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.pintasan span{display:block;margin-top:4px;color:var(--redup)}
+.pintasan a:first-child{background:var(--hijau);border-color:var(--hijau);color:#fff}
+.pintasan a:first-child:hover{background:var(--hijau-tua)}
+.pintasan a:first-child span{color:#d6e7de}
+.tautan{display:inline-flex;align-items:center;min-height:48px;margin-top:14px;padding:10px 22px;background:var(--hijau);color:#fff;border-radius:999px;font-weight:600;text-decoration:none;transition:background .15s}
+.tautan:hover{background:var(--hijau-tua)}
+.tautan:active{transform:scale(.98)}
+.kabar-depan{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:26px;align-items:center}
+.kabar-depan img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:22px}
+.kabar-depan time{font-size:.875rem;color:var(--redup)}
+.kabar-depan h3{margin-top:4px;font-size:clamp(1.4rem,3.4vw,2rem)}
+.kabar-depan p{margin-top:8px;color:var(--redup)}
+@media (min-width:680px){.pintasan{grid-template-columns:repeat(2,minmax(0,1fr))}.pintasan a:first-child{grid-column:1 / -1}.kabar-depan{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}}
+@media (min-width:1040px){.pintasan{grid-template-columns:repeat(3,minmax(0,1fr))}.pintasan a:first-child{grid-column:span 2;grid-row:span 2}.pintasan a:first-child b{font-size:2rem}.lainnya{display:none!important}}
+
+/* Komponen untuk konten tambahan */
+.x-lead{margin-top:12px;max-width:38em;color:var(--x-redup);font-size:1.0625rem}
+.x-tw{margin-top:26px}
+.x-t{width:100%;border-collapse:collapse}
+.x-t thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.x-t tr{display:block;padding:14px 0;border-top:1px solid var(--x-garis)}
+.x-t td{display:flex;justify-content:space-between;gap:16px;padding:3px 0;text-align:right;overflow-wrap:anywhere}
+.x-t td::before{content:attr(data-label);flex:none;max-width:45%;color:var(--x-redup);font-size:.9375rem;text-align:left}
+.x-t td:first-child{display:block;text-align:left;font-weight:600}
+.x-t td:first-child::before{content:none}
+.x-k{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:26px}
+.x-k>div{background:var(--x-kartu);border-radius:20px;padding:20px;min-width:0}
+.x-k h3{margin:0}
+.x-k p{margin-top:8px;color:var(--x-redup)}
+.x-k .x-info{margin-top:10px;color:var(--x-teks);font-weight:600;font-size:.9375rem}
+.x-w{list-style:none;margin:28px 0 0;padding:0}
+.x-w li{position:relative;padding:0 0 26px 24px;border-left:2px solid var(--x-garis);margin-left:5px}
+.x-w li:last-child{padding-bottom:0}
+.x-w li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;background:var(--x-aksen)}
+.x-w b{display:block;color:var(--x-aksen);font-weight:600}
+.x-w h3{margin-top:2px}
+.x-w p{margin-top:6px;color:var(--x-redup);max-width:40em}
+.x-f{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-top:26px;align-items:center}
+.x-f figure{margin:0}
+.x-f img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:22px}
+.x-f p{margin-top:12px;max-width:36em}
+.x-f p.r{color:var(--x-redup)}
+.x-f ul{margin:14px 0 0;padding-left:20px}
+.x-f li{margin-top:6px}
+.x-q{display:grid;grid-template-columns:minmax(0,1fr);gap:0 40px;margin-top:22px}
+.x-q figure{margin:0;padding:22px 0;border-top:1px solid var(--x-garis)}
+.x-q blockquote{margin:0;font-size:1.1875rem;font-weight:500;line-height:1.45;letter-spacing:-.01em}
+.x-q figcaption{margin-top:12px;color:var(--x-redup);font-size:.9375rem}
+.x-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+.x-g figure{margin:0}
+.x-g img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.x-g figcaption{margin-top:6px;color:var(--x-redup);font-size:.875rem}
+.x-a{margin-top:18px;max-width:42em}
+.x-a p{margin-top:16px;font-size:1.0625rem}
+.x-a blockquote{margin:24px 0;padding-left:18px;border-left:4px solid var(--x-aksen);font-size:1.25rem;font-weight:500;line-height:1.4}
+.x-c{display:grid;gap:18px;justify-items:start;padding:28px 22px;border-radius:28px;background:var(--x-cta);color:var(--x-ctat)}
+.x-c h2{font-size:clamp(1.7rem,4.6vw,3rem)}
+.x-c p{margin-top:10px;max-width:36em}
+.x-n{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 24px;background:var(--x-ctat);color:var(--x-cta);border-radius:999px;font-weight:600;text-decoration:none;transition:opacity .15s}
+.x-n:hover{opacity:.88}
+.x-n:active{transform:scale(.98)}
+.x-c :focus-visible{outline-color:var(--x-ctat)}
+.x-s{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0 40px}
+.x-s li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--x-garis)}
+.x-s span:first-child{min-width:0}
+.x-s small{display:block;color:var(--x-redup);font-size:.9375rem}
+.x-s span:last-child{flex:none;max-width:45%;font-weight:600;text-align:right}
+.x-lg{display:inline-flex;align-items:center;gap:7px;padding:2px 10px;border-radius:99px;background:var(--x-lembut);font-size:.8125rem;font-weight:600;white-space:nowrap}
+.x-lg::before{content:"";width:7px;height:7px;border-radius:99px;background:var(--x-aksen)}
+.x-lg.nanti::before{background:transparent;border:1.5px solid var(--x-redup)}
+@media (min-width:680px){
+  .x-t thead{position:static;width:auto;height:auto;clip-path:none}
+  .x-t th{padding:0 18px 10px 0;text-align:left;font-size:.9375rem;font-weight:600;color:var(--x-redup)}
+  .x-t tr{display:table-row;padding:0;border:0}
+  .x-t td,.x-t td:first-child{display:table-cell;padding:14px 18px 14px 0;text-align:left;border-top:1px solid var(--x-garis);vertical-align:top}
+  .x-t td::before{content:none}
+  .x-k{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .x-f{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+  .x-f.balik figure{order:2}
+  .x-q{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .x-g{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .x-c{grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:44px}
+  .x-s{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1040px){.x-k.tiga{grid-template-columns:repeat(3,minmax(0,1fr))}}
+:root{--x-redup:var(--redup);--x-garis:var(--garis);--x-kartu:#fff;--x-teks:var(--tinta);--x-aksen:var(--hijau);--x-cta:var(--hijau);--x-ctat:#fff;--x-lembut:#dbe8e0}
+.panel-hijau .x-k>div{background:#f6f7f5}
+main>section+section.panel-hijau{margin-top:0}
+.x-a h3{font-size:clamp(1.5rem,3.6vw,2.25rem);letter-spacing:-.03em;line-height:1.15}
+</style>
+</head>
+<body>
+<a class="lewati" href="#utama">Langsung ke isi</a>
+
+<header class="atas">
+  <div class="wadah">
+    <a class="merek" href="index.html">Desa Wanasari</a>
+    <nav class="navlebar" aria-label="Menu utama">
+      <a class="aktif" aria-current="page" href="layanan.html">Layanan surat</a>
+      <a href="pengumuman.html">Pengumuman</a>
+      <a href="kabar.html">Kabar</a>
+      <a href="produk.html">Produk warga</a>
+      <a href="anggaran.html">Anggaran</a>
+      <a href="profil.html">Profil</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <a class="tombol-kecil" href="kontak.html">Hubungi desa</a>
+  </div>
+</header>
+
+<main id="utama">
+<section id="layanan">
+    <div class="wadah">
+      <h1>Mau mengurus apa?</h1>
+      <p class="pengantar">Pilih suratnya, lalu centang berkas yang sudah Anda siapkan.</p>
+      <div class="ruang-surat">
+        <div class="pilihan" id="pilihan" role="group" aria-label="Jenis surat"></div>
+        <div class="lembar">
+          <h3 id="namaSurat"></h3>
+          <p class="untuk" id="untukSurat"></p>
+          <div class="batang" aria-hidden="true"><i id="batang"></i></div>
+          <p class="kemajuan" id="kemajuan" aria-live="polite"></p>
+          <ul id="syarat"></ul>
+          <p class="catatan">Layanan surat di kantor desa tidak dipungut biaya.</p>
+        </div>
+      </div>
+      <div class="alur">
+        <h3>Setelah berkas siap</h3>
+        <ol class="langkah">
+          <li><b>Minta pengantar RT/RW</b><p>Datang ke ketua RT, lalu minta tanda tangan ketua RW.</p></li>
+          <li><b>Datang ke loket pelayanan</b><p>Serahkan berkas ke Kasi Pelayanan pada jam layanan.</p></li>
+          <li><b>Berkas diperiksa</b><p>Petugas mengecek data dan mengetik surat, sekitar 15 menit.</p></li>
+          <li><b>Surat ditandatangani</b><p>Kepala Desa menandatangani, dan surat bisa langsung dibawa pulang.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+<section id="tanya">
+    <div class="wadah">
+      <h2>Yang sering ditanyakan warga</h2>
+      <div class="tanya">
+        <details><summary>Apakah mengurus surat di kantor desa bayar?</summary><p>Tidak. Semua surat dari kantor desa gratis. Jika ada yang meminta bayaran, laporkan ke Sekretaris Desa.</p></details>
+        <details><summary>Bolehkah diwakilkan oleh keluarga?</summary><p>Boleh, untuk anggota keluarga dalam satu Kartu Keluarga. Bawa KTP orang yang mewakili dan berkas milik orang yang diwakili.</p></details>
+        <details><summary>KTP saya hilang, bagaimana mengurusnya?</summary><p>Minta surat pengantar dari desa dengan membawa Kartu Keluarga, lalu buat laporan kehilangan di Polsek. Setelah itu, urus KTP baru ke Dinas Dukcapil.</p></details>
+        <details><summary>Saya warga pendatang, bisa mengurus surat domisili?</summary><p>Bisa. Bawa KTP asal dan surat pengantar dari RT tempat Anda tinggal sekarang.</p></details>
+        <details><summary>Bagaimana cara menyampaikan keluhan jalan rusak?</summary><p>Sampaikan ke kepala dusun, atau kirim foto dan lokasinya lewat WhatsApp kantor desa. Usulan besar dibahas dalam musyawarah desa setiap bulan Januari.</p></details>
+      </div>
+    </div>
+  </section>
+<section id="semua" class="panel-hijau">
+<div class="wadah">
+<h2>Semua layanan dan lamanya</h2>
+<p class="x-lead">Waktu dihitung sejak berkas lengkap diterima di loket. Semua layanan ini gratis.</p>
+<div class="x-tw"><table class="x-t"><thead><tr><th scope="col">Layanan</th><th scope="col">Dipakai untuk</th><th scope="col">Lama di kantor desa</th></tr></thead><tbody><tr><td data-label="Layanan">Surat domisili</td><td data-label="Dipakai untuk">Melamar kerja, membuka rekening</td><td data-label="Lama di kantor desa">15 menit</td></tr><tr><td data-label="Layanan">Surat tidak mampu</td><td data-label="Dipakai untuk">Beasiswa, keringanan biaya berobat</td><td data-label="Lama di kantor desa">20 menit</td></tr><tr><td data-label="Layanan">Surat usaha</td><td data-label="Dipakai untuk">Pinjaman modal, izin usaha mikro</td><td data-label="Lama di kantor desa">20 menit</td></tr><tr><td data-label="Layanan">Pengantar akta kelahiran</td><td data-label="Dipakai untuk">Pendaftaran ke Dinas Dukcapil</td><td data-label="Lama di kantor desa">15 menit</td></tr><tr><td data-label="Layanan">Surat kematian</td><td data-label="Dipakai untuk">Akta kematian, klaim asuransi</td><td data-label="Lama di kantor desa">15 menit</td></tr><tr><td data-label="Layanan">Pengantar nikah</td><td data-label="Dipakai untuk">Pendaftaran ke KUA</td><td data-label="Lama di kantor desa">30 menit</td></tr><tr><td data-label="Layanan">Pengantar KTP dan KK</td><td data-label="Dipakai untuk">Pembuatan atau perubahan data</td><td data-label="Lama di kantor desa">15 menit</td></tr><tr><td data-label="Layanan">Surat pindah</td><td data-label="Dipakai untuk">Pindah alamat antardesa</td><td data-label="Lama di kantor desa">1 hari kerja</td></tr><tr><td data-label="Layanan">Keterangan ahli waris</td><td data-label="Dipakai untuk">Pengurusan tanah dan tabungan</td><td data-label="Lama di kantor desa">3 hari kerja</td></tr><tr><td data-label="Layanan">Pengantar SKCK</td><td data-label="Dipakai untuk">Permohonan ke Polsek</td><td data-label="Lama di kantor desa">15 menit</td></tr></tbody></table></div>
+</div>
+</section>
+<section id="keliling">
+<div class="wadah">
+<h2>Layanan keliling dusun</h2>
+
+<div class="x-f"><figure><img loading="lazy" width="960" height="640" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Gotong_Royong_Pindah_Rumah.jpg/960px-Gotong_Royong_Pindah_Rumah.jpg" alt="Warga bersama-sama mengangkat rumah kayu"></figure><div><p class="r">Warga lansia dan warga yang jauh dari kantor tidak perlu datang ke Krajan. Petugas membawa stempel dan blangko ke balai dusun setiap pekan.</p><ul class="x-s" style="grid-template-columns:minmax(0,1fr)"><li><span>Dusun Sumberan<small>Balai dusun</small></span><span>Selasa, 09.00</span></li><li><span>Dusun Tegalsari<small>Rumah kepala dusun</small></span><span>Rabu, 09.00</span></li><li><span>Dusun Karangtengah<small>Balai dusun</small></span><span>Kamis, 09.00</span></li><li><span>Dusun Sidorejo<small>Sanggar perajin</small></span><span>Jumat, 09.00</span></li></ul></div></div>
+</div>
+</section>
+<section id="salah" class="panel-hijau">
+<div class="wadah">
+<h2>Kesalahan yang sering terjadi</h2>
+<p class="x-lead">Empat hal ini paling sering membuat warga harus kembali lagi ke kantor.</p>
+<div class="x-k"><div><h3>Pengantar RT tanpa tanda tangan RW</h3><p>Surat pengantar butuh keduanya. Minta tanda tangan RW pada hari yang sama agar tidak tertinggal.</p></div><div><h3>Nama di KTP dan KK berbeda</h3><p>Satu huruf yang berbeda pun harus dibetulkan lebih dulu di Dinas Dukcapil. Periksa sebelum datang.</p></div><div><h3>Fotokopi terlalu buram</h3><p>Nomor induk harus terbaca jelas. Kios fotokopi terdekat ada di depan balai desa.</p></div><div><h3>Datang saat jam istirahat</h3><p>Loket tutup pukul 12.00 sampai 13.00. Datanglah sebelum pukul 14.30 supaya sempat ditandatangani.</p></div></div>
+</div>
+</section>
+<section id="petugas">
+<div class="wadah">
+<h2>Siapa yang melayani</h2>
+
+<div class="x-tw"><table class="x-t"><thead><tr><th scope="col">Petugas</th><th scope="col">Tugas</th><th scope="col">Hari</th></tr></thead><tbody><tr><td data-label="Petugas">Siti Aminah</td><td data-label="Tugas">Kasi Pelayanan, semua surat</td><td data-label="Hari">Senin sampai Jumat</td></tr><tr><td data-label="Petugas">Rina Puspitasari</td><td data-label="Tugas">Sekretaris Desa, keluhan layanan</td><td data-label="Hari">Senin sampai Kamis</td></tr><tr><td data-label="Petugas">Bambang Suharto</td><td data-label="Tugas">Kepala Desa, tanda tangan surat</td><td data-label="Hari">Senin sampai Jumat, sampai 14.30</td></tr></tbody></table></div>
+</div>
+</section>
+<section class="x-cs"><div class="wadah"><div class="x-c"><div><h2>Berkas sudah lengkap?</h2><p>Datang ke loket pelayanan di kantor desa. Kalau ragu, kirim foto berkas lewat WhatsApp untuk dicek lebih dulu.</p></div><a class="x-n" href="kontak.html">Lihat alamat kantor</a></div></div></section>
+</main>
+
+<footer>
+  <div class="wadah">
+    <p>Situs contoh. Nama desa, orang, angka anggaran, jadwal, harga, dan kontak adalah data acak, dan foto hanya ilustrasi dari tempat lain. Hanya nomor darurat nasional yang asli. <a href="admin.html">Buka admin demo</a>.</p>
+    <details>
+      <summary>Sumber foto</summary>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Desa-Nglanggeran.jpg">Bentang desa</a>, Ainandoo, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Gotong_Royong_adalah_warisan_budaya.jpg">Gotong royong</a>, Andesta Saputra, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Farmer_harvesting_rice,_Kampung_Rawa_2014-06-20.jpg">Panen padi</a>, Crisco 1492, CC BY-SA 3.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Gotong_Royong_Pindah_Rumah.jpg">Pindah rumah</a>, Herusutimbul, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Kopi_Robusta_Banjarnegara.jpg">Petani kopi</a>, Haridi123, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Kegiatan_Posyandu_Desa_Koto_Cerenti.jpg">Posyandu</a>, Refki Assadiky, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:20180707_Sidetapa_anyam_bambu.jpg">Perajin bambu</a>, Dinata Juan, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Kue_Jajanan_Pasar.jpg">Jajan pasar</a>, Nopian8, CC BY-SA 4.0</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+<nav class="navbawah" aria-label="Menu cepat">
+  <a href="index.html">Beranda</a>
+  <a class="aktif" aria-current="page" href="layanan.html">Surat</a>
+  <a href="pengumuman.html">Info</a>
+  <a href="kabar.html">Kabar</a>
+  <button type="button" id="tLainnya" aria-expanded="false" aria-controls="lainnya">Lainnya</button>
+</nav>
+<div class="lainnya" id="lainnya" hidden>
+  <a href="produk.html">Produk warga</a>
+  <a href="anggaran.html">Anggaran desa</a>
+  <a href="profil.html">Profil desa</a>
+  <a href="kontak.html">Kontak</a>
+  <a href="admin.html">Admin demo</a>
+</div>
+<script>
+const surat = [
+  {nama:'Surat domisili', untuk:'Bukti tempat tinggal, misalnya untuk melamar kerja atau membuka rekening.',
+   syarat:['Surat pengantar RT/RW','Fotokopi KTP','Fotokopi Kartu Keluarga']},
+  {nama:'Surat tidak mampu', untuk:'Untuk mengajukan keringanan biaya sekolah atau layanan kesehatan.',
+   syarat:['Surat pengantar RT/RW','Fotokopi KTP','Fotokopi Kartu Keluarga','Surat dari sekolah atau rumah sakit, bila diminta']},
+  {nama:'Surat usaha', untuk:'Bukti punya usaha di desa, misalnya untuk mengajukan pinjaman modal.',
+   syarat:['Surat pengantar RT/RW','Fotokopi KTP','Foto tempat usaha']},
+  {nama:'Pengantar akta kelahiran', untuk:'Pengantar dari desa sebelum mengurus akta ke Dinas Dukcapil.',
+   syarat:['Surat keterangan lahir dari bidan atau rumah sakit','Fotokopi KTP orang tua','Fotokopi Kartu Keluarga','Fotokopi buku nikah']},
+  {nama:'Surat kematian', untuk:'Dipakai keluarga untuk mengurus administrasi setelah anggota keluarga meninggal.',
+   syarat:['Surat pengantar RT/RW','KTP almarhum','Fotokopi Kartu Keluarga','KTP pelapor']}
+];
+const centang = surat.map(s => s.syarat.map(() => false));
+let aktif = 0;
+const pilihan = document.getElementById('pilihan');
+
+surat.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.textContent = s.nama;
+  b.addEventListener('click', () => {
+    aktif = i;
+    gambar();
+    pilihan.scrollTo({left: b.offsetLeft - (pilihan.clientWidth - b.offsetWidth) / 2});
+  });
+  pilihan.append(b);
+});
+
+function perbaruiKemajuan() {
+  const c = centang[aktif], n = c.filter(Boolean).length;
+  document.getElementById('batang').style.width = (n / c.length * 100) + '%';
+  document.getElementById('kemajuan').textContent = n === c.length
+    ? 'Semua berkas siap. Bawa ke kantor desa pada jam layanan.'
+    : n + ' dari ' + c.length + ' berkas sudah siap';
+}
+
+function gambar() {
+  [...pilihan.children].forEach((b, i) => b.setAttribute('aria-pressed', i === aktif));
+  document.getElementById('namaSurat').textContent = surat[aktif].nama;
+  document.getElementById('untukSurat').textContent = surat[aktif].untuk;
+  document.getElementById('syarat').replaceChildren(...surat[aktif].syarat.map((teks, i) => {
+    const li = document.createElement('li'), l = document.createElement('label'),
+          inp = document.createElement('input'), sp = document.createElement('span');
+    inp.type = 'checkbox';
+    inp.checked = centang[aktif][i];
+    inp.addEventListener('change', () => { centang[aktif][i] = inp.checked; perbaruiKemajuan(); });
+    sp.textContent = teks;
+    l.append(inp, sp); li.append(l);
+    return li;
+  }));
+  perbaruiKemajuan();
+}
+gambar();
+
+
+// Menu "Lainnya" di ponsel
+const tL = document.getElementById('tLainnya'), mL = document.getElementById('lainnya');
+function aturLainnya(buka) { mL.hidden = !buka; tL.setAttribute('aria-expanded', buka); }
+tL.addEventListener('click', () => aturLainnya(mL.hidden));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mL.hidden) { aturLainnya(false); tL.focus(); } });
+document.addEventListener('click', e => { if (!mL.hidden && !mL.contains(e.target) && e.target !== tL) aturLainnya(false); });
+</script>
+</body>
+</html>

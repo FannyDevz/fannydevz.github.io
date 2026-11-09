@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Desa Tirta Asri: sehari pelan di tengah sawah</title>
+<meta name="description" content="Rencanakan sehari di Desa Tirta Asri: menanam padi, berjalan di lorong desa, dan menonton latihan tari.">
+<meta name="theme-color" content="#0f2a22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* Hijau malam: membuat hijau dan emas di foto sawah terasa menyala, seperti layar bioskop.
+   Emas padi: satu aksen untuk tindakan utama.
+   Bricolage Grotesque: judul berkarakter dan terkini. DM Sans: isi yang tenang di layar gelap. */
+:root{
+  --malam:#0f2a22; --malam-2:#16372d; --malam-3:#1f4639;
+  --teks:#f3f6ee; --redup:#bccabf; --emas:#f2c14e; --garis:rgb(243 246 238 / .18);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%;color-scheme:dark}
+body{margin:0;background:var(--malam);color:var(--teks);font:400 1.0625rem/1.65 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto;background:var(--malam-3);color:var(--teks);font-size:.875rem}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(2.2rem,7vw,4.75rem)}
+a{color:inherit}
+a,button,summary,select,input[type=date]{cursor:pointer}
+:focus-visible{outline:3px solid var(--emas);outline-offset:3px;border-radius:6px}
+.wadah{width:min(1240px,100% - 32px);margin-inline:auto}
+.lewati{position:absolute;left:8px;top:-60px;background:#fff;color:#000;padding:10px 14px;z-index:60;border-radius:10px}
+.lewati:focus{top:8px}
+
+/* Kepala halaman mengambang di atas foto. Satu-satunya elemen berefek kaca. */
+.atas{position:fixed;left:8px;right:8px;top:8px;z-index:40;background:rgb(15 42 34 / .72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:18px}
+.atas .dalam{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:4px 6px 4px 16px;min-height:56px}
+.merek{font:700 1.2rem "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;text-decoration:none;padding-block:12px}
+#tMenu{font:600 .9375rem "DM Sans",sans-serif;background:var(--teks);color:var(--malam);border:0;border-radius:12px;min-height:44px;padding:6px 18px}
+#tMenu:hover{background:#fff}
+#tMenu:active{transform:scale(.97)}
+#menu{display:none;width:100%;padding:6px 10px 10px 0}
+#menu.buka{display:block}
+#menu a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-weight:500;border-top:1px solid var(--garis)}
+#menu a:hover{color:var(--emas)}
+
+/* Pembuka penuh layar: fotonya yang bercerita, judul besar langsung di atasnya */
+.pembuka{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.pembuka img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:58% 50%;z-index:-2;animation:mendekat 2.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes mendekat{from{transform:scale(1.07)}}
+.pembuka::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--malam) 0%,rgb(15 42 34 / .82) 30%,rgb(15 42 34 / .42) 56%,rgb(15 42 34 / .1) 76%,rgb(15 42 34 / .28) 100%)}
+.pembuka .wadah{padding-block:0 36px}
+.pembuka h1{font-size:clamp(3rem,13.5vw,9.5rem);line-height:.96;letter-spacing:-.04em;max-width:11ch}
+.pembuka p{margin-top:18px;font-size:1.125rem;max-width:32em}
+.tombol{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:22px;padding:12px 28px;background:var(--emas);color:var(--malam);border:0;border-radius:999px;font:600 1.0625rem "DM Sans",sans-serif;text-decoration:none;transition:background .15s}
+.tombol:hover{background:#ffd873}
+.tombol:active{transform:scale(.98)}
+
+section{padding-block:clamp(64px,10vw,128px)}
+
+/* Rencana sehari */
+.jalur{display:flex;gap:4px;margin-top:26px;padding:4px;background:var(--malam-2);border-radius:16px;max-width:460px}
+.jalur button{flex:1;font:600 1rem "DM Sans",sans-serif;min-height:48px;padding:8px;background:transparent;color:var(--redup);border:0;border-radius:12px;transition:background .15s,color .15s}
+.jalur button:hover{color:var(--teks)}
+.jalur button:active{background:var(--malam-3)}
+.jalur button[aria-selected=true]{background:var(--teks);color:var(--malam)}
+.panel{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.panel figure{margin:0}
+.panel img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
+.panel h3{font-size:clamp(1.8rem,4.6vw,3rem)}
+.panel p{margin-top:12px;max-width:32em;color:var(--redup)}
+.panel ul{margin:16px 0 0;padding:0;list-style:none}
+.panel li{padding:12px 0;border-top:1px solid var(--garis)}
+
+/* Galeri geser: gerakan alami di ponsel, dan fotonya tetap besar */
+#galeri{padding-inline:0;background:var(--malam-2)}
+.bingkai{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:28px;padding:4px max(16px,calc((100% - 1240px) / 2));scroll-padding-inline:max(16px,calc((100% - 1240px) / 2));scrollbar-width:thin;scrollbar-color:var(--malam-3) transparent}
+.bingkai button{flex:none;width:min(76vw,400px);padding:0;border:0;background:none;border-radius:22px;overflow:hidden;scroll-snap-align:start}
+.bingkai img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.bingkai button:hover img{transform:scale(1.03)}
+.bingkai button:active img{transform:scale(1)}
+.petunjuk{margin-top:14px;color:var(--redup);font-size:.9375rem}
+
+dialog{border:0;padding:0;background:var(--malam-2);color:var(--teks);width:min(980px,100vw - 24px);max-height:calc(100dvh - 24px);border-radius:22px}
+dialog::backdrop{background:rgb(5 15 12 / .88)}
+dialog img{width:100%;max-height:calc(100dvh - 160px);object-fit:contain;background:#07130f}
+.bawah-dialog{padding:14px}
+.bawah-dialog p{min-height:1.6em}
+.kendali{display:flex;gap:6px;margin-top:10px}
+.kendali button{flex:1;font:600 .9375rem "DM Sans",sans-serif;min-height:46px;background:var(--malam-3);color:var(--teks);border:0;border-radius:12px;transition:background .15s}
+.kendali button:hover{background:#2a5a4a}
+.kendali button:active{transform:scale(.98)}
+
+/* Sebelum datang: daftar polos, karena ini catatan yang dibaca, bukan fitur yang dijual */
+.pesan{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0 48px}
+.pesan li{padding:22px 0;border-top:1px solid var(--garis)}
+.pesan h3{font-size:1.35rem;letter-spacing:-.015em}
+.pesan p{margin-top:6px;color:var(--redup)}
+
+/* Aktivitas: foto besar bergantian posisi agar halaman tidak monoton */
+.kegiatan{display:grid;grid-template-columns:minmax(0,1fr);gap:44px;margin-top:32px}
+.kegiatan article{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:center}
+.kegiatan img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:24px}
+.kegiatan h3{font-size:clamp(1.6rem,4vw,2.5rem)}
+.kegiatan p{margin-top:10px;color:var(--redup);max-width:32em}
+.rincian{margin-top:12px;font-weight:600;color:var(--emas)}
+
+/* Paket: daftar baris, sebab yang dibandingkan adalah isi dan harga */
+#paket{background:var(--malam-2)}
+.daftar-paket{list-style:none;margin:30px 0 0;padding:0}
+.daftar-paket li{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 32px;padding:22px 0;border-top:1px solid var(--garis)}
+.daftar-paket h3{font-size:1.5rem;letter-spacing:-.015em}
+.daftar-paket p{color:var(--redup)}
+.daftar-paket .harga{color:var(--emas);font:700 1.5rem "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.catat{margin-top:16px;color:var(--redup);font-size:.9375rem}
+
+/* Menginap */
+.rumah{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:30px;align-items:start}
+.rumah>figure{margin:0}
+.rumah>figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
+.daftar-rumah{list-style:none;margin:0;padding:0}
+.daftar-rumah li{padding:18px 0;border-bottom:1px solid var(--garis)}
+.daftar-rumah li:first-child{padding-top:0}
+.daftar-rumah h3{font-size:1.35rem;letter-spacing:-.015em}
+.daftar-rumah p{margin-top:4px;color:var(--redup)}
+.daftar-rumah .rincian{margin-top:6px}
+
+/* Kuliner */
+#kuliner{background:var(--malam-2)}
+.menu{list-style:none;margin:0;padding:0}
+.menu li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--garis)}
+.menu small{display:block;font-size:.9375rem;color:var(--redup)}
+.menu span:last-child{font-weight:600;white-space:nowrap}
+
+/* Musim: urutan sepanjang tahun, dari tanam sampai panen */
+.musim{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0 28px}
+.musim li{padding:18px 0;border-top:2px solid var(--malam-3)}
+.musim b{display:block;color:var(--emas);font-weight:600}
+.musim h3{font-size:1.35rem;margin-top:4px;letter-spacing:-.015em}
+.musim p{margin-top:6px;color:var(--redup)}
+.acara{margin-top:32px;padding:22px;background:var(--malam-3);border-radius:22px}
+.acara h3{font-size:1.5rem}
+.acara p{margin-top:8px;max-width:40em}
+
+/* Tanya jawab */
+.tanya{margin-top:26px;max-width:860px}
+.tanya details{border-top:1px solid var(--garis)}
+.tanya details:last-child{border-bottom:1px solid var(--garis)}
+.tanya summary{min-height:56px;padding:15px 0;font-weight:600}
+.tanya summary:hover{color:var(--emas)}
+.tanya p{padding-bottom:16px;color:var(--redup);max-width:40em}
+#sebelum,#tanya{padding-bottom:clamp(40px,6vw,72px)}
+#tanya{padding-top:0}
+#musim{padding-bottom:clamp(40px,6vw,72px)}
+
+/* Formulir */
+#kunjungan{padding-top:0}
+.kotak{background:var(--teks);color:var(--malam);border-radius:28px;padding:30px 20px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.kotak p.pengantar{margin-top:14px;max-width:30em}
+.kotak :focus-visible{outline-color:var(--malam)}
+.formulir{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.formulir label{display:block;font-weight:600;margin-bottom:6px}
+.formulir input,.formulir select{width:100%;min-height:52px;padding:12px 14px;font:400 1rem "DM Sans",sans-serif;color:var(--malam);background:#fff;border:1.5px solid #b9c4b8;border-radius:14px;color-scheme:light}
+.formulir input:hover,.formulir select:hover{border-color:var(--malam)}
+.salah{color:#9b1c1c;font-weight:600;font-size:.9375rem;margin-top:6px}
+[aria-invalid=true]{border-color:#9b1c1c!important}
+.kotak .tombol{width:100%;margin-top:0;background:var(--malam);color:var(--teks);cursor:pointer}
+.kotak .tombol:hover{background:var(--malam-3)}
+.keluaran{margin-top:16px;background:#fff;padding:16px;border-radius:18px}
+.keluaran label{display:block;font-weight:600}
+.keluaran textarea{width:100%;min-height:170px;margin:8px 0 10px;padding:12px;font:400 1rem "DM Sans",sans-serif;color:var(--malam);background:#f3f6ee;border:0;border-radius:12px;resize:vertical;color-scheme:light}
+#statusSalin{margin-top:8px;font-weight:600;min-height:1.6em}
+
+footer{padding-block:0 36px;font-size:.9375rem;color:var(--redup)}
+footer a:hover{color:var(--emas)}
+footer summary{min-height:44px;padding-block:10px;font-weight:600;color:var(--teks)}
+footer ul{margin:4px 0 0;padding-left:18px}
+footer li{margin-top:8px}
+footer p+details{margin-top:8px}
+
+/* Layar sedang: foto dan teks cukup lebar untuk berdampingan */
+@media (min-width:680px){
+  .panel{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:40px}
+  .panel img{aspect-ratio:5/4}
+  .pesan{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kegiatan article{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px}
+  .kegiatan article:nth-child(even) figure{order:2}
+  .kegiatan article:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+  .daftar-paket li{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;align-items:baseline}
+  .rumah{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+  .musim{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kotak{padding:44px}
+  .pembuka .wadah{padding-bottom:56px}
+}
+@media (min-width:880px){
+  .atas{left:50%;right:auto;transform:translateX(-50%);width:min(1240px,100% - 32px);top:14px}
+  .atas .dalam{padding-right:10px}
+  #tMenu{display:none}
+  #menu{display:flex;width:auto;gap:2px;padding:0}
+  #menu a{border:0;padding:0 14px;border-radius:10px}
+  #menu a:hover{background:var(--malam-3);color:var(--teks)}
+  .kotak{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;padding:64px;align-items:start}
+  .musim{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+
+/* Tambahan halaman ganda */
+main>section:first-child{padding-top:clamp(104px,14vw,152px)!important}
+main section h1{font-size:clamp(2.6rem,8vw,5.5rem)}
+footer{padding-top:36px}
+#menu a.aktif{color:var(--emas)}
+.pintasan{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:28px}
+.pintasan a{position:relative;display:block;border-radius:24px;overflow:hidden;text-decoration:none;isolation:isolate}
+.pintasan img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.pintasan a:hover img{transform:scale(1.03)}
+.pintasan a:active img{transform:scale(1)}
+.pintasan a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(15 42 34 / .92) 8%,rgb(15 42 34 / .55) 42%,rgb(15 42 34 / 0) 72%)}
+.pintasan div{position:absolute;left:20px;right:20px;bottom:18px;z-index:1}
+.pintasan b{display:block;font:700 1.6rem/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.pintasan span{display:block;margin-top:4px}
+.ajak{display:grid;gap:6px;justify-items:start}
+.ajak p{color:var(--redup);max-width:34em;margin-top:10px}
+@media (min-width:680px){.pintasan{grid-template-columns:repeat(2,minmax(0,1fr))}.pintasan a:first-child{grid-column:1 / -1}.pintasan a:first-child img{aspect-ratio:21/9}}
+@media (min-width:1040px){.pintasan{grid-template-columns:repeat(3,minmax(0,1fr))}.pintasan a:first-child{grid-column:auto}.pintasan a:first-child img{aspect-ratio:3/2}}
+
+/* Komponen untuk konten tambahan */
+.x-lead{margin-top:12px;max-width:38em;color:var(--x-redup);font-size:1.0625rem}
+.x-tw{margin-top:26px}
+.x-t{width:100%;border-collapse:collapse}
+.x-t thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.x-t tr{display:block;padding:14px 0;border-top:1px solid var(--x-garis)}
+.x-t td{display:flex;justify-content:space-between;gap:16px;padding:3px 0;text-align:right;overflow-wrap:anywhere}
+.x-t td::before{content:attr(data-label);flex:none;max-width:45%;color:var(--x-redup);font-size:.9375rem;text-align:left}
+.x-t td:first-child{display:block;text-align:left;font-weight:600}
+.x-t td:first-child::before{content:none}
+.x-k{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:26px}
+.x-k>div{background:var(--x-kartu);border-radius:20px;padding:20px;min-width:0}
+.x-k h3{margin:0}
+.x-k p{margin-top:8px;color:var(--x-redup)}
+.x-k .x-info{margin-top:10px;color:var(--x-teks);font-weight:600;font-size:.9375rem}
+.x-w{list-style:none;margin:28px 0 0;padding:0}
+.x-w li{position:relative;padding:0 0 26px 24px;border-left:2px solid var(--x-garis);margin-left:5px}
+.x-w li:last-child{padding-bottom:0}
+.x-w li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:99px;background:var(--x-aksen)}
+.x-w b{display:block;color:var(--x-aksen);font-weight:600}
+.x-w h3{margin-top:2px}
+.x-w p{margin-top:6px;color:var(--x-redup);max-width:40em}
+.x-f{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-top:26px;align-items:center}
+.x-f figure{margin:0}
+.x-f img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:22px}
+.x-f p{margin-top:12px;max-width:36em}
+.x-f p.r{color:var(--x-redup)}
+.x-f ul{margin:14px 0 0;padding-left:20px}
+.x-f li{margin-top:6px}
+.x-q{display:grid;grid-template-columns:minmax(0,1fr);gap:0 40px;margin-top:22px}
+.x-q figure{margin:0;padding:22px 0;border-top:1px solid var(--x-garis)}
+.x-q blockquote{margin:0;font-size:1.1875rem;font-weight:500;line-height:1.45;letter-spacing:-.01em}
+.x-q figcaption{margin-top:12px;color:var(--x-redup);font-size:.9375rem}
+.x-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+.x-g figure{margin:0}
+.x-g img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.x-g figcaption{margin-top:6px;color:var(--x-redup);font-size:.875rem}
+.x-a{margin-top:18px;max-width:42em}
+.x-a p{margin-top:16px;font-size:1.0625rem}
+.x-a blockquote{margin:24px 0;padding-left:18px;border-left:4px solid var(--x-aksen);font-size:1.25rem;font-weight:500;line-height:1.4}
+.x-c{display:grid;gap:18px;justify-items:start;padding:28px 22px;border-radius:28px;background:var(--x-cta);color:var(--x-ctat)}
+.x-c h2{font-size:clamp(1.7rem,4.6vw,3rem)}
+.x-c p{margin-top:10px;max-width:36em}
+.x-n{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 24px;background:var(--x-ctat);color:var(--x-cta);border-radius:999px;font-weight:600;text-decoration:none;transition:opacity .15s}
+.x-n:hover{opacity:.88}
+.x-n:active{transform:scale(.98)}
+.x-c :focus-visible{outline-color:var(--x-ctat)}
+.x-s{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0 40px}
+.x-s li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--x-garis)}
+.x-s span:first-child{min-width:0}
+.x-s small{display:block;color:var(--x-redup);font-size:.9375rem}
+.x-s span:last-child{flex:none;max-width:45%;font-weight:600;text-align:right}
+.x-lg{display:inline-flex;align-items:center;gap:7px;padding:2px 10px;border-radius:99px;background:var(--x-lembut);font-size:.8125rem;font-weight:600;white-space:nowrap}
+.x-lg::before{content:"";width:7px;height:7px;border-radius:99px;background:var(--x-aksen)}
+.x-lg.nanti::before{background:transparent;border:1.5px solid var(--x-redup)}
+@media (min-width:680px){
+  .x-t thead{position:static;width:auto;height:auto;clip-path:none}
+  .x-t th{padding:0 18px 10px 0;text-align:left;font-size:.9375rem;font-weight:600;color:var(--x-redup)}
+  .x-t tr{display:table-row;padding:0;border:0}
+  .x-t td,.x-t td:first-child{display:table-cell;padding:14px 18px 14px 0;text-align:left;border-top:1px solid var(--x-garis);vertical-align:top}
+  .x-t td::before{content:none}
+  .x-k{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .x-f{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+  .x-f.balik figure{order:2}
+  .x-q{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .x-g{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .x-c{grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:44px}
+  .x-s{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1040px){.x-k.tiga{grid-template-columns:repeat(3,minmax(0,1fr))}}
+:root{--x-redup:var(--redup);--x-garis:var(--garis);--x-kartu:var(--malam-2);--x-teks:var(--teks);--x-aksen:var(--emas);--x-cta:var(--emas);--x-ctat:var(--malam);--x-lembut:var(--malam-3)}
+.alt{background:var(--malam-2)}
+.alt .x-k>div{background:var(--malam)}
+.x-k h3,.x-w h3{font-size:1.35rem;letter-spacing:-.015em}
+.x-a h3{font-size:clamp(1.6rem,4vw,2.5rem)}
+.x-c h2{letter-spacing:-.025em}
+.x-c .x-n{color:var(--emas)}
+</style>
+</head>
+<body>
+<a class="lewati" href="#utama">Langsung ke isi</a>
+
+<header class="atas">
+  <div class="dalam">
+    <a class="merek" href="index.html">Tirta Asri</a>
+    <button id="tMenu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" aria-label="Menu utama">
+      <a href="index.html#sehari">Sehari</a>
+      <a href="aktivitas.html">Aktivitas</a>
+      <a href="aktivitas.html#paket">Paket</a>
+      <a href="menginap.html">Menginap</a>
+      <a href="menginap.html#kuliner">Kuliner</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="info.html">Info</a>
+      <a href="kunjungan.html">Rencanakan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="utama">
+<div class="pembuka">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg/960px-Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg"
+      srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg/960px-Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg 960w,
+              https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg/1920px-Bali%2C_Rice_fields%2C_Rice_terraces_in_East_Bali%2C_Indonesia.jpg 1920w"
+      sizes="(max-width:600px) 960px, 100vw" width="1920" height="1280" fetchpriority="high"
+      alt="Terasering sawah hijau berundak di lembah, dengan pondok kecil di antara pepohonan">
+    <div class="wadah">
+      <h1>Sehari pelan di tengah sawah</h1>
+      <p>Di Desa Tirta Asri, pagi dipakai menanam padi, siang menyusuri lorong desa, dan sore menonton anak-anak berlatih tari.</p>
+      <a class="tombol" href="#sehari">Lihat rencana sehari</a>
+    </div>
+  </div>
+
+<section id="sehari">
+    <div class="wadah">
+      <h2>Mau mulai dari mana?</h2>
+      <div class="jalur" role="tablist" aria-label="Waktu kunjungan">
+        <button role="tab" type="button" id="t0" aria-controls="p0" aria-selected="true">Pagi</button>
+        <button role="tab" type="button" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Siang</button>
+        <button role="tab" type="button" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Sore</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0" tabindex="0">
+        <figure>
+          <img width="960" height="768" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Gianyar-Regency_Bali_Indonesia_A-rice-farmer-working-in-his-paddy-01.jpg/960px-Gianyar-Regency_Bali_Indonesia_A-rice-farmer-working-in-his-paddy-01.jpg" alt="Petani berikat kepala putih menanam bibit padi di petak sawah">
+        </figure>
+        <div>
+          <h3>Turun ke sawah</h3>
+          <p>Petani mengajak Anda menanam bibit padi saat matahari belum tinggi. Kaki pasti kena lumpur, dan memang di situ serunya.</p>
+          <ul><li>Mulai pukul 07.00, sekitar 2 jam</li><li>Bawa baju ganti dan sandal</li></ul>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0" hidden>
+        <figure>
+          <img width="960" height="768" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Penglipuran_Village_souvenir_shops.jpg/960px-Penglipuran_Village_souvenir_shops.jpg" alt="Lorong sempit berdinding tua menuju deretan kios cendera mata dan atap rumah adat">
+        </figure>
+        <div>
+          <h3>Menyusuri lorong desa</h3>
+          <p>Berjalan kaki di antara pekarangan rumah, makan siang di warung warga, lalu mampir ke kios kerajinan.</p>
+          <ul><li>Makan siang di Warung Bu Sari</li><li>Sediakan uang tunai</li></ul>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" tabindex="0" hidden>
+        <figure>
+          <img width="960" height="768" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Learn_to_Dance.jpg/960px-Learn_to_Dance.jpg" alt="Anak-anak berkostum tari berlatih di bawah pepohonan yang ditembus cahaya matahari">
+        </figure>
+        <div>
+          <h3>Menonton latihan tari</h3>
+          <p>Anak-anak desa berlatih bersama guru mereka. Duduk di pinggir, tonton sampai selesai, dan minta izin dulu sebelum memotret dari dekat.</p>
+          <ul><li>Setiap Sabtu dan Minggu, pukul 16.00</li><li>Bebas biaya, boleh memberi sumbangan sanggar</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jelajah" style="padding-top:0">
+    <div class="wadah">
+      <h2>Lihat lebih jauh</h2>
+      <div class="pintasan">
+        <a href="aktivitas.html"><img loading="lazy" width="960" height="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Proses_Membatik_di_Desa_Batik_Girilayu.jpg/960px-Proses_Membatik_di_Desa_Batik_Girilayu.jpg" alt=""><div><b>Aktivitas dan paket</b><span>Membatik, menganyam, memasak, dan harga paket.</span></div></a>
+        <a href="menginap.html"><img loading="lazy" width="960" height="640" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Desa_wisata%2C_Minangkabau.jpg/960px-Desa_wisata%2C_Minangkabau.jpg" alt=""><div><b>Menginap dan makan</b><span>Rumah warga dan menu warung desa.</span></div></a>
+        <a href="galeri.html"><img loading="lazy" width="960" height="1280" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Penglipuran_Village_walkpath.jpg/960px-Penglipuran_Village_walkpath.jpg" alt=""><div><b>Galeri</b><span>Sudut-sudut desa dalam foto.</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ajak" style="padding-top:0">
+    <div class="wadah ajak">
+      <h2>Sudah punya tanggal?</h2>
+      <p>Isi formulir singkat, lalu kirim pesannya ke pengelola desa lewat WhatsApp.</p>
+      <a class="tombol" href="kunjungan.html">Rencanakan kunjungan</a>
+    </div>
+  </section>
+<section id="alasan" class="alt">
+<div class="wadah">
+<h2>Yang membuat tamu kembali</h2>
+<p class="x-lead">Tirta Asri bukan taman wisata. Warganya tetap bekerja seperti biasa, dan Anda diajak ikut.</p>
+<div class="x-f"><figure><img loading="lazy" width="960" height="1280" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tegallalang_Rice_Terraces_Bali.jpg/960px-Tegallalang_Rice_Terraces_Bali.jpg" alt="Petak-petak terasering sawah di lereng"></figure><div><p class="r">Sekitar 180 keluarga tinggal di desa ini. Sebagian besar mengolah sawah berundak yang airnya diatur bersama sejak lama lewat sistem subak.</p><ul><li>Dipandu warga sendiri, bukan agen perjalanan</li><li>Uang tiket masuk ke kas desa dan perawatan irigasi</li><li>Rombongan dibatasi 60 orang per hari agar desa tetap tenang</li></ul></div></div>
+</div>
+</section>
+<section id="sehariPenuh">
+<div class="wadah">
+<h2>Contoh satu hari di sini</h2>
+
+<ol class="x-w"><li><b>07.00</b><h3>Tiba dan minum kopi</h3><p>Pemandu menyambut di balai wisata, lalu menjelaskan rute hari itu.</p></li><li><b>07.30</b><h3>Turun ke sawah</h3><p>Menanam bibit atau memanen, tergantung musim. Baju ganti disimpan di balai.</p></li><li><b>10.30</b><h3>Kelas pilihan</h3><p>Membatik, menganyam, atau memasak serabi bersama warga.</p></li><li><b>12.30</b><h3>Makan siang di Warung Bu Sari</h3><p>Nasi sayur urap dan lauk dari kebun desa.</p></li><li><b>14.00</b><h3>Menyusuri lorong desa</h3><p>Jalan kaki lewat rumah adat, pura, dan kios kerajinan.</p></li><li><b>16.00</b><h3>Menonton latihan tari</h3><p>Pada akhir pekan, anak-anak berlatih di bawah pepohonan.</p></li></ol>
+</div>
+</section>
+<section id="tamu" class="alt">
+<div class="wadah">
+<h2>Kata tamu</h2>
+
+<div class="x-q"><figure><blockquote>Anak-anak paling senang saat turun ke sawah. Pemandunya sabar sekali menjawab semua pertanyaan.</blockquote><figcaption>Rani, datang bersama keluarga</figcaption></figure><figure><blockquote>Kelas membatiknya tidak terburu-buru. Kain buatan istri saya sudah dipajang di rumah.</blockquote><figcaption>Pak Bowo, Sukamaju</figcaption></figure><figure><blockquote>Tidur di rumah warga ternyata yang paling berkesan. Paginya kami sarapan sambil mengobrol.</blockquote><figcaption>Citra, Kota Asri</figcaption></figure><figure><blockquote>Kami bawa 30 siswa, dan semuanya tertangani rapi. Tahun depan kami mau kembali.</blockquote><figcaption>Bu Lestari, guru SMP</figcaption></figure></div>
+</div>
+</section>
+<section id="bawa">
+<div class="wadah">
+<h2>Oleh-oleh dari desa</h2>
+<p class="x-lead">Semuanya buatan warga dan dijual di kios sepanjang jalan utama.</p>
+<ul class="x-s"><li><span>Kain batik tulis<small>Sanggar Kencana</small></span><span>Mulai Rp 185.000</span></li><li><span>Tampah dan kalo bambu<small>Perajin Dusun Tengah</small></span><span>Mulai Rp 25.000</span></li><li><span>Kopi tubruk desa<small>Kebun warga, 200 gram</small></span><span>Rp 40.000</span></li><li><span>Beras merah subak<small>Kemasan 2 kilogram</small></span><span>Rp 50.000</span></li></ul>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="wadah">
+    <p>Situs contoh. Nama desa, orang, harga, jadwal, alamat, dan kontak adalah data acak, dan foto hanya ilustrasi dari tempat lain. <a href="admin.html">Buka admin demo</a>.</p>
+    <details>
+      <summary>Sumber foto</summary>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Bali,_Rice_fields,_Rice_terraces_in_East_Bali,_Indonesia.jpg">Terasering</a> dan <a href="https://commons.wikimedia.org/wiki/File:Bali,_Rice_fields_and_forest,_East_Bali,_Indonesia.jpg">sawah dan hutan</a>, Vyacheslav Argenberg, CC BY 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Gianyar-Regency_Bali_Indonesia_A-rice-farmer-working-in-his-paddy-01.jpg">Petani</a>, CEphoto, Uwe Aranas, CC BY-SA 3.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Learn_to_Dance.jpg">Latihan tari</a>, Hendri Suhandi, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Penglipuran_Village_souvenir_shops.jpg">Lorong</a>, <a href="https://commons.wikimedia.org/wiki/File:Penglipuran_Village_walkpath.jpg">jalan desa</a>, dan <a href="https://commons.wikimedia.org/wiki/File:Penglipuran_Village_walkpath_3.jpg">jalan desa 2</a>, Dare2Leap, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Tegallalang_Rice_Terraces_Bali.jpg">Terasering dekat</a>, Philip Nalangan, CC BY 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Penglipuran_Village_temple.png">Pura</a>, Kiara Juliane, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Proses_Membatik_di_Desa_Batik_Girilayu.jpg">Membatik</a>, Ardyansa Nugraha, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Anyaman_bambu-Kalo.jpg">Anyaman bambu</a>, Desa.gedangdowo, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Aneka_jajan_pasar_tradisional_jawa.jpg">Serabi</a>, Hersy ardianty a, CC BY-SA 4.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Desa_wisata,_Minangkabau.jpg">Rumah kayu</a>, Andipsp11, CC BY-SA 4.0</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<script>
+// Menu ponsel
+const tMenu = document.getElementById('tMenu'), menu = document.getElementById('menu');
+function aturMenu(buka) {
+  menu.classList.toggle('buka', buka);
+  tMenu.setAttribute('aria-expanded', buka);
+  tMenu.textContent = buka ? 'Tutup' : 'Menu';
+}
+tMenu.addEventListener('click', () => aturMenu(!menu.classList.contains('buka')));
+menu.addEventListener('click', e => { if (e.target.tagName === 'A') aturMenu(false); });
+
+
+// Tab rencana sehari
+const tab = [...document.querySelectorAll('[role=tab]')];
+function pilihTab(i, fokus) {
+  tab.forEach((t, j) => {
+    const aktif = i === j;
+    t.setAttribute('aria-selected', aktif);
+    t.tabIndex = aktif ? 0 : -1;
+    document.getElementById('p' + j).hidden = !aktif;
+  });
+  if (fokus) tab[i].focus();
+}
+tab.forEach((t, i) => {
+  t.addEventListener('click', () => pilihTab(i));
+  t.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') pilihTab((i + 1) % tab.length, true);
+    if (e.key === 'ArrowLeft') pilihTab((i + tab.length - 1) % tab.length, true);
+  });
+});
+
+
+</script>
+</body>
+</html>

@@ -50,10 +50,19 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 44 | [The Button Apocalypse](44.%20the-button-apocalypse/) | 🎮 Game | An arcade game about one big button that dodges, shrinks, lies, and ends in a boss fight. |
 | 45 | [Generator Alasan Tidak Produktif](45.%20generator-alasan-tidak-produktif/) | 🎮 Game | A generator of absurd excuses in Indonesian, with favorites, a daily excuse, and shareable PNG cards. |
 | 46 | [Roda Keputusan Orang Gabut](46.%20roda-keputusan-orang-gabut/) | 🛠️ Tool | A decision wheel with editable options, presets, saved wheels, and a chaos mode. |
+| 47 | [Desa Wanasari](47.%20desa-wanasari/) | 🖥️ Frontend | A clean, mobile-first public service portal for Desa Wanasari with document guides, APBDes transparency, news, and UMKM products. |
+| 48 | [Desa Wisata Tirta Asri](48.%20desa-wisata-tirta-asri/) | 🖥️ Frontend | An editorial ecotourism portal for Desa Wisata Tirta Asri featuring farm activities, homestays, culinaries, and visitor guides. |
+| 49 | [NusaTrip](49.%20travel-adventure/) | 🖥️ Frontend | An adventurous travel agency landing page featuring curated vacation packages, Umroh tours, and booking consultation. |
+| 50 | [Wanderlust Indonesia](50.%20travel-modern/) | 🖥️ Frontend | A modern travel experience landing page with trending destination highlights, search filters, and itinerary previews. |
+| 51 | [Al-Safwa Travel](51.%20umroh-premium/) | 🖥️ Frontend | An elegant luxury landing page for Umroh and Haji packages, 5-star hotel schedules, and VIP pilgrimage services. |
+| 52 | [Eternal Vows](52.%20wedding-elegant/) | 🖥️ Frontend | A romantic wedding organizer landing page with soft aesthetics, portfolio gallery filters, and service bundles. |
+| 53 | [Lumière Wedding](53.%20wedding-luxury/) | 🖥️ Frontend | An exclusive dark-and-gold luxury wedding planner showcase with haute-couture scenography and VIP bridal concierge. |
+| 54 | [Sakura Wedding](54.%20wedding-rustic/) | 🖥️ Frontend | An earthy, intimate rustic wedding landing page with botanical palette, outdoor venue inspirations, and consultation forms. |
+| 55 | [TikTok Low-Views Cleaner](55.%20tiktok-low-views-cleaner/) | 🛠️ Tool | A Firefox WebExtension and interactive test sandbox to automatically scan and bulk-delete low-view TikTok Studio videos. |
 
 ## Running the catalog & projects
 
-Projects `01`–`18`, `21`, `25`, `31`–`33`, `43`–`46` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
+Projects `01`–`18`, `21`, `25`, `31`–`33`, `43`–`55` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
 
 ```bash
 # from the repo root — to open the catalog
@@ -117,15 +126,24 @@ one-day-one-code/
 ├── 43. pelihara-batu-virtual/         # Pelihara Batu Virtual + preview.png
 ├── 44. the-button-apocalypse/         # The Button Apocalypse + preview.png
 ├── 45. generator-alasan-tidak-produktif/  # Generator Alasan Tidak Produktif + preview.png
-└── 46. roda-keputusan-orang-gabut/    # Roda Keputusan Orang Gabut + preview.png
+├── 46. roda-keputusan-orang-gabut/    # Roda Keputusan Orang Gabut + preview.png
+├── 47. desa-wanasari/                 # Desa Wanasari + preview.png
+├── 48. desa-wisata-tirta-asri/        # Desa Wisata Tirta Asri + preview.png
+├── 49. travel-adventure/              # NusaTrip + preview.png
+├── 50. travel-modern/                 # Wanderlust Indonesia + preview.png
+├── 51. umroh-premium/                 # Al-Safwa Travel + preview.png
+├── 52. wedding-elegant/               # Eternal Vows + preview.png
+├── 53. wedding-luxury/                # Lumière Wedding + preview.png
+├── 54. wedding-rustic/                # Sakura Wedding + preview.png
+└── 55. tiktok-low-views-cleaner/      # TikTok Low-Views Cleaner + preview.png
 ```
 
 ## Categories
 
 - **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎬 Landing Page** — cinematic presentation & marketing pages with animation.
-- **🖥️ Frontend** — landing-page exercises (07–12, 39).
-- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38, 46).
+- **🖥️ Frontend** — landing-page exercises (07–12, 39, 47–54).
+- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38, 46, 55).
 - **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
 - **🧪 Snippets** — scratch experiments and coding-challenge solutions (31, 35, 36).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).

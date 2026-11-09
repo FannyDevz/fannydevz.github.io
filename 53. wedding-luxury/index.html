@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière Wedding — Modern Luxury Wedding Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --dark-gray: #2A2A2A;
+            --gold: #B8860B;
+            --gold-bright: #DAA520;
+            --gold-pale: #F5E6C8;
+            --cream: #FAF7F2;
+            --blush: #F2E0D6;
+            --mauve: #C9A9B8;
+            --white: #ffffff;
+            --text: #333;
+            --text-light: #888;
+        }
+
+        body {
+            font-family: 'Jost', sans-serif;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        /* PRELOADER STYLE NAV */
+        .announcement {
+            background: var(--black);
+            color: var(--gold-pale);
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* NAV */
+        nav {
+            padding: 22px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            border-bottom: 1px solid #f0ede8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-left a, .nav-right a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-left a:hover, .nav-right a:hover { color: var(--gold); }
+
+        .nav-logo {
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .nav-logo h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--black);
+            letter-spacing: 6px;
+        }
+
+        .nav-logo span {
+            display: block;
+            font-family: 'Jost', sans-serif;
+            font-size: 10px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        /* BUTTONS */
+        .btn-luxury {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 45px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Jost', sans-serif;
+        }
+
+        .btn-luxury:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184,134,11,0.2);
+        }
+
+        .btn-luxury-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 45px;
+            background: transparent;
+            color: var(--black);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: 1.5px solid var(--black);
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .btn-luxury-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 45px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Jost', sans-serif;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-bright);
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+        .hero {
+            height: 95vh;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .hero-content::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            bottom: 40px;
+            left: 40px;
+            border: 1px solid rgba(184,134,11,0.15);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 52px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--black);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.9;
+            max-width: 450px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-wrapper .float-badge {
+            position: absolute;
+            bottom: 40px;
+            left: -30px;
+            background: var(--white);
+            padding: 25px 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .float-badge .number {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .float-badge .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* MARQUEE */
+        .marquee {
+            background: var(--black);
+            overflow: hidden;
+            padding: 18px 0;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 60px;
+            animation: scroll 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-content span {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .marquee-content span .dot {
+            color: var(--gold);
+            margin: 0 10px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* SECTIONS */
+        section { padding: 100px 80px; }
+
+        .label-line {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .label-line::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .sec-title {
+            font-family: 'Cinzel', serif;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .sec-desc {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .about-img-grid .img-wrap {
+            overflow: hidden;
+        }
+
+        .about-img-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .about-img-grid .img-wrap:hover img { transform: scale(1.06); }
+
+        .about-img-grid .img-wrap:first-child {
+            grid-column: span 2;
+            height: 320px;
+        }
+
+        .about-img-grid .img-wrap:nth-child(2),
+        .about-img-grid .img-wrap:nth-child(3) { height: 200px; }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .about-stat .num {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .about-stat .txt {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* SERVICES */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header .label-line {
+            justify-content: center;
+        }
+
+        .services-header .label-line::before { display: none; }
+
+        .services-header .sec-desc {
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 35px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            border: 1px solid #f0ede8;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.4s;
+            transform: translateX(-50%);
+        }
+
+        .service-card:hover::before { width: 60px; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 30px;
+            color: var(--gold);
+            border: 1px solid var(--gold-pale);
+        }
+
+        .service-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* PORTFOLIO MASONRY */
+        .portfolio {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-header .label-line {
+            justify-content: center;
+        }
+
+        .portfolio-header .label-line::before { display: none; }
+        .portfolio-header .sec-title { color: var(--white); }
+        .portfolio-header .sec-desc { color: rgba(255,255,255,0.4); margin: 0 auto; }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 300px 250px;
+            gap: 12px;
+        }
+
+        .port-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .port-item:nth-child(1) { grid-column: span 2; }
+        .port-item:nth-child(5) { grid-column: span 2; }
+
+        .port-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s, filter 0.4s;
+        }
+
+        .port-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.7);
+        }
+
+        .port-item .port-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        .port-item:hover .port-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .port-caption h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .port-caption p {
+            font-size: 12px;
+            color: var(--gold-pale);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* PRICING */
+        .pricing {
+            text-align: center;
+        }
+
+        .pricing-header {
+            margin-bottom: 60px;
+        }
+
+        .pricing-header .label-line {
+            justify-content: center;
+        }
+
+        .pricing-header .label-line::before { display: none; }
+        .pricing-header .sec-desc { margin: 0 auto; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            padding: 55px 40px;
+            border: 1px solid #eee;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .price-card.highlight {
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            transform: scale(1.05);
+        }
+
+        .price-card.highlight .price-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--white);
+            padding: 6px 25px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .price-card:hover:not(.highlight) {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+        }
+
+        .price-card .tier {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .price-card .tier-sub {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .price-card.highlight .tier-sub { color: rgba(255,255,255,0.5); }
+
+        .price-card .amount {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .price-card .amount small {
+            font-size: 14px;
+            font-family: 'Jost', sans-serif;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .price-card.highlight .amount small { color: rgba(255,255,255,0.4); }
+
+        .price-card .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold-pale);
+            margin: 25px auto;
+        }
+
+        .price-card.highlight .divider { background: rgba(255,255,255,0.15); }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .price-card ul li {
+            padding: 10px 0;
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .price-card.highlight ul li { color: rgba(255,255,255,0.6); }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--cream);
+        }
+
+        .testi-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testi-header .label-line {
+            justify-content: center;
+        }
+
+        .testi-header .label-line::before { display: none; }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testi-card {
+            background: var(--white);
+            padding: 45px 35px;
+            position: relative;
+            border: 1px solid #f0ede8;
+        }
+
+        .testi-card .quote {
+            font-family: 'Cinzel', serif;
+            font-size: 70px;
+            color: var(--gold-pale);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .testi-card p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .testi-card .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testi-card .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testi-card .author h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .testi-card .author span {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        /* CTA FULL WIDTH */
+        .cta-full {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .cta-full .bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80') center/cover;
+        }
+
+        .cta-full .bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .cta-full .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-full .cta-content .label-line {
+            justify-content: center;
+        }
+
+        .cta-full .cta-content .label-line::before { display: none; }
+
+        .cta-full h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 48px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .cta-full p {
+            font-size: 16px;
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* INSTAGRAM FEED */
+        .insta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .insta-section .label-line {
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .insta-section .label-line::before { display: none; }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+        }
+
+        .insta-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .insta-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .insta-item:hover img { transform: scale(1.1); }
+
+        .insta-item .insta-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .insta-item:hover .insta-overlay { opacity: 1; }
+
+        .insta-item .insta-overlay i {
+            color: white;
+            font-size: 24px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 80px 30px;
+        }
+
+        .footer-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .nav-logo h1 {
+            color: var(--white);
+            font-size: 28px;
+        }
+
+        .footer-brand .nav-logo span { margin-bottom: 20px; display: block; }
+
+        .footer-brand p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--white);
+        }
+
+        .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: var(--gold);
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li { margin-bottom: 14px; }
+
+        .footer-col ul a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        /* ANIMATIONS */
+        .anim-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .anim-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .port-item:nth-child(1), .port-item:nth-child(5) { grid-column: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 25px; }
+            .nav-left, .nav-right { display: none; }
+            section { padding: 60px 25px; }
+            .hero { grid-template-columns: 1fr; height: auto; }
+            .hero-content { padding: 60px 30px; }
+            .hero h1 { font-size: 34px; }
+            .hero-image-wrapper { height: 400px; }
+            .hero-image-wrapper .float-badge { left: 20px; }
+            .about { grid-template-columns: 1fr; gap: 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .port-item { height: 250px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .price-card.highlight { transform: scale(1); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .insta-grid { grid-template-columns: repeat(3, 1fr); }
+            .cta-full h2 { font-size: 30px; }
+            .cta-btns { flex-direction: column; align-items: center; }
+            .footer-layout { grid-template-columns: 1fr; }
+            footer { padding: 60px 25px 25px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT -->
+    <div class="announcement">
+        ✦ Now Booking 2026 & 2027 Weddings ✦ Limited Dates Available ✦ Consultation By Appointment ✦
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <ul class="nav-left">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
+        <a href="#" class="nav-logo">
+            <h1>LUMIÈRE</h1>
+            <span>Wedding Planner</span>
+        </a>
+        <ul class="nav-right">
+            <li><a href="#pricing">Paket</a></li>
+            <li><a href="#testimonials">Review</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="padding:0;">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Modern Luxury Wedding</div>
+            <h1>Keindahan dalam Setiap Detail</h1>
+            <p class="hero-desc">Lumière menghadirkan pengalaman perencanaan pernikahan mewah yang personal dan mendetail. Kami mewujudkan visi Anda menjadi kenyataan yang melampaui imajinasi.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-luxury">Jadwalkan Konsultasi</a>
+                <a href="#portfolio" class="btn-luxury-outline">Lihat Portfolio</a>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=900&q=80" alt="Luxury Wedding">
+            <div class="float-badge">
+                <div class="number">750+</div>
+                <div class="label">Pernikahan<br>Telah Kami Rancang</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>Full Wedding Planning <span class="dot">✦</span></span>
+            <span>Luxury Decoration <span class="dot">✦</span></span>
+            <span>Destination Wedding <span class="dot">✦</span></span>
+            <span>Intimate Celebration <span class="dot">✦</span></span>
+            <span>Grand Ballroom <span class="dot">✦</span></span>
+            <span>Bridal Styling <span class="dot">✦</span></span>
+            <span>Full Wedding Planning <span class="dot">✦</span></span>
+            <span>Luxury Decoration <span class="dot">✦</span></span>
+            <span>Destination Wedding <span class="dot">✦</span></span>
+            <span>Intimate Celebration <span class="dot">✦</span></span>
+            <span>Grand Ballroom <span class="dot">✦</span></span>
+            <span>Bridal Styling <span class="dot">✦</span></span>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-img-grid anim-up">
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700&q=80" alt="Wedding">
+            </div>
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&q=80" alt="Couple">
+            </div>
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80" alt="Details">
+            </div>
+        </div>
+        <div class="anim-up">
+            <div class="label-line">Tentang Kami</div>
+            <h2 class="sec-title">Merayakan Cinta<br>dengan Kemewahan<br>& Makna</h2>
+            <p class="sec-desc">
+                Lumière adalah studio perencanaan pernikahan mewah yang percaya bahwa setiap pasangan layak mendapatkan hari yang sempurna. Dengan perhatian pada setiap detail dan standar yang tak tergoyahkan, kami menciptakan perayaan yang mencerminkan keunikan dan kisah cinta Anda.
+            </p>
+            <p class="sec-desc" style="margin-top:15px;">
+                Dipimpin oleh tim desainer dan event planner bersertifikasi internasional, kami membawa standar luxury wedding global ke Indonesia.
+            </p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="num">750+</div>
+                    <div class="txt">Weddings</div>
+                </div>
+                <div class="about-stat">
+                    <div class="num">15</div>
+                    <div class="txt">Tahun</div>
+                </div>
+                <div class="about-stat">
+                    <div class="num">60+</div>
+                    <div class="txt">Tim Ahli</div>
+                </div>
+                <div class="about-stat">
+                    <div class="num">25</div>
+                    <div class="txt">Kota</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-header anim-up">
+            <div class="label-line">Layanan Kami</div>
+            <h2 class="sec-title">Dari Konsep hingga<br>Eksekusi Sempurna</h2>
+            <p class="sec-desc">Layanan menyeluruh yang kami rancang untuk memastikan setiap aspek pernikahan Anda terkelola dengan sempurna</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <h3>Full Planning</h3>
+                <p>Perencanaan menyeluruh dari konsep, vendor management, timeline, hingga koordinasi hari-H yang flawless.</p>
+            </div>
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3>Design & Decor</h3>
+                <p>Desain dekorasi eksklusif dengan material premium dan bunga impor yang menciptakan ambiance luar biasa.</p>
+            </div>
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+                <h3>Destination Wedding</h3>
+                <p>Pernikahan impian di destinasi eksotis — Bali, Lombok, Paris, atau lokasi pilihan Anda di seluruh dunia.</p>
+            </div>
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Dokumentasi</h3>
+                <p>Tim fotografer & videografer kelas dunia yang menangkap setiap emosi dan momen berharga Anda.</p>
+            </div>
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-champagne-glasses"></i></div>
+                <h3>Entertainment</h3>
+                <p>Kurator hiburan premium — dari orkestra, penyanyi ternama, hingga pertunjukan LED dan kembang api.</p>
+            </div>
+            <div class="service-card anim-up">
+                <div class="service-icon"><i class="fas fa-ring"></i></div>
+                <h3>Bridal Styling</h3>
+                <p>Konsultasi gaya pengantin lengkap — gaun, makeup, perhiasan, dan styling untuk seluruh bridal party.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-header anim-up">
+            <div class="label-line">Portfolio</div>
+            <h2 class="sec-title">Karya Kami</h2>
+            <p class="sec-desc">Setiap pernikahan adalah mahakarya unik. Berikut beberapa momen istimewa yang telah kami ciptakan.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Portfolio 1">
+                <div class="port-caption">
+                    <h3>Anindya & Reza</h3>
+                    <p>The Mulia, Bali — Grand Ballroom</p>
+                </div>
+            </div>
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=500&q=80" alt="Portfolio 2">
+                <div class="port-caption">
+                    <h3>Kezia & Evan</h3>
+                    <p>Cliff-top Wedding — Uluwatu</p>
+                </div>
+            </div>
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80" alt="Portfolio 3">
+                <div class="port-caption">
+                    <h3>Dara & Mikhail</h3>
+                    <p>Intimate Garden — Bandung</p>
+                </div>
+            </div>
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=500&q=80" alt="Portfolio 4">
+                <div class="port-caption">
+                    <h3>Luna & Ariel</h3>
+                    <p>Ritz Carlton — Jakarta</p>
+                </div>
+            </div>
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80" alt="Portfolio 5">
+                <div class="port-caption">
+                    <h3>Maya & Adrian</h3>
+                    <p>Tropical Elegance — Nusa Dua</p>
+                </div>
+            </div>
+            <div class="port-item anim-up">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&q=80" alt="Portfolio 6">
+                <div class="port-caption">
+                    <h3>Kiara & Daniel</h3>
+                    <p>Chateau Wedding — France</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-header anim-up">
+            <div class="label-line">Investment</div>
+            <h2 class="sec-title">Paket Pernikahan</h2>
+            <p class="sec-desc">Investasi untuk hari paling berkesan dalam hidup Anda. Setiap paket dapat disesuaikan.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card anim-up">
+                <div class="tier">Classique</div>
+                <div class="tier-sub">Intimate & Elegant</div>
+                <div class="amount">Rp 85<small> Juta</small></div>
+                <div class="divider"></div>
+                <ul>
+                    <li>Kapasitas hingga 200 tamu</li>
+                    <li>Full planning & koordinasi</li>
+                    <li>Dekorasi premium</li>
+                    <li>Dokumentasi foto & video</li>
+                    <li>MC & live music</li>
+                    <li>Catering fine dining</li>
+                </ul>
+                <a href="#contact" class="btn-luxury-outline" style="width:100%;justify-content:center;">Pilih Paket</a>
+            </div>
+            <div class="price-card highlight anim-up">
+                <div class="price-badge">Most Chosen</div>
+                <div class="tier">Prestige</div>
+                <div class="tier-sub">Grand & Luxurious</div>
+                <div class="amount">Rp 175<small> Juta</small></div>
+                <div class="divider"></div>
+                <ul>
+                    <li>Kapasitas hingga 500 tamu</li>
+                    <li>Premium concept & design</li>
+                    <li>Luxury floral decoration</li>
+                    <li>Multi-cam cinematic</li>
+                    <li>Full entertainment package</li>
+                    <li>International catering</li>
+                    <li>Pre-wedding & after party</li>
+                </ul>
+                <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Pilih Paket</a>
+            </div>
+            <div class="price-card anim-up">
+                <div class="tier">Royale</div>
+                <div class="tier-sub">Ultimate & Bespoke</div>
+                <div class="amount">Rp 350<small> Juta+</small></div>
+                <div class="divider"></div>
+                <ul>
+                    <li>Unlimited guest capacity</li>
+                    <li>Bespoke concept & styling</li>
+                    <li>International decor team</li>
+                    <li>Celebrity entertainment</li>
+                    <li>Multi-event celebration</li>
+                    <li>Honeymoon planning</li>
+                    <li>Concierge service 24/7</li>
+                </ul>
+                <a href="#contact" class="btn-luxury-outline" style="width:100%;justify-content:center;">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="testi-header anim-up">
+            <div class="label-line">Testimoni</div>
+            <h2 class="sec-title">Kata Mereka tentang Lumière</h2>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card anim-up">
+                <div class="quote">"</div>
+                <p>Lumière benar-benar mengubah mimpi kami menjadi kenyataan yang jauh lebih indah dari yang kami bayangkan. Setiap detail dipikirkan dengan sangat matang. Perfect!</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="">
+                    <div>
+                        <h4>Anindya & Reza</h4>
+                        <span>Grand Wedding — Bali</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card anim-up">
+                <div class="quote">"</div>
+                <p>Tim Lumière sangat profesional namun tetap hangat. Mereka memahami visi kami dan mengeksekusi dengan sempurna. Semua tamu terpukau dengan dekorasinya!</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="">
+                    <div>
+                        <h4>Kezia & Evan</h4>
+                        <span>Destination Wedding — Uluwatu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card anim-up">
+                <div class="quote">"</div>
+                <p>Worth every penny! Dari intimate dinner hingga resepsi megah, semuanya berjalan mulus tanpa kendala. Lumière is simply the best wedding planner in Indonesia.</p>
+                <div class="author">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="">
+                    <div>
+                        <h4>Luna & Ariel</h4>
+                        <span>Luxury Wedding — Jakarta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-full" id="contact">
+        <div class="bg"></div>
+        <div class="cta-content anim-up">
+            <div class="label-line" style="color:var(--gold-pale);">Mulai Perjalanan Anda</div>
+            <h2>Your Love Story<br>Deserves Perfection</h2>
+            <p>Jadwalkan konsultasi eksklusif dengan tim kami. Kami akan mendengarkan impian Anda dan merancang pengalaman pernikahan yang tak terlupakan.</p>
+            <div class="cta-btns">
+                <a href="https://wa.me/6281234567890" class="btn-gold" style="font-size:14px;padding:18px 45px;"><i class="fab fa-whatsapp"></i> Konsultasi via WhatsApp</a>
+                <a href="mailto:hello@lumiere.id" class="btn-luxury" style="background:transparent;border:1.5px solid rgba(255,255,255,0.4);font-size:14px;padding:18px 45px;"><i class="far fa-envelope"></i> Email Kami</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <section class="insta-section" style="padding:60px 0;">
+        <div class="label-line">@lumiere.wedding</div>
+        <div class="insta-grid">
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80" alt="">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-layout">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <h1>LUMIÈRE</h1>
+                    <span>Wedding Planner</span>
+                </a>
+                <p>Luxury wedding planner yang berkomitmen menghadirkan perayaan pernikahan bermakna dengan standar kemewahan tertinggi di Indonesia.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Full Planning</a></li>
+                    <li><a href="#">Design & Decor</a></li>
+                    <li><a href="#">Destination Wedding</a></li>
+                    <li><a href="#">Bridal Styling</a></li>
+                    <li><a href="#">Entertainment</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studio</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Tim Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog & Journal</a></li>
+                    <li><a href="#">Press & Media</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="#">Menara Sudirman Lt. 28<br>Jakarta Selatan</a></li>
+                    <li><a href="#">hello@lumiere.id</a></li>
+                    <li><a href="#">+62 811 888 9999</a></li>
+                    <li><a href="#" style="color:var(--gold);">By Appointment Only</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Lumière Wedding. All rights reserved.</span>
+            <span>Crafted with love & excellence</span>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.anim-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

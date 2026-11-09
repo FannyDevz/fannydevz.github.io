@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "TikTok Studio Low-Views Cleaner",
+  "version": "1.0.0",
+  "description": "Hapus video di TikTok Studio yang total views-nya di bawah batas yang kamu tentukan.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tiktok-low-views-cleaner@local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.tiktok.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
