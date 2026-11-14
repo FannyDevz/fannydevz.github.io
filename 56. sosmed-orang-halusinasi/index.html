@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>halu. Sosmed Orang Halusinasi</title>
+<meta name="description" content="Media sosial fiktif yang timeline-nya berjalan sendiri. Semua akun di sini rekaan.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <!-- Navigasi kiri (desktop dan tablet) -->
+  <nav class="side-left" aria-label="Navigasi utama">
+    <div class="brand">
+      <span class="brand-mark">halu.</span>
+      <span class="brand-sub">Sosmed Orang Halusinasi</span>
+    </div>
+    <div class="nav-list">
+      <button class="nav-item" data-view="home"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></button>
+      <button class="nav-item" data-view="explore"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><span>Jelajah</span></button>
+      <button class="nav-item" data-view="notif"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9"/><path d="M10 19a2 2 0 0 0 4 0"/></svg><span>Notifikasi</span><b class="nbadge" hidden></b></button>
+      <button class="nav-item" data-view="profile:me"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profil</span></button>
+      <button class="nav-item" data-view="settings"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg><span>Pengaturan</span></button>
+    </div>
+    <button class="btn btn-primary btn-compose" data-act="compose">Tulis status</button>
+
+    <section class="panel chaos-panel" aria-label="Mode chaos">
+      <div class="chaos-row">
+        <div>
+          <b>Mode chaos</b>
+          <small class="chaos-desc">Timeline makin absurd seiring waktu.</small>
+        </div>
+        <button class="switch" data-act="chaos" role="switch" aria-checked="false" aria-label="Mode chaos"><span></span></button>
+      </div>
+      <div class="chaos-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <small class="chaos-level">Mati</small>
+    </section>
+
+    <button class="btn btn-ghost btn-pause" data-act="pause"></button>
+  </nav>
+
+  <!-- Kolom tengah -->
+  <main class="center">
+    <div class="mobile-top">
+      <span class="brand-mark">halu.</span>
+      <div class="mobile-tools">
+        <button class="icon-btn" data-act="pause" aria-label="Jeda timeline"></button>
+        <button class="icon-btn chaos-btn" data-act="chaos" aria-label="Mode chaos"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b class="chaos-num"></b></button>
+        <button class="icon-btn" data-view="settings" aria-label="Pengaturan"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></button>
+      </div>
+    </div>
+    <header class="center-head">
+      <button class="icon-btn back-btn" data-act="back" aria-label="Kembali" hidden><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h1 id="viewTitle">Beranda</h1>
+      <div class="tabs" id="homeTabs" role="tablist" hidden>
+        <button role="tab" data-tab="all">Untukmu</button>
+        <button role="tab" data-tab="following">Mengikuti</button>
+      </div>
+    </header>
+    <button class="new-pill" id="newPill" hidden></button>
+    <div id="view"></div>
+  </main>
+
+  <!-- Sidebar kanan -->
+  <aside class="side-right" aria-label="Trending dan rekomendasi">
+    <section class="panel">
+      <h2>Sedang ramai</h2>
+      <ol class="trend-list" id="trendSide"></ol>
+      <button class="link-btn" data-view="explore">Lihat semua</button>
+    </section>
+    <section class="panel">
+      <h2>Akun untukmu</h2>
+      <div id="suggestSide"></div>
+    </section>
+    <section class="panel secret-panel" id="secretSide"></section>
+    <p class="foot-note">Semua akun di sini fiktif dan ditulis oleh skrip. Tidak ada data yang dikirim ke mana pun.</p>
+  </aside>
+</div>
+
+<!-- Navigasi bawah (ponsel) -->
+<nav class="bottom-bar" aria-label="Navigasi">
+  <button data-view="home" aria-label="Beranda"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></button>
+  <button data-view="explore" aria-label="Jelajah"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></button>
+  <button class="bb-compose" data-act="compose" aria-label="Tulis status"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+  <button data-view="notif" aria-label="Notifikasi"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9"/><path d="M10 19a2 2 0 0 0 4 0"/></svg><b class="nbadge" hidden></b></button>
+  <button data-view="profile:me" aria-label="Profil"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="confirmDlg">
+  <form method="dialog">
+    <h2>Hapus semua data?</h2>
+    <p>Timeline, postinganmu, notifikasi, akun yang kamu ikuti, dan akun rahasia yang sudah muncul akan dihapus. Ini tidak bisa dibatalkan.</p>
+    <div class="dlg-actions">
+      <button class="btn btn-ghost" type="button" data-act="reset-cancel">Batal</button>
+      <button class="btn btn-danger" type="button" data-act="reset-confirm">Hapus semua</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

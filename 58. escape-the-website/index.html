@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escape the Website</title>
+<meta name="description" content="Kamu ingin keluar. Website ini tidak mengizinkan. Game puzzle eksplorasi di dalam browser palsu.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app" id="app">
+  <section class="browser" aria-label="Browser di dalam game">
+    <div class="tabs">
+      <div class="tab" id="tab">
+        <span class="tab-icon" id="tabIcon" aria-hidden="true">🛋️</span>
+        <span class="tab-title" id="tabTitle">TokoBiasa</span>
+        <button class="tab-x" id="tabClose" aria-label="Tutup tab">✕</button>
+      </div>
+      <button class="tab-new" id="tabNew" aria-label="Tab baru">+</button>
+    </div>
+
+    <div class="toolbar">
+      <button class="tool" id="btnBack" aria-label="Kembali">←</button>
+      <button class="tool" id="btnFwd" aria-label="Maju">→</button>
+      <button class="tool" id="btnReload" aria-label="Muat ulang">⟳</button>
+      <form class="address" id="addressForm" autocomplete="off">
+        <span class="lock" aria-hidden="true">🔒</span>
+        <span class="host">tokobiasa.situs</span>
+        <label class="sr" for="address">Alamat halaman</label>
+        <input id="address" spellcheck="false" autocapitalize="off" enterkeyhint="go">
+      </form>
+      <button class="tool" id="btnMenu" aria-label="Menu browser" aria-expanded="false">☰</button>
+      <div class="menu" id="menu" hidden>
+        <button data-menu="history">Riwayat</button>
+        <button data-menu="hint">Minta petunjuk</button>
+        <button data-menu="endings">Ending</button>
+        <button data-menu="title">Ke layar judul</button>
+      </div>
+    </div>
+
+    <main class="view" id="view" tabindex="-1"></main>
+
+    <div class="bot" id="bot">
+      <p class="bot-bubble" id="botBubble" hidden></p>
+      <button class="bot-btn" id="botBtn" aria-label="Bantu-Bot">
+        <span aria-hidden="true">🤖</span><b>Bantu-Bot</b>
+      </button>
+    </div>
+  </section>
+
+  <aside class="side" aria-label="Tas dan catatan">
+    <div class="panel">
+      <h2>Ruangan <span id="roomCount">1/6</span></h2>
+      <ol class="rooms" id="rooms"></ol>
+    </div>
+    <div class="panel">
+      <h2>Inventaris</h2>
+      <ul class="inv" id="inv"></ul>
+    </div>
+    <div class="panel">
+      <h2>Catatan</h2>
+      <ul class="notes" id="notes"></ul>
+    </div>
+    <button class="btn btn-hint" id="btnHint">💡 Minta petunjuk</button>
+  </aside>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="card" id="card" role="dialog" aria-modal="true"></div>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

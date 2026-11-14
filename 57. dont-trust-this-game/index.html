@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Don't Trust This Game</title>
+<meta name="description" content="Game komedi yang sengaja menyesatkan. Jangan percaya instruksi apa pun. Termasuk kalimat ini.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-calm">
+
+<!-- Layar judul -->
+<section class="screen" id="titleScreen">
+  <div class="title-wrap">
+    <p class="kicker">Sebuah permainan yang jujur*</p>
+    <h1 class="title"><span>DON'T</span> <span>TRUST</span> <span>THIS</span> <span>GAME</span></h1>
+    <p class="tagline">Jangan percaya instruksi apa pun. Termasuk kalimat ini.</p>
+    <div class="title-actions">
+      <button class="btn btn-main" id="btnStart">Mulai</button>
+      <button class="btn" id="btnContinue" hidden>Lanjutkan</button>
+      <button class="btn" id="btnGallery">Ending dan pencapaian</button>
+      <button class="btn" id="btnSettings">Pengaturan</button>
+    </div>
+    <p class="fine title-fine">*tidak jujur.</p>
+    <p class="ending-count" id="endingCount"></p>
+  </div>
+</section>
+
+<!-- Layar permainan -->
+<section class="screen" id="gameScreen" hidden>
+  <header class="hud">
+    <span class="hud-level" id="hudLevel">Level 1/11</span>
+    <span class="hud-trust" id="hudTrust" aria-label="Kepercayaan"></span>
+    <span class="hud-score">Skor <b id="hudScore">0</b></span>
+    <span class="hud-stars" id="hudStars" title="✶ yang ditemukan"></span>
+    <button class="btn btn-sm" id="btnMenu">Menu</button>
+  </header>
+
+  <div class="narrator" id="narrator">
+    <div class="guide" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29"/><circle class="eye" cx="22" cy="27" r="3.5"/><circle class="eye" cx="42" cy="27" r="3.5"/><path class="mouth" d="M20 40c4 6 20 6 24 0"/></svg>
+    </div>
+    <div class="say">
+      <b class="say-name">Pemandu</b>
+      <p id="sayText" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <main class="stage" id="stage"></main>
+  <p class="fine stage-fine" id="fineText"></p>
+</section>
+
+<!-- Lapisan modal -->
+<div class="overlay" id="overlay" hidden>
+  <div class="card" id="card" role="dialog" aria-modal="true"></div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

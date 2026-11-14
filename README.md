@@ -59,10 +59,13 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 53 | [Lumière Wedding](53.%20wedding-luxury/) | 🖥️ Frontend | An exclusive dark-and-gold luxury wedding planner showcase with haute-couture scenography and VIP bridal concierge. |
 | 54 | [Sakura Wedding](54.%20wedding-rustic/) | 🖥️ Frontend | An earthy, intimate rustic wedding landing page with botanical palette, outdoor venue inspirations, and consultation forms. |
 | 55 | [TikTok Low-Views Cleaner](55.%20tiktok-low-views-cleaner/) | 🛠️ Tool | A Firefox WebExtension and interactive test sandbox to automatically scan and bulk-delete low-view TikTok Studio videos. |
+| 56 | [Sosmed Orang Halusinasi](56.%20sosmed-orang-halusinasi/) | 🎮 Game | A fake social network where fictional characters post, reply, start dramas, and react to you. |
+| 57 | [Don't Trust This Game](57.%20dont-trust-this-game/) | 🎮 Game | A comedy game where every instruction is a lie: 20 levels, a branching path, and 5 endings. |
+| 58 | [Escape the Website](58.%20escape-the-website/) | 🎮 Game | A puzzle game inside a fake browser: find clues, collect the exit code, and escape a website that won't let you leave. |
 
 ## Running the catalog & projects
 
-Projects `01`–`18`, `21`, `25`, `31`–`33`, `43`–`55` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
+Projects `01`–`18`, `21`, `25`, `31`–`33`, `43`–`58` are static HTML. The safest way to run it (so CDN modules & relative assets load) is a local server:
 
 ```bash
 # from the repo root — to open the catalog
@@ -135,7 +138,10 @@ one-day-one-code/
 ├── 52. wedding-elegant/               # Eternal Vows + preview.png
 ├── 53. wedding-luxury/                # Lumière Wedding + preview.png
 ├── 54. wedding-rustic/                # Sakura Wedding + preview.png
-└── 55. tiktok-low-views-cleaner/      # TikTok Low-Views Cleaner + preview.png
+├── 55. tiktok-low-views-cleaner/      # TikTok Low-Views Cleaner + preview.png
+├── 56. sosmed-orang-halusinasi/       # Sosmed Orang Halusinasi + preview.png
+├── 57. dont-trust-this-game/          # Don't Trust This Game + preview.png
+└── 58. escape-the-website/            # Escape the Website + preview.png
 ```
 
 ## Categories
