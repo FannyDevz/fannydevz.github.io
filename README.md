@@ -9,7 +9,7 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | # | Project | Category | Summary |
 | --- | --- | --- | --- |
 | 01 | [Haystack Hunt](01.%20haystack-hunt%20/) | 🎮 Game | Find the needle in a haystack — dig strand by strand (Three.js). |
-| 02 | [Uchiha Itachi](02.%20itachi-landing-page/) | 🎬 Landing Page | Cinematic landing page with scroll-driven frame animation. |
+| 02 | [Uchiha Itachi](02.%20itachi-landing-page/) | 🖥️ Frontend | Cinematic landing page with scroll-driven frame animation. |
 | 03 | [Jangan Lupa Titik Koma](03.%20jangan-lupa-titik-koma/) | 🎮 Game | Find the one line of code missing a `;` among thousands. |
 | 04 | [Lab Coding Blok](04.%20block-coding-for-basic-logic-lab/) | 🎓 Education | Visual block-coding lab — snap blocks (move/loop/if) into a program and run it. 5 levels, 17 challenges. |
 | 05 | [Gizi Seimbang](05.%20nutrition-health-literacy-game/) | 🎓 Education | Drag-and-drop nutrition game — build balanced meals with live calorie & macro scoring. |
@@ -27,9 +27,9 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 17 | [Tarik Tambang IPS](17.%20tarik-tambang-ips/) | 🎓 Education | 2-player real-time tug-of-war quiz — answer social-studies questions to pull the rope your way. |
 | 18 | [Go Game](18.%20go-game/) | 🎮 Game | An Othello board game drawn on canvas: play against a bot, flip discs, and chase a high score. Plain JS, no dependencies. |
 | 19 | [GuessYourName](19.%20guess-your-name/) | 🎮 Game | A guessing game that works out the name you're thinking of, as long as it has 3 to 7 letters. Built with React and Bootstrap. |
-| 20 | [New Year Countdown 2024](20.%20newyear-countdown-2024/) | 🎬 Landing Page | A New Year 2024 countdown page with a fireworks particle background and a typewriter greeting. Its target date is fixed to 1 January 2024. |
-| 21 | [Old Design Portfolio](21.%20old-design-portofolio/) | 💼 Portfolio | An earlier personal portfolio showing design work in a Bootstrap layout with a lightbox gallery and animated sections. |
-| 23 | [Resume](23.%20resume/) | 💼 Portfolio | A resume site generated from JSON Resume files, in English and Indonesian versions, rendered with Handlebars, Tailwind CSS, and Vite. |
+| 20 | [New Year Countdown 2024](20.%20newyear-countdown-2024/) | 🖥️ Frontend | A New Year 2024 countdown page with a fireworks particle background and a typewriter greeting. Its target date is fixed to 1 January 2024. |
+| 21 | [Old Design Portfolio](21.%20old-design-portofolio/) | 🖥️ Frontend | An earlier personal portfolio showing design work in a Bootstrap layout with a lightbox gallery and animated sections. |
+| 23 | [Resume](23.%20resume/) | 🖥️ Frontend | A resume site generated from JSON Resume files, in English and Indonesian versions, rendered with Handlebars, Tailwind CSS, and Vite. |
 | 24 | [Nametionalize](24.%20nametionalize/) | 🛠️ Tool | Type a name and get the countries it most likely comes from, with probabilities and flags, using the Nationalize API. |
 | 25 | [Simple Homepage](25.%20simple-homepage-with-bookmarks/) | 🛠️ Tool | A minimal browser start page with grouped bookmarks that you edit in a single JavaScript file. |
 | 26 | [URL Lengthener](26.%20url-lengthener/) | 🛠️ Tool | The opposite of a URL shortener: it turns a link into a 10,000-character random URL that redirects to the original. |
@@ -49,7 +49,7 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 43 | [Pelihara Batu Virtual](43.%20pelihara-batu-virtual/) | 🎮 Game | A virtual pet game about a rock that never moves, with stats, accessories, a diary, and evolutions. |
 | 44 | [The Button Apocalypse](44.%20the-button-apocalypse/) | 🎮 Game | An arcade game about one big button that dodges, shrinks, lies, and ends in a boss fight. |
 | 45 | [Generator Alasan Tidak Produktif](45.%20generator-alasan-tidak-produktif/) | 🎮 Game | A generator of absurd excuses in Indonesian, with favorites, a daily excuse, and shareable PNG cards. |
-| 46 | [Roda Keputusan Orang Gabut](46.%20roda-keputusan-orang-gabut/) | 🛠️ Tool | A decision wheel with editable options, presets, saved wheels, and a chaos mode. |
+| 46 | [Roda Keputusan Orang Gabut](46.%20roda-keputusan-orang-gabut/) | 🎮 Game | A decision wheel with editable options, presets, saved wheels, and a chaos mode. |
 | 47 | [Desa Wanasari](47.%20desa-wanasari/) | 🖥️ Frontend | A clean, mobile-first public service portal for Desa Wanasari with document guides, APBDes transparency, news, and UMKM products. |
 | 48 | [Desa Wisata Tirta Asri](48.%20desa-wisata-tirta-asri/) | 🖥️ Frontend | An editorial ecotourism portal for Desa Wisata Tirta Asri featuring farm activities, homestays, culinaries, and visitor guides. |
 | 49 | [NusaTrip](49.%20travel-adventure/) | 🖥️ Frontend | An adventurous travel agency landing page featuring curated vacation packages, Umroh tours, and booking consultation. |
@@ -146,14 +146,12 @@ one-day-one-code/
 
 ## Categories
 
-- **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
-- **🎬 Landing Page** — cinematic presentation & marketing pages with animation.
-- **🖥️ Frontend** — landing-page exercises (07–12, 39, 47–54).
-- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38, 46, 55).
-- **💼 Portfolio** — an earlier portfolio and a resume site (21, 23).
-- **🧪 Snippets** — scratch experiments and coding-challenge solutions (31, 35, 36).
+- **🖥️ Frontend** — landing pages, cinematic presentation pages, and site exercises, plus an earlier portfolio and a resume site (02, 07–12, 20, 21, 23, 39, 47–54).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).
+- **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎞️ Video** — video projects without the final renders (40–42).
+- **🛠️ Tool** — small utilities and apps (24–27, 29, 33, 38, 55).
+- **🧪 Snippets** — scratch experiments and coding-challenge solutions (31, 35, 36).
 
 ---
 

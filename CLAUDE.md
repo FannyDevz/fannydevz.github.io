@@ -36,7 +36,7 @@ cd "<project folder>" && python3 -m http.server 8000   # open http://localhost:8
 ## The catalog (`index.html`)
 
 - **Language: English** for all catalog UI copy and project descriptions.
-- **Views**: thumbnail (grid) and list. List view hides the screenshot and puts the action buttons on the right.
+- **Views**: thumbnail (grid) and list. Projects are grouped by category (in `CATS` order), each group with its own heading and count. The thumbnail grid is 4 columns (3 under 1100px, 2 under 820px). List view hides the screenshot and puts the action buttons on the right.
 - **Filtering** lives in a **modal** (opened by the Filter button): single-select Category + multi-select Tech/Tags, plus free-text search. Active filters show as removable pills under the toolbar.
 - **Hidden categories**: a `CATS` entry with `hideInAll:true` is left out of the "All" view and its count, and its projects show only when that category is selected. No category uses this now.
 - **Hidden projects**: a `PROJECTS` entry with `hidden:true` is dropped from the catalog entirely, including its card, counts, tags, and search. Its folder, root `README.md` row, and embedded README block stay in place. No project uses this now.
