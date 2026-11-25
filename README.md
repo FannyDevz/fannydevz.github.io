@@ -9,17 +9,10 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | # | Project | Category | Summary |
 | --- | --- | --- | --- |
 | 01 | [Haystack Hunt](01.%20haystack-hunt%20/) | 🎮 Game | Find the needle in a haystack — dig strand by strand (Three.js). |
-| 02 | [Uchiha Itachi](02.%20itachi-landing-page/) | 🖥️ Frontend | Cinematic landing page with scroll-driven frame animation. |
 | 03 | [Jangan Lupa Titik Koma](03.%20jangan-lupa-titik-koma/) | 🎮 Game | Find the one line of code missing a `;` among thousands. |
 | 04 | [Lab Coding Blok](04.%20block-coding-for-basic-logic-lab/) | 🎓 Education | Visual block-coding lab — snap blocks (move/loop/if) into a program and run it. 5 levels, 17 challenges. |
 | 05 | [Gizi Seimbang](05.%20nutrition-health-literacy-game/) | 🎓 Education | Drag-and-drop nutrition game — build balanced meals with live calorie & macro scoring. |
 | 06 | [Pasar Saham Virtual](06.%20investment-simulator/) | 🎓 Education | Virtual investing simulator (SCORM/PWA) — manage Rp 10M across 5 rounds of economic news. |
-| 07 | [Foliage Coffee](07.%20coffee-shop/) | 🖥️ Frontend | Warm, editorial landing page for a slow coffee bar — floating cup hero, story, menu & beans. |
-| 08 | [Luminary Studio](08.%20digital-agency/) | 🖥️ Frontend | Bold dark landing page for a creative digital agency, with animated stats. |
-| 09 | [VELOURA](09.%20fashion-brand/) | 🖥️ Frontend | Editorial fashion landing page (AW 2025) — split hero, product grid & manifesto. |
-| 10 | [Aurum](10.%20fine-dining/) | 🖥️ Frontend | Luxury fine-dining landing page — dark-and-gold hero, tasting menu & reservations. |
-| 11 | [IRONFORGE Gym](11.%20fitness-gym/) | 🖥️ Frontend | High-energy gym landing page — oversized type, pricing tiers & class schedule. |
-| 12 | [Axion AI](12.%20saas-ai-assistant/) | 🖥️ Frontend | Clean SaaS landing page for an AI assistant — dashboard-mockup hero, pricing & FAQ. |
 | 13 | [Check Khodam](13.%20check-khodam/) | 🎮 Game | A tongue-in-cheek "cek khodam" generator — type a name, get a random guardian spirit. |
 | 14 | [Jelajah Nusantara](14.%20jelajah-nusantara/) | 🎓 Education | Interactive Indonesia map game — place islands, regional quiz, plus a webcam multiplayer true/false mode. |
 | 15 | [Lab Mitigasi Bencana](15.%20lab-mitigasi-bencana/) | 🎓 Education | Virtual disaster lab — simulate 5 disasters, apply mitigation, compare before vs. after. |
@@ -42,7 +35,6 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 36 | [Coding Challenge Solutions](36.%20coding-challenge-solutions/) | 🧪 Snippets | JavaScript solutions to 14 coding challenges, from Sum of Digits and Sentence Smash to a Tiny Three-Pass Compiler and a simple interactive interpreter. |
 | 37 | [Sonic the Jomox Game](37.%20sonic-the-jomox-game/) | 🎮 Game | A Phaser platformer reskinned with edited assets, based on rzencoder's Sonic game (unofficial fan project). |
 | 38 | [Neo Launcher](38.%20neo-launcher/) | 🛠️ Tool | A lightweight Android TV launcher in plain Java, built without Gradle. |
-| 39 | [Dairy.co](39.%20dairy-co/) | 🖥️ Frontend | A single-file landing page for a fruit salad and es teler brand. |
 | 40 | [Misi Terakhir Sang Pahlawan](40.%20misi-terakhir-sang-pahlawan/) | 🎞️ Video | Production files for a vertical 2D animated video about heroes and the Rupiah (final video not included). |
 | 41 | [Surat untuk Mas TRIP](41.%20surat-untuk-mas-trip/) | 🎞️ Video | Production files for a vertical video told as a letter to a 1946 student soldier (final video not included). |
 | 42 | [Bandi & Lela Keliling Lamongan](42.%20bandi-lela-keliling-lamongan/) | 🎞️ Video | A 2D animated story about two fish touring Lamongan, playable in the browser (exported video not included). |
@@ -50,14 +42,6 @@ A collection of daily web experiments — one day, one project. Each folder hold
 | 44 | [The Button Apocalypse](44.%20the-button-apocalypse/) | 🎮 Game | An arcade game about one big button that dodges, shrinks, lies, and ends in a boss fight. |
 | 45 | [Generator Alasan Tidak Produktif](45.%20generator-alasan-tidak-produktif/) | 🎮 Game | A generator of absurd excuses in Indonesian, with favorites, a daily excuse, and shareable PNG cards. |
 | 46 | [Roda Keputusan Orang Gabut](46.%20roda-keputusan-orang-gabut/) | 🎮 Game | A decision wheel with editable options, presets, saved wheels, and a chaos mode. |
-| 47 | [Desa Wanasari](47.%20desa-wanasari/) | 🖥️ Frontend | A clean, mobile-first public service portal for Desa Wanasari with document guides, APBDes transparency, news, and UMKM products. |
-| 48 | [Desa Wisata Tirta Asri](48.%20desa-wisata-tirta-asri/) | 🖥️ Frontend | An editorial ecotourism portal for Desa Wisata Tirta Asri featuring farm activities, homestays, culinaries, and visitor guides. |
-| 49 | [NusaTrip](49.%20travel-adventure/) | 🖥️ Frontend | An adventurous travel agency landing page featuring curated vacation packages, Umroh tours, and booking consultation. |
-| 50 | [Wanderlust Indonesia](50.%20travel-modern/) | 🖥️ Frontend | A modern travel experience landing page with trending destination highlights, search filters, and itinerary previews. |
-| 51 | [Al-Safwa Travel](51.%20umroh-premium/) | 🖥️ Frontend | An elegant luxury landing page for Umroh and Haji packages, 5-star hotel schedules, and VIP pilgrimage services. |
-| 52 | [Eternal Vows](52.%20wedding-elegant/) | 🖥️ Frontend | A romantic wedding organizer landing page with soft aesthetics, portfolio gallery filters, and service bundles. |
-| 53 | [Lumière Wedding](53.%20wedding-luxury/) | 🖥️ Frontend | An exclusive dark-and-gold luxury wedding planner showcase with haute-couture scenography and VIP bridal concierge. |
-| 54 | [Sakura Wedding](54.%20wedding-rustic/) | 🖥️ Frontend | An earthy, intimate rustic wedding landing page with botanical palette, outdoor venue inspirations, and consultation forms. |
 | 55 | [TikTok Low-Views Cleaner](55.%20tiktok-low-views-cleaner/) | 🛠️ Tool | A Firefox WebExtension and interactive test sandbox to automatically scan and bulk-delete low-view TikTok Studio videos. |
 | 56 | [Sosmed Orang Halusinasi](56.%20sosmed-orang-halusinasi/) | 🎮 Game | A fake social network where fictional characters post, reply, start dramas, and react to you. |
 | 57 | [Don't Trust This Game](57.%20dont-trust-this-game/) | 🎮 Game | A comedy game where every instruction is a lie: 20 levels, a branching path, and 5 endings. |
@@ -146,7 +130,7 @@ one-day-one-code/
 
 ## Categories
 
-- **🖥️ Frontend** — landing pages, cinematic presentation pages, and site exercises, plus an earlier portfolio and a resume site (02, 07–12, 20, 21, 23, 39, 47–54).
+- **🖥️ Frontend** — a New Year countdown, an earlier portfolio, and a resume site (20, 21, 23).
 - **🎓 Education** — interactive learning labs & games (Ruang Murid, Rumah Pendidikan, Festival Biru Putih).
 - **🎮 Game** — interactive games & playful logic (3D/WebGL, puzzles, novelty toys).
 - **🎞️ Video** — video projects without the final renders (40–42).
