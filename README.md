@@ -140,3 +140,4 @@ one-day-one-code/
 ---
 
 Each folder has its own `README.md` with technical details, controls, and how to run it.
+so thankx
